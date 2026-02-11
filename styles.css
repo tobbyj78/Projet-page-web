@@ -1,0 +1,100 @@
+body{
+    background-color: #320000;
+}
+
+/* Barre du haut */
+.navbar {
+    padding: 2.5%;
+    display: flex;
+    justify-content: left;
+}
+
+.accueil{
+    color: white;
+    font-family: "Bungee Outline", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 500%;
+}
+
+/* BARRE */
+#topBar {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+#topBar input {
+    width: 60%;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+}
+
+/* BARRE PETITE */
+#topBar.small {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#topBar.small input {
+    width: 40%;
+    font-size: 14px;
+}
+
+/* Ecriture des liens*/
+
+a{
+   text-decoration: none;
+   list-style-type: none;
+}
+
+.a1{
+    color: #FFD700;
+    font-family: "Bungee Outline", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 500%;
+    display: flex;
+    justify-content: center;
+}
+
+.a1:hover{
+    color: orange;
+}
+
+body:has(.a10:hover){
+    background-image: url("https://th.bing.com/th/id/R.4e312752589af6f4da3d6cf28e2f9775?rik=6XvqwkBl8ue5ew&riu=http%3a%2f%2fphotos.wikimapia.org%2fp%2f00%2f03%2f67%2f44%2f20_full.jpg&ehk=tZ93i9NWQQUrD9mGvJIMN0tkrsdq1m1xzNI%2bJhdcGys%3d&risl=&pid=ImgRaw&r=0");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body:has(.a11:hover){
+    background-image: url("https://media.lesechos.com/api/v1/images/view/639b33ae1352ec07853f6359/1280x720/0703026196962-web-tete.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body:has(.a12:hover){
+    background-image: url("https://media.licdn.com/dms/image/C4D03AQGyBUyJaSqJXQ/profile-displayphoto-shrink_800_800/0/1573646198583?e=2147483647&v=beta&t=is7h_4ayrGSYk14w9FtaeYkBECY0wNxGLjmLwHIdt6g");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body:has(.a13:hover){
+    background-image: url("https://image.api.playstation.com/vulcan/ap/rnd/202505/0510/5793f9aae1b01eb27852e0142a47f3e8dca7e6c753d35f1a.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
