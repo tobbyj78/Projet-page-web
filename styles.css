@@ -6,7 +6,7 @@ body{
 .navbar {
     padding: 2.5%;
     display: flex;
-    justify-content: left;
+    justify-content: center;
 }
 
 .accueil{
@@ -54,15 +54,20 @@ a{
    list-style-type: none;
 }
 
-.a1{
+.a1 {
     color: #FFD700;
     font-family: "Bungee Outline", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 500%;
-    display: flex;
-    justify-content: center;
+    display: inline-block;
+    padding: 10px 20px;
 }
+
+.a1:hover {
+    color: orange;
+}
+
 
 .a1:hover{
     color: orange;
