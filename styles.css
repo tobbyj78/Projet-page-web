@@ -11,9 +11,9 @@ body{
 
 .accueil{
     color: white;
-    font-family: "Bungee Outline", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
     font-size: 500%;
 }
 
@@ -56,21 +56,16 @@ a{
 
 .a1 {
     color: #FFD700;
-    font-family: "Bungee Outline", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 500%;
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 400%;
     display: inline-block;
     padding: 10px 20px;
 }
 
 .a1:hover {
-    color: orange;
-}
-
-
-.a1:hover{
-    color: orange;
+    color: orangered;
 }
 
 body:has(.a10:hover){
