@@ -1,100 +1,80 @@
 body{
-    background-color: #320000;
+    background-color: white;
 }
 
 /* Barre du haut */
-.navbar {
+.navbar{
     padding: 2.5%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.accueil{
-    color: white;
-  font-family: "Bungee", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    font-size: 500%;
+.navbar a{
+    color: black;
+    text-decoration: none;
+    margin: 0 20px;
 }
 
 /* BARRE */
-#topBar {
-    width: 100%;
-    padding: 30px;
+.footer{
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #6495ED;
+    color: black;
     text-align: center;
-    transition: 0.3s;
-}
-
-#topBar input {
-    width: 60%;
-    padding: 12px;
-    font-size: 18px;
-    border-radius: 30px;
-    border: 1px solid #ccc;
-}
-
-/* BARRE PETITE */
-#topBar.small {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-#topBar.small input {
-    width: 40%;
-    font-size: 14px;
+    padding: 20px;
 }
 
 /* Ecriture des liens*/
+
+.navliens{
+    font-family: "Bungee", sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.accueil{
+    color: black;
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 300%;
+}
 
 a{
    text-decoration: none;
    list-style-type: none;
 }
 
-.a1 {
-    color: #FFD700;
-  font-family: "Bungee", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-    font-size: 400%;
+/* Menu déroulant */
+.menu{
+    position: relative;
     display: inline-block;
-    padding: 10px 20px;
 }
 
-.a1:hover {
-    color: orangered;
+.infos{
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
-body:has(.a10:hover){
-    background-image: url("https://th.bing.com/th/id/R.4e312752589af6f4da3d6cf28e2f9775?rik=6XvqwkBl8ue5ew&riu=http%3a%2f%2fphotos.wikimapia.org%2fp%2f00%2f03%2f67%2f44%2f20_full.jpg&ehk=tZ93i9NWQQUrD9mGvJIMN0tkrsdq1m1xzNI%2bJhdcGys%3d&risl=&pid=ImgRaw&r=0");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.menu:hover .infos{
+    display: block;
 }
 
-body:has(.a11:hover){
-    background-image: url("https://media.lesechos.com/api/v1/images/view/639b33ae1352ec07853f6359/1280x720/0703026196962-web-tete.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.infos a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
 }
 
-body:has(.a12:hover){
-    background-image: url("https://www.leparisien.fr/resizer/ZS4LMrmguQ-wE5-8UlBRH5PxyoE=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/J6LGT2ZCBZZQDRUBHBP4HOU76Q.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.infos a:hover{
+    background-color: grey;
 }
-
-body:has(.a13:hover){
-    background-image: url("https://image.api.playstation.com/vulcan/ap/rnd/202505/0510/5793f9aae1b01eb27852e0142a47f3e8dca7e6c753d35f1a.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-
-
