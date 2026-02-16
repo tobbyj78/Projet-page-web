@@ -1,26 +1,26 @@
-body{
+body {
     background-color: white;
-    height: 100%;
+    margin: 0;
 }
 
 /* Barre du haut */
-.navbar{
+.navbar {
     padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #6495ED;
+    background-color: lightblue;
     margin-bottom: 20px;
 }
 
-.navbar a{
+.navbar a {
     color: black;
     text-decoration: none;
     margin: 0 20px;
 }
 
 /* BARRE */
-.footer{
+.footer {
     font-family: "Bungee", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -33,13 +33,13 @@ body{
 
 /* Ecriture des liens*/
 
-.navliens{
+.navliens {
     font-family: "Bungee", sans-serif;
     display: flex;
     align-items: center;
 }
 
-.accueil{
+.accueil {
     color: black;
     font-family: "Bungee", sans-serif;
     font-weight: 400;
@@ -47,18 +47,33 @@ body{
     font-size: 300%;
 }
 
-a{
-   text-decoration: none;
-   list-style-type: none;
+a {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.a1 {
+    color: black;
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 500%;
+    display: flex;
+    width:max-content;
+    padding: 0px 10px;
+}
+
+.a1:hover {
+    color: grey;
 }
 
 /* Menu déroulant */
-.menu{
+.menu {
     position: relative;
     display: inline-block;
 }
 
-.infos{
+.infos {
     display: none;
     position: absolute;
     background-color: white;
@@ -68,11 +83,11 @@ a{
     padding: 10px 0px;
 }
 
-.menu:hover .infos{
+.menu:hover .infos {
     display: block;
 }
 
-.infos a{
+.infos a {
     color: black;
     display: block;
     white-space: nowrap;
@@ -82,16 +97,32 @@ a{
     margin: 0;
 }
 
-.infos a:hover{
+.infos a:hover {
     background-color: grey;
 }
 
 /* Image */
-.image{
-    background-image: url("https://cdn-s-www.estrepublicain.fr/images/15655d60-fe96-4c23-9770-8d49663f5937/NW_raw/le-restaurant-la-tentation-fait-desormais-salon-de-the-en-proposant-des-patisseries-trompe-l-oeil-photo-lionel-vadam-1725478058.jpg");
+.contenu:has(.a10:hover) {
+    background-image: url("https://th.bing.com/th/id/R.4e312752589af6f4da3d6cf28e2f9775?rik=6XvqwkBl8ue5ew&riu=http%3a%2f%2fphotos.wikimapia.org%2fp%2f00%2f03%2f67%2f44%2f20_full.jpg&ehk=tZ93i9NWQQUrD9mGvJIMN0tkrsdq1m1xzNI%2bJhdcGys%3d&risl=&pid=ImgRaw&r=0");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 500px;
 }
+
+.contenu:has(.a11:hover) {
+    background-image: url("https://media.lesechos.com/api/v1/images/view/639b33ae1352ec07853f6359/1280x720/0703026196962-web-tete.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contenu:has(.a12:hover) {
+    background-image: url("");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contenu:has(.a13:hover) {
+    background-image: url("https://image.api.playstation.com/vulcan/ap/rnd/202505/0510/5793f9aae1b01eb27852e0142a47f3e8dca7e6c753d35f1a.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
