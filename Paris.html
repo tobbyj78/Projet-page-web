@@ -5,27 +5,20 @@
     <title>Paris</title>
     <link rel="stylesheet" href="paris.css">
 </head>
-
 <body>
-
 <header class="site-header">
-
 <div class="top-nav">
-
     <div class="left-group">
-
+        
         <!-- BURGER -->
         <div class="burger" id="burger">☰</div>
-
         <!-- LOGO -->
         <div class="logo">
             <a href="#">
                 <img src="logo.jpg" alt="logo" height="40">
             </a>
         </div>
-
     </div>
-
 
         <!-- MENU PRINCIPAL -->
         <nav class="main-menu">
@@ -45,36 +38,27 @@
 
 <!-- MENU OVERLAY -->
 <div class="overlay-menu" id="overlay">
-
     <div class="close-btn" id="close">✖</div>
-
     <ul>
         <li><a href="#">Paris</a></li>
         <li><a href="#">Cergy</a></li>
     </ul>
-
 </div>
-
 <footer class="footer">
     <p>📞 Téléphone :</p>
     <p>✉ Email :</p>
 </footer>
-
-<!-- SCRIPT -->
+    
 <script>
-
 const burger = document.getElementById("burger");
 const overlay = document.getElementById("overlay");
 const closeBtn = document.getElementById("close");
-
 burger.addEventListener("click", function(){
     overlay.classList.add("open");
 });
-
 closeBtn.addEventListener("click", function(){
     overlay.classList.remove("open");
 });
-
 </script>
 
 </body>
