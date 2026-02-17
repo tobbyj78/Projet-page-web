@@ -1,7 +1,11 @@
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: white;
     margin: 0;
 }
+
 
 /* Barre du haut */
 .navbar {
@@ -28,7 +32,7 @@ body {
     color: black;
     text-align: center;
     padding: 40px 0px;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 /* Ecriture des liens*/
@@ -44,7 +48,7 @@ body {
     font-family: "Bungee", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 300%;
+    font-size: 250%;
 }
 
 a {
@@ -58,8 +62,7 @@ a {
     font-weight: 400;
     font-style: normal;
     font-size: 500%;
-    display: flex;
-    width:max-content;
+    width: max-content;
     padding: 0px 10px;
 }
 
@@ -102,27 +105,29 @@ a {
 }
 
 /* Image */
-.contenu:has(.a10:hover) {
-    background-image: url("https://th.bing.com/th/id/R.4e312752589af6f4da3d6cf28e2f9775?rik=6XvqwkBl8ue5ew&riu=http%3a%2f%2fphotos.wikimapia.org%2fp%2f00%2f03%2f67%2f44%2f20_full.jpg&ehk=tZ93i9NWQQUrD9mGvJIMN0tkrsdq1m1xzNI%2bJhdcGys%3d&risl=&pid=ImgRaw&r=0");
+
+.contenu {
+    width: 100%;
+    min-height: 100vh; /* ajuste si tu veux plus/moins grand */
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+
+.contenu:has(.a10:hover) {
+    background-image: url("https://th.bing.com/th/id/R.4e312752589af6f4da3d6cf28e2f9775?rik=6XvqwkBl8ue5ew&riu=http%3a%2f%2fphotos.wikimapia.org%2fp%2f00%2f03%2f67%2f44%2f20_full.jpg&ehk=tZ93i9NWQQUrD9mGvJIMN0tkrsdq1m1xzNI%2bJhdcGys%3d&risl=&pid=ImgRaw&r=0");
 }
 
 .contenu:has(.a11:hover) {
     background-image: url("https://media.lesechos.com/api/v1/images/view/639b33ae1352ec07853f6359/1280x720/0703026196962-web-tete.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .contenu:has(.a12:hover) {
     background-image: url("");
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .contenu:has(.a13:hover) {
     background-image: url("https://image.api.playstation.com/vulcan/ap/rnd/202505/0510/5793f9aae1b01eb27852e0142a47f3e8dca7e6c753d35f1a.png");
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
