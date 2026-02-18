@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 body {
     min-height: 100vh;
     display: flex;
@@ -105,10 +111,9 @@ a {
 }
 
 /* Image */
-
 .contenu {
     width: 100%;
-    min-height: 100vh; /* ajuste si tu veux plus/moins grand */
+    min-height: 100vh;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -131,3 +136,22 @@ a {
     background-image: url("https://image.api.playstation.com/vulcan/ap/rnd/202505/0510/5793f9aae1b01eb27852e0142a47f3e8dca7e6c753d35f1a.png");
 }
 
+/* Affichage des plats */
+
+.plat1 {
+    background-color: lightblue;
+    width: 300px;
+    height: 200px;
+}
+
+.plat2 {
+    background-color: lightgreen;
+    width: 300px;
+    height: 200px;
+}
+
+.plat3 {
+    background-color: lightcoral;
+    width: 300px;
+    height: 200px;
+}
