@@ -20,7 +20,6 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: lightblue;
-    margin-bottom: 20px;
 }
 
 .navbar a {
@@ -68,12 +67,17 @@ a {
     font-weight: 400;
     font-style: normal;
     font-size: 500%;
-    width: max-content;
     padding: 0px 10px;
 }
 
 .a1:hover {
     color: grey;
+}
+
+.villes {
+    justify-content: space-between;
+    display: flex;
+    padding: 0 40px;
 }
 
 /* Menu déroulant */
@@ -131,12 +135,9 @@ a {
 }
 
 .contenu:has(.a12:hover) {
-    background-image: url("");
+    background-image: url("https://www.cergypontoise.fr/sites/default/files/styles/image_gallery/public/2018-05/Panoramique-quais_1.jpg?itok=koAEnDSV");
 }
 
-.contenu:has(.a13:hover) {
-    background-image: url("https://image.api.playstation.com/vulcan/ap/rnd/202505/0510/5793f9aae1b01eb27852e0142a47f3e8dca7e6c753d35f1a.png");
-}
 
 /* Affichage des plats */
 .plats {
@@ -168,6 +169,30 @@ a {
     background-image: url("https://tse1.mm.bing.net/th/id/OIP.2qQg5Z3874qc-_UAyCjJcQHaHa?w=1280&h=1280&rs=1&pid=ImgDetMain&o=7&rm=3")
 }
 
+.plat4 {
+    background-image :url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
+}
+
+.plat5 {
+    background-image: url("https://cdn-s-www.estrepublicain.fr/images/ec8d79a7-fdc5-49b2-b31f-8e36663c3a59/NW_raw/le-restaurant-la-tentation-fait-desormais-salon-de-the-en-proposant-des-patisseries-trompe-l-oeil-photo-lionel-vadam-1727274004.jpg");
+}
+
+.plat6 {
+    background-image: url("https://tse1.mm.bing.net/th/id/OIP.2qQg5Z3874qc-_UAyCjJcQHaHa?w=1280&h=1280&rs=1&pid=ImgDetMain&o=7&rm=3")
+}
+
+.plat7 {
+    background-image :url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
+}
+
+.plat8 {
+    background-image: url("https://cdn-s-www.estrepublicain.fr/images/ec8d79a7-fdc5-49b2-b31f-8e36663c3a59/NW_raw/le-restaurant-la-tentation-fait-desormais-salon-de-the-en-proposant-des-patisseries-trompe-l-oeil-photo-lionel-vadam-1727274004.jpg");
+}
+
+.plat9 {
+    background-image: url("https://tse1.mm.bing.net/th/id/OIP.2qQg5Z3874qc-_UAyCjJcQHaHa?w=1280&h=1280&rs=1&pid=ImgDetMain&o=7&rm=3")
+}
+
 .contenu:has(.a10:hover) .plats.paris {
     display: flex;
 }
@@ -177,9 +202,5 @@ a {
 }
 
 .contenu:has(.a12:hover) .plats.cergy {
-    display: flex;
-}
-
-.contenu:has(.a13:hover) .plats.tung {
     display: flex;
 }
