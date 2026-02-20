@@ -229,3 +229,8 @@ a {
 .contenu:has(.a12:hover) .plats.cergy {
     display: flex;
 }
+
+/* Pour tel */
+.product-image img{
+    max-width:100%;
+}
