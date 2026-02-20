@@ -4,6 +4,7 @@
     margin: 0;
 }
 
+/* Page d'accueil DEBUT */
 body {
     min-height: 100vh;
     display: flex;
@@ -230,7 +231,4 @@ a {
     display: flex;
 }
 
-/* Pour tel */
-.product-image img{
-    max-width:100%;
-}
+/* Page d'accueil FIN */
