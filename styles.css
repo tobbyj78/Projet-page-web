@@ -277,6 +277,7 @@ a {
     padding: 30px;
     text-align: center;
     transition: 0.3s;
+    position: relative;
 }
 
 #topBar input {
@@ -332,4 +333,42 @@ a {
 .card:hover {
     background-color: lightgrey;
     cursor: pointer;
+}
+
+/* Page Admin FIN */
+
+/* Page de notation DEBUT */
+.sitedescription3 {
+    font-family: "Playwrite AT", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    padding: 40px 30px;
+    text-align: center;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+}
+
+/* Avis */
+.reservation {
+    flex: 1;
+    background: #ffffff;
+    padding: 80px;
+}
+
+.reservation h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
 }
