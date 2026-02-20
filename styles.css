@@ -11,7 +11,6 @@ body {
     background-color: white;
     margin: 0;
     font-family: "Bungee", sans-serif;
-    font-weight: 400;
     font-style: normal;
 }
 
@@ -31,13 +30,32 @@ body {
     margin: 0 20px;
 }
 
-/* BARRE */
+/* Bas de page */
 .footer {
+    font-family: arial, sans-serif;
     background-color: grey;
     color: black;
     text-align: center;
     padding: 40px 0px;
     margin-top: auto;
+}
+
+/* Description du site */
+.sitedescription {
+    font-family: "Playwrite AT", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    padding: 40px 30px;
+    text-align: left;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+}
+
+.sitedescription .textedescription {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 100%;
+    margin-top: 20px;
 }
 
 /* Ecriture des liens*/
@@ -47,8 +65,11 @@ body {
 }
 
 .accueil {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
     color: black;
-    font-size: 250%;
+    font-size: 350%;
 }
 
 a {
@@ -58,8 +79,8 @@ a {
 
 .a1 {
     color: black;
-    font-size: 500%;
-    padding: 0px 10px;
+    font-size: 300%;
+    padding: 10px 10px;
 }
 
 .a1:hover {
@@ -119,7 +140,6 @@ a {
 
 .contenu:has(.a10:hover) {
     background-image: url("https://th.bing.com/th/id/R.4e312752589af6f4da3d6cf28e2f9775?rik=6XvqwkBl8ue5ew&riu=http%3a%2f%2fphotos.wikimapia.org%2fp%2f00%2f03%2f67%2f44%2f20_full.jpg&ehk=tZ93i9NWQQUrD9mGvJIMN0tkrsdq1m1xzNI%2bJhdcGys%3d&risl=&pid=ImgRaw&r=0");
-    
 }
 
 .contenu:has(.a11:hover) {
@@ -157,11 +177,13 @@ a {
 .description {
     width: 600px;
     background: white;
+    padding: 10px 20px;
     border-radius: 0 0 15px 15px;
+    border-top: 2px solid black;
 }
 
 .plat1 {
-    background-image :url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
+    background-image: url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
 }
 
 .plat2 {
@@ -173,7 +195,7 @@ a {
 }
 
 .plat4 {
-    background-image :url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
+    background-image: url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
 }
 
 .plat5 {
@@ -185,7 +207,7 @@ a {
 }
 
 .plat7 {
-    background-image :url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
+    background-image: url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
 }
 
 .plat8 {
