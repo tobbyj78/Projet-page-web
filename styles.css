@@ -160,10 +160,16 @@ a {
 
 /* Affichage des plats */
 .plats {
-    display: none;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
     gap: 20px;
     justify-content: center;
     margin-top: 30px;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    pointer-events: none;
 }
 
 .plat {
@@ -227,17 +233,26 @@ a {
 
 .contenu:has(.a10:hover) .plats.paris {
     cursor: pointer;
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.1s ease, visibility 0.1s ease;
+    pointer-events: auto;
 }
 
 .contenu:has(.a11:hover) .plats.argenteuil {
     cursor: pointer;
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.1s ease, visibility 0.1s ease;
+    pointer-events: auto;
 }
 
 .contenu:has(.a12:hover) .plats.cergy {
     cursor: pointer;
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.1s ease, visibility 0.1s ease;
+    pointer-events: auto;
 }
 
 /* Page d'accueil FIN */
@@ -278,7 +293,7 @@ a {
     top: 0;
     left: 0;
     padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 #topBar.small input {
@@ -292,7 +307,7 @@ a {
     margin: auto;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     display: block;
     overflow: hidden;
 }
