@@ -232,3 +232,16 @@ a {
 }
 
 /* Page d'accueil FIN */
+
+/* Page Admin DEBUT */
+.sitedescription2 {
+    font-family: "Playwrite AT", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    padding: 40px 30px;
+    text-align: center;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    color: red;
+}
