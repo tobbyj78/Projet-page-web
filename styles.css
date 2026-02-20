@@ -86,6 +86,7 @@ a {
 
 .a1:hover {
     color: grey;
+    cursor: pointer;
 }
 
 .villes {
@@ -113,6 +114,7 @@ a {
 
 .menu:hover .infos {
     display: block;
+    cursor: pointer;
 }
 
 .infos a {
@@ -127,6 +129,7 @@ a {
 
 .infos a:hover {
     background-color: grey;
+    cursor: pointer;
 }
 
 /* Image */
@@ -141,14 +144,17 @@ a {
 
 .contenu:has(.a10:hover) {
     background-image: url("https://th.bing.com/th/id/R.4e312752589af6f4da3d6cf28e2f9775?rik=6XvqwkBl8ue5ew&riu=http%3a%2f%2fphotos.wikimapia.org%2fp%2f00%2f03%2f67%2f44%2f20_full.jpg&ehk=tZ93i9NWQQUrD9mGvJIMN0tkrsdq1m1xzNI%2bJhdcGys%3d&risl=&pid=ImgRaw&r=0");
+    cursor: pointer;
 }
 
 .contenu:has(.a11:hover) {
     background-image: url("https://media.lesechos.com/api/v1/images/view/639b33ae1352ec07853f6359/1280x720/0703026196962-web-tete.jpg");
+    cursor: pointer;
 }
 
 .contenu:has(.a12:hover) {
     background-image: url("https://www.cergypontoise.fr/sites/default/files/styles/image_gallery/public/2018-05/Panoramique-quais_1.jpg?itok=koAEnDSV");
+    cursor: pointer;
 }
 
 
@@ -220,14 +226,17 @@ a {
 }
 
 .contenu:has(.a10:hover) .plats.paris {
+    cursor: pointer;
     display: flex;
 }
 
 .contenu:has(.a11:hover) .plats.argenteuil {
+    cursor: pointer;
     display: flex;
 }
 
 .contenu:has(.a12:hover) .plats.cergy {
+    cursor: pointer;
     display: flex;
 }
 
@@ -244,4 +253,68 @@ a {
     border-bottom: 2px solid black;
     border-top: 2px solid black;
     color: red;
+}
+
+/* Barre de recherche */
+#topBar {
+    width: 100%;
+    background: white;
+    padding: 30px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+#topBar input {
+    width: 60%;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+}
+
+/* Petite barre */
+#topBar.small {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#topBar.small input {
+    width: 40%;
+    font-size: 14px;
+}
+
+/* Zone résultats */
+#results {
+    width: 60%;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    display: block;
+    overflow: hidden;
+}
+
+.utilisateur {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 60%;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.card:hover {
+    background-color: lightgrey;
+    cursor: pointer;
 }
