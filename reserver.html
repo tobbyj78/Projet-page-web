@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Réserver</title>
+<link rel="stylesheet" href="reserver.css">
+</head>
+<body>
+<div class="container">
+    <div class="image-section">
+        <img src="mon-image.jpg" alt="Restaurant">
+        <div class="overlay">
+            <h3>L'imposture</h3>
+            <p>Téléphone : mettre tel</p>
+            <p>Adresse : mettre adresse</p>
+            <a href="#">Voir sur Google Maps</a>
+        </div>
+    </div>
+    <div class="reservation">
+        <p class="subtitle">FAIRE UNE RÉSERVATION</p>
+        <h2>Réserver une table</h2>
+        <form>
+            <div class="row">
+                <input type="number" placeholder="Adultes" min="1" required>
+                <input type="number" placeholder="Enfants" min="0">
+            </div>
+            <div class="row">
+                <input type="date" required>
+                <input type="time" required>
+            </div>
+            <select required>
+                <option value="">Choisir une zone</option>
+                <option>Salle principale</option>
+                <option>Terrasse</option>
+                <option>VIP</option>
+            </select>
+            <textarea placeholder="Commentaire ou demande spéciale"></textarea>
+            <button type="submit">Réserver</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
