@@ -10,6 +10,9 @@ body {
     flex-direction: column;
     background-color: white;
     margin: 0;
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
@@ -30,9 +33,6 @@ body {
 
 /* BARRE */
 .footer {
-    font-family: "Bungee", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     background-color: grey;
     color: black;
     text-align: center;
@@ -41,18 +41,13 @@ body {
 }
 
 /* Ecriture des liens*/
-
 .navliens {
-    font-family: "Bungee", sans-serif;
     display: flex;
     align-items: center;
 }
 
 .accueil {
     color: black;
-    font-family: "Bungee", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     font-size: 250%;
 }
 
@@ -63,9 +58,6 @@ a {
 
 .a1 {
     color: black;
-    font-family: "Bungee", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     font-size: 500%;
     padding: 0px 10px;
 }
@@ -125,9 +117,9 @@ a {
     position: relative;
 }
 
-
 .contenu:has(.a10:hover) {
     background-image: url("https://th.bing.com/th/id/R.4e312752589af6f4da3d6cf28e2f9775?rik=6XvqwkBl8ue5ew&riu=http%3a%2f%2fphotos.wikimapia.org%2fp%2f00%2f03%2f67%2f44%2f20_full.jpg&ehk=tZ93i9NWQQUrD9mGvJIMN0tkrsdq1m1xzNI%2bJhdcGys%3d&risl=&pid=ImgRaw&r=0");
+    
 }
 
 .contenu:has(.a11:hover) {
@@ -150,12 +142,23 @@ a {
 .plat {
     width: 600px;
     height: 400px;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
+.platdescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description {
+    width: 600px;
+    background: white;
+    border-radius: 0 0 15px 15px;
+}
 
 .plat1 {
     background-image :url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
@@ -203,4 +206,37 @@ a {
 
 .contenu:has(.a12:hover) .plats.cergy {
     display: flex;
+}
+
+/* Carte */
+.carte {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    gap: 10px;
+}
+
+.googleMaps {
+    border: solid 1px black;
+    border-radius: 15px;
+}
+
+.carte .h {
+    font-size: 200%;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.contenu:has(.a10:hover) .carte {
+    display: none;
+}
+
+.contenu:has(.a11:hover) .carte {
+    display: none;
+}
+
+.contenu:has(.a12:hover) .carte {
+    display: none;
 }
