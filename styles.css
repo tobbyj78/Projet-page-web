@@ -4,6 +4,24 @@
     margin: 0;
 }
 
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .image-section {
+        height: 300px;
+    }
+
+    .reservation {
+        padding: 40px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+}
+
 /* Page d'accueil DEBUT */
 body {
     min-height: 100vh;
@@ -156,13 +174,66 @@ a {
 }
 
 .contenu:has(.a11:hover) {
-    background-image: url("https://media.lesechos.com/api/v1/images/view/639b33ae1352ec07853f6359/1280x720/0703026196962-web-tete.jpg");
+    background-image: url("https://www.argenteuil.fr/sites/default/files/styles/1600x630/public/media/images/attestationresidence-1920x834.jpg?itok=hmRPnJXa");
     cursor: pointer;
 }
 
 .contenu:has(.a12:hover) {
     background-image: url("https://www.cergypontoise.fr/sites/default/files/styles/image_gallery/public/2018-05/Panoramique-quais_1.jpg?itok=koAEnDSV");
     cursor: pointer;
+}
+
+/* Images des villes */
+.villesimg {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    pointer-events: none;
+}
+
+.img {
+    width: 600px;
+    height: 400px;
+    border-radius: 15px 15px 0 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.villedescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.infosville {
+    font-size: 150%;
+    width: 600px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 0 0 15px 15px;
+    border-top: 2px solid black;
+}
+
+.img.paris {
+    background-image: url("https://th.bing.com/th/id/R.4e312752589af6f4da3d6cf28e2f9775?rik=6XvqwkBl8ue5ew&riu=http%3a%2f%2fphotos.wikimapia.org%2fp%2f00%2f03%2f67%2f44%2f20_full.jpg&ehk=tZ93i9NWQQUrD9mGvJIMN0tkrsdq1m1xzNI%2bJhdcGys%3d&risl=&pid=ImgRaw&r=0");
+}
+
+.img.argenteuil {
+    background-image: url("https://www.argenteuil.fr/sites/default/files/styles/1600x630/public/media/images/attestationresidence-1920x834.jpg?itok=hmRPnJXa");
+}
+
+.img.cergy {
+    background-image: url("https://www.cergypontoise.fr/sites/default/files/styles/image_gallery/public/2018-05/Panoramique-quais_1.jpg?itok=koAEnDSV");
+}
+
+.contenu:has(.a1:hover) .villesimg {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
 }
 
 
@@ -173,7 +244,7 @@ a {
     width: 100%;
     opacity: 0;
     visibility: hidden;
-    gap: 20px;
+    gap: 5%;
     justify-content: center;
     margin-top: 30px;
     transition: opacity 0.25s ease, visibility 0.25s ease;
@@ -181,8 +252,8 @@ a {
 }
 
 .plat {
-    width: 600px;
-    height: 400px;
+    width: 500px;
+    height: 300px;
     border-radius: 15px 15px 0 0;
     background-position: center;
     background-size: cover;
@@ -196,7 +267,8 @@ a {
 }
 
 .description {
-    width: 600px;
+    font-size: 150%;
+    width: 500px;
     background: white;
     padding: 10px 20px;
     border-radius: 0 0 15px 15px;
