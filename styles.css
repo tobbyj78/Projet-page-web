@@ -11,7 +11,8 @@ body {
     flex-direction: column;
     background-color: white;
     margin: 0;
-    font-family: "Bungee", sans-serif;
+    font-family: "Annie Use Your Telescope", cursive;
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -22,11 +23,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: lightblue;
+    background-color: black;
 }
 
 .navbar a {
-    color: black;
+    color: white;
     text-decoration: none;
     margin: 0 20px;
 }
@@ -43,18 +44,15 @@ body {
 
 /* Description du site */
 .sitedescription {
-    font-family: "Playwrite AT", cursive;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    padding: 40px 30px;
+    padding: 100px 30px;
+    color: black;
     text-align: left;
     border-bottom: 2px solid black;
     border-top: 2px solid black;
+    font-size: 200%;
 }
 
 .sitedescription .textedescription {
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 100%;
     margin-top: 20px;
 }
@@ -63,13 +61,13 @@ body {
 .navliens {
     display: flex;
     align-items: center;
+    gap: 40px;
 }
 
 .accueil {
     font-family: "Pacifico", cursive;
     font-weight: 400;
     font-style: normal;
-    color: black;
     font-size: 350%;
 }
 
@@ -79,13 +77,16 @@ a {
 }
 
 .a1 {
-    color: black;
-    font-size: 300%;
+    color: white;
+    font-size: 400%;
     padding: 10px 10px;
+    border: 1px solid white;
+    background-color: black;
+    border-radius: 0 0 15px 15px;
+    padding: 0 20px;
 }
 
 .a1:hover {
-    color: grey;
     cursor: pointer;
 }
 
@@ -99,6 +100,12 @@ a {
 .menu {
     position: relative;
     display: inline-block;
+    font-size: 250%;
+    cursor: pointer;
+    border: 1px solid white;
+    background-color: black;
+    padding: 0 0px;
+    border-radius: 15px 15px 15px 15px;
 }
 
 .infos {
@@ -140,6 +147,7 @@ a {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    background-image: url("https://usagif.com/wp-content/uploads/2020/11/am0ngsusxh-85.gif");
 }
 
 .contenu:has(.a10:hover) {
