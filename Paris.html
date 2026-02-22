@@ -3,36 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <title>Paris</title>
-<link rel="stylesheet" href="paris.css">
+<link rel="stylesheet" href="styles.css">
 <link rel="icon" href="Images/Among_Us.png">
 </head>
 <body>
-<header class="site-header">
-<div class="top-nav">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AT:ital,wght@0,100..400;1,100..400&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap" rel="stylesheet">
+<header class="navbar">
     <div class="left-group">
-        <!-- BURGER -->
         <div class="burger" id="burger">☰</div>
-        <!-- LOGO -->
-        <div class="logo">
-            <a href="page-d'accueil.html" class="logo-text">L'Imposture</a>
-        </div>
+        <a href="page-d'accueil.html" class="accueil">IMPOSTURE</a>
     </div>
-    <!-- MENU -->
-    <nav class="main-menu">
-        <ul>
-            <li><a href="reserver.html">Réserver</a></li>
-        </ul>
-    </nav>
-    <!-- ACTIONS -->
-    <div class="header-action">
-        <a href="profil.html">Votre compte</a>
-
-        <!-- PANIER REDIRECTION -->
+    <div class="navliens">
+        <div class="menu">
+            <a>Réservation</a>
+            <div class="infos">
+                <a href="reserver.html">Réserver une table</a>
+                <a href="commander.html">Commander</a>
+            </div>
+        </div>
+        <div class="menu">
+            <a href="Notation.html">Notation</a>
+        </div>
+        <div class="menu">
+            <a>Compte</a>
+            <div class="infos">
+                <a href="profil.html">Voir Profil</a>
+                <a href="connexion.html">Connexion</a>
+                <a href="inscription.html">Inscription</a>
+            </div>
+        </div>
+        <div class="menu">
+            <a href="Admin.html">Admin</a>
+        </div>
+        <input type="text" id="searchInput2" placeholder="Rechercher nos produits ..." autocomplete="off">
         <a href="commander.html" class="cart">
             🛒 <span class="cart_count">0</span>
         </a>
     </div>
-</div>
 </header>
 
 <!-- MENU OVERLAY -->
@@ -46,8 +62,10 @@
 </div>
 
 <!-- PRODUITS -->
+     <div class="sitedescriptionville">
+        <h2>Nos Produits</h2>
+    </div>
 <section class="products">
-<h2>Nos Produits</h2>
 <div class="product-grid">
 <div class="product-card">
     <div class="product-image">
