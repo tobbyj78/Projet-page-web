@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Cergy</title>
+<link rel="stylesheet" href="paris.css">
+<link rel="icon" href="Images/Among_Us.png">
+</head>
+<body>
+<header class="site-header">
+<div class="top-nav">
+    <div class="left-group">
+        <!-- BURGER -->
+        <div class="burger" id="burger">☰</div>
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="page-d'accueil.html" class="logo-text">L'Imposture</a>
+        </div>
+    </div>
+    <!-- MENU -->
+    <nav class="main-menu">
+        <ul>
+            <li><a href="reserver.html">Réserver</a></li>
+        </ul>
+    </nav>
+    <!-- ACTIONS -->
+    <div class="header-action">
+        <a href="profil.html">Votre compte</a>
+
+        <!-- PANIER REDIRECTION -->
+        <a href="commander.html" class="cart">
+            🛒 <span class="cart_count">0</span>
+        </a>
+    </div>
+</div>
+</header>
+
+<!-- MENU OVERLAY -->
+<div class="overlay-menu" id="overlay">
+<div class="close-btn" id="close">✖</div>
+<ul>
+    <li><a href="Paris.html">Paris</a></li>
+    <li><a href="Argenteuil.html">Argenteuil</a></li>
+    <li><a href="Cergy.html">Cergy</a></li>
+</ul>
+</div>
+
+<!-- PRODUITS -->
+<section class="products">
+<h2>Nos Produits</h2>
+<div class="product-grid">
+<div class="product-card">
+    <div class="product-image">
+        <img src="produit1.jpg">
+        <button class="add-to-cart" data-name="Produit1" data-price="2.50">
+            Ajouter au panier
+        </button>
+    </div>
+    <h3>Produit1</h3>
+    <p class="price">2,50 €</p>
+</div>
+<div class="product-card">
+    <div class="product-image">
+        <img src="produit2.jpg">
+        <button class="add-to-cart" data-name="Produit2" data-price="3.00">
+            Ajouter au panier
+        </button>
+    </div>
+    <h3>Produit2</h3>
+    <p class="price">3,00 €</p>
+</div>
+<div class="product-card">
+    <div class="product-image">
+        <img src="produit3.jpg">
+        <button class="add-to-cart" data-name="Produit3" data-price="4.50">
+            Ajouter au panier
+        </button>
+    </div>
+    <h3>Produit3</h3>
+    <p class="price">4,50 €</p>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+    <p>📞 Téléphone : 07 61 41 44 23</p>
+    <p>✉ Email : imposturecontact@gmail.com</p>
+    <p>Horaires : Lundi - Vendredi 10h-21h | Samedi - Dimanche 12h-18h</p>
+</footer>
+
+<script>
+/* MENU */
+const burger = document.getElementById("burger");
+const overlay = document.getElementById("overlay");
+const closeBtn = document.getElementById("close");
+burger.addEventListener("click", () => {
+    overlay.classList.add("open");
+});
+closeBtn.addEventListener("click", () => {
+    overlay.classList.remove("open");
+});
+/* PANIER */
+let cart = [];
+const cartCount = document.querySelector(".cart_count");
+const buttons = document.querySelectorAll(".add-to-cart");
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const name = button.dataset.name;
+        const price = parseFloat(button.dataset.price);
+        cart.push({name, price});
+        updateCart();
+    });
+});
+function updateCart(){
+    cartCount.textContent = cart.length;
+    console.log(cart);
+}
+</script>
+
+</body>
+</html>

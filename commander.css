@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.back-home {
+    text-decoration: none;
+    background: #f0f0f0;
+    color: black;
+    padding: 8px 14px;
+    border-radius: 8px;
+    width: fit-content;
+    transition: 0.2s;
+}
+
+.back-home:hover {
+    background: black;
+    color: white;
+}
+
+.cart-box, .account-box, form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.cart-box h3 {
+    margin-top: 0;
+}
+
+.cities {
+    padding-left: 18px;
+}
+
+.cities a {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+.cities a:hover {
+    text-decoration: underline;
+}
+
+.cart-sample summary {
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+}
+
+.cart-items li {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.account-box {
+    text-align: center;
+}
+
+.connexion {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.connexion:hover {
+    text-decoration: underline;
+}
+
+form h3 {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.9rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-btn:hover {
+    background: #333;
+}
+
+.footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 0.9rem;
+}
+
+.footer p {
+    margin: 8px 0;
+}
+
+.city-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.btn-link {
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+    background: #f8f8f8;
+    color: black;
+    transition: 0.2s;
+}
+
+.btn-link:hover {
+    background: black;
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .cart-items li {
+        grid-template-columns: 1fr auto;
+    }
+
+    .item-price {
+        grid-column: 1 / -1;
+    }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commander</title>
+<link rel="stylesheet" href="commander.css">
+<link rel="icon" href="Images/Among_Us.png">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>📦 Informations de livraison</h2>
+
+    <a href="page-d'accueil.html" class="back-home">← Retour à l'accueil</a>
+    <aside class="cart-box">
+        <h3>🛒 Votre panier</h3>
+        <div class="cart-empty">
+            <p>Votre panier est vide.</p>
+            <p>Vous pouvez remplir votre panier en visitant :</p>
+            <ul class="cities">
+                <li><a href="Paris.html">Paris</a></li>
+                <li><a href="Argenteuil.html">Argenteuil</a></li>
+                <li><a href="Cergy.html">Cergy</a></li>
+            </ul>
+        </div>
+        <details class="cart-sample">
+            <summary>Voir un exemple de panier</summary>
+            <ul class="cart-items">
+                <li>
+                    <span class="item-name">Jeu Among Us - Edition Collector</span>
+                    <span class="item-qty">x1</span>
+                    <span class="item-price">39,99€</span>
+                </li>
+                <li>
+                    <span class="item-name">gateau-chien</span>
+                    <span class="item-qty">x2</span>
+                    <span class="item-price">19,90€</span>
+                </li>
+            </ul>
+
+            <div class="cart-actions">
+                <p class="note">
+                    Même si vous avez des articles, pensez à visiter les autres villes :
+                </p>
+                <div class="city-links">
+                    <a class="btn-link" href="Paris.html">Voir Paris</a>
+                    <a class="btn-link" href="Argenteuil.html">Voir Argenteuil</a>
+                    <a class="btn-link" href="Cergy.html">Voir Cergy</a>
+                </div>
+            </div>
+        </details>
+    </aside>
+
+    <div class="account-box">
+        <p>Déjà client ?</p>
+        <a href="connexion.html" class="connexion">Se connecter</a>
+    </div>
+
+    <form>
+        <h3>Adresse</h3>
+        <label>Nom complet</label>
+        <input type="text" name="name" required>
+        <label>Adresse</label>
+        <input type="text" name="address" required>
+        <label>Code postal</label>
+        <input type="text" name="postal-code" required>
+        <label>Ville</label>
+        <input type="text" name="city" required>
+        <h3>Informations pour le livreur</h3>
+        <label>Code interphone</label>
+        <input type="text" name="interphone">
+        <label>Étage</label>
+        <input type="text" name="floor">
+        <label>Commentaires</label>
+        <textarea name="comments" rows="3"></textarea>
+        <h3>Contact</h3>
+        <label>Téléphone</label>
+        <input type="tel" name="phone" required>
+        <label>Email</label>
+        <input type="email" name="email" required>
+        <button type="submit" class="submit-btn">
+            Continuer vers le paiement
+        </button>
+    </form>
+</div>
+
+<footer class="footer">
+    <p>📞 Téléphone : 07 61 41 44 23</p>
+    <p>✉ Email : imposturecontact@gmail.com</p>
+    <p>Horaires : Lundi - Vendredi 10h-21h | Samedi - Dimanche 12h-18h</p>
+</footer>
+
+</body>
+</html>

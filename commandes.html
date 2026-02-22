@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page des commandes</title>
+    <link rel="stylesheet" href="commandes.css">
+    <link rel="icon" href="Images/Among_Us.png">
+</head>
+<body>
+<header class="navbar">
+    <a href="page-d'accueil.html" class="accueil">L'imposture</a>
+    <div class="navliens">
+        <div class="title">📋 Page des commandes</div>
+    </div>
+</header>
+<main class="container">
+    <div class="filters">
+        <button class="filter-btn">Toutes</button>
+        <button class="filter-btn">À préparer</button>
+        <button class="filter-btn">En livraison</button>
+        <button class="filter-btn">Livrée</button>
+    </div>
+    <div class="grid">
+        <div class="order-card status-a_preparer">
+            <div class="meta">
+                <div class="id">#001</div>
+                <div class="customer">Rémi Singe</div>
+                <div class="date">22/02/2026 14:30</div>
+            </div>
+            <div class="details">
+                <div class="items">
+                    <div class="item-row"><span>gâteau-chien</span><span>x1</span></div>
+                    <div class="item-row"><span>gâteau-chaussure</span><span>x2</span></div>
+                </div>
+                <div class="status-badge badge-a_preparer">À préparer</div>
+                <div class="actions">
+                    <button class="btn primary">Mettre en livraison</button>
+                    <button class="btn ghost">Supprimer</button>
+                </div>
+            </div>
+        </div>
+        <div class="order-card status-en_livraison">
+            <div class="meta">
+                <div class="id">#002</div>
+                <div class="customer">Bob Martin</div>
+                <div class="date">22/02/2026 14:45</div>
+            </div>
+            <div class="details">
+                <div class="items">
+                    <div class="item-row"><span>gâteau-chien</span><span>x2</span></div>
+                </div>
+                <div class="status-badge badge-en_livraison">En livraison</div>
+                <div class="actions">
+                    <button class="btn success">Marquer livrée</button>
+                </div>
+            </div>
+        </div>
+        <div class="order-card status-livree">
+            <div class="meta">
+                <div class="id">#003</div>
+                <div class="customer">Anne Sophie</div>
+                <div class="date">22/02/2026 15:00</div>
+            </div>
+            <div class="details">
+                <div class="items">
+                    <div class="item-row"><span>gâteau-chien</span><span>x1</span></div>
+                </div>
+                <div class="status-badge badge-livree">Livrée</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="site-foot">
+    <p>📞 Téléphone : 07 61 41 44 23</p>
+    <p>✉ Email : imposturecontact@gmail.com</p>
+    <p>Horaires : Lundi - Vendredi 10h-21h | Samedi - Dimanche 12h-18h</p>
+</footer>
+</body>
+</html>
