@@ -25,8 +25,7 @@
     gap:24px;
 }
 
-.main-menu a,
-.header-action a{
+.main-menu a, .header-action a{
     text-decoration:none;
     color:#000;
     font-weight:500;
@@ -160,15 +159,32 @@
 }
 
 /* FOOTER */
-.footer{
-    margin-top:60px;
-    padding:20px;
-    text-align:center;
-    border-top:1px solid #dddddd;
-    font-family:Arial, sans-serif;
+.footer {
+    font-family: arial, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 40px 0px;
+    margin-top: auto;
+    border-top: 1px solid white;
 }
 
 /*IMG POUR TEL*/
 .product-image img{
     max-width:100%;
+}
+
+
+/* LOGO TEXTE */
+.logo-text{
+    text-decoration:none;
+    color:#000;
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:2px;
+    font-family: "Annie Use Your Telescope", cursive;
+}
+
+.logo-text:hover{
+    opacity:0.7;
 }
