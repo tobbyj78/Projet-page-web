@@ -4,18 +4,64 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Commander</title>
-<link rel="stylesheet" href="commander.css">
+<link rel="stylesheet" href="styles.css">
 <link rel="icon" href="Images/Among_Us.png">
 </head>
 <body>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AT:ital,wght@0,100..400;1,100..400&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap" rel="stylesheet">
 
-<div class="container">
+    <header class="navbar">
+        <a href="page-d'accueil.html" class="accueil">IMPOSTEUR</a>
+        <div class="navliens">
+            <div class="menu">
+                <a>Réservation</a>
+                <div class="infos">
+                    <a href="reserver.html">Réserver une table</a>
+                    <a href="commander.html">Commander</a>
+                </div>
+            </div>
+            <div class="menu">
+                <a href="Notation.html">Notation</a>
+            </div>
+            <div class="menu">
+                <a>Compte</a>
+                <div class="infos">
+                    <a href="profil.html">Voir Profil</a>
+                    <a href="connexion.html">Connexion</a>
+                    <a href="inscription.html">Inscription</a>
+                </div>
+            </div>
+            <div class="menu">
+                <a>Services</a>
+                <div class="infos">
+                    <a href="commandes.html">Commandes</a>
+                    <a href="livraison.html">Livraison</a>
+                </div>
+            </div>
+            <div class="menu">
+                <a href="Admin.html">Admin</a>
+            </div>
+            <input type="text" id="searchInput2" placeholder="Rechercher nos produits ..." autocomplete="off">
+        </div>
+    </header>
 
-    <h2>📦 Informations de livraison</h2>
+<div class="container2">
 
-    <a href="page-d'accueil.html" class="back-home">← Retour à l'accueil</a>
+    <h4>📦 Informations de livraison</h4>
     <aside class="cart-box">
-        <h3>🛒 Votre panier</h3>
+        <h5>🛒 Votre panier</h5>
         <div class="cart-empty">
             <p>Votre panier est vide.</p>
             <p>Vous pouvez remplir votre panier en visitant :</p>
@@ -59,7 +105,7 @@
     </div>
 
     <form>
-        <h3>Adresse</h3>
+        <h5>Adresse</h5>
         <label>Nom complet</label>
         <input type="text" name="name" required>
         <label>Adresse</label>
@@ -68,14 +114,14 @@
         <input type="text" name="postal-code" required>
         <label>Ville</label>
         <input type="text" name="city" required>
-        <h3>Informations pour le livreur</h3>
+        <h5>Informations pour le livreur</h5>
         <label>Code interphone</label>
         <input type="text" name="interphone">
         <label>Étage</label>
         <input type="text" name="floor">
         <label>Commentaires</label>
         <textarea name="comments" rows="3"></textarea>
-        <h3>Contact</h3>
+        <h5>Contact</h5>
         <label>Téléphone</label>
         <input type="tel" name="phone" required>
         <label>Email</label>
@@ -87,7 +133,7 @@
 </div>
 
 <footer class="footer">
-    <p>📞 Téléphone : 07 61 41 44 23</p>
+    <p>📞 Téléphone : 07 67 01 02 03</p>
     <p>✉ Email : imposturecontact@gmail.com</p>
     <p>Horaires : Lundi - Vendredi 10h-21h | Samedi - Dimanche 12h-18h</p>
 </footer>

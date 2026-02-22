@@ -2,9 +2,11 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Images/Among_Us.png">
-    <title>L'Imposture</title>
+    <title>Notation</title>
 </head>
 
 <body>
@@ -23,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap" rel="stylesheet">
 
     <nav class="navbar">
-        <a href="page-d'accueil.html" class="accueil">IMPOSTURE</a>
+        <a href="page-d'accueil.html" class="accueil">IMPOSTEUR</a>
         <div class="navliens">
             <div class="menu">
                 <a>Réservation</a>
@@ -36,11 +38,18 @@
                 <a href="Notation.html">Notation</a>
             </div>
             <div class="menu">
-                <a>Profil</a>
+                <a>Compte</a>
                 <div class="infos">
                     <a href="profil.html">Voir Profil</a>
                     <a href="connexion.html">Connexion</a>
                     <a href="inscription.html">Inscription</a>
+                </div>
+            </div>
+            <div class="menu">
+                <a>Services</a>
+                <div class="infos">
+                    <a href="commandes.html">Commandes</a>
+                    <a href="livraison.html">Livraison</a>
                 </div>
             </div>
             <div class="menu">
@@ -50,21 +59,27 @@
         </div>
     </nav>
 
-    <div class="sitedescription">
-        <h1>Notez-nous !</h1>
-        <p class="textedescription">Votre avis compte pour nous !</p>
-    </div>
-
-    <div class="reservation">
-        <form>
-            <div class="row">
-                <input type="number" placeholder="Livraison" min="0" required>
+    <div class="sitedescription4">
+        <h1>Notez-nous</h1>
+        <p class="textedescription4">Votre avis compte pour nous !</p>
+        <div class="container-notation">
+            <div class="reservation2">
+                <form>
+                    <div class="row">
+                        <input type="number" placeholder="Livraison" min="0" max="5" required>
+                    </div>
+                    <div class="row">
+                        <input type="number" placeholder="Qualité des produits" min="0" max="5" required>
+                    </div>
+                    <button type="submit">Envoyer</button>
+                </form>
             </div>
-        </form>
+            <div class="vide"></div>
+        </div>
     </div>
 
     <footer class="footer">
-        <p>📞 Téléphone : 07 61 41 44 23</p>
+        <p>📞 Téléphone : 07 67 01 02 03</p>
         <p>✉ Email : imposturecontact@gmail.com</p>
         <p>Horaires : Lundi - Vendredi 10h-21h | Samedi - Dimanche 12h-18h</p>
     </footer>

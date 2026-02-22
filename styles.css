@@ -34,7 +34,6 @@ body {
     font-style: normal;
 }
 
-
 /* Barre du haut */
 .navbar {
     padding: 10px 30px;
@@ -42,6 +41,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: black;
+    border-bottom: 1px solid white;
 }
 
 .navbar a {
@@ -58,7 +58,7 @@ body {
     text-align: center;
     padding: 40px 0px;
     margin-top: auto;
-    border-top: 1px solid white;
+    border-top: 5px solid white;
 }
 
 /* Description du site */
@@ -66,9 +66,10 @@ body {
     padding: 100px 30px;
     color: black;
     text-align: left;
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
     font-size: 200%;
+}
+
+.sitedescription .nomsite {
     font-style: italic;
 }
 
@@ -100,14 +101,17 @@ a {
     color: white;
     font-size: 400%;
     padding: 10px 10px;
-    border: 1px solid white;
+    border: 3px solid white;
     background-color: black;
-    border-radius: 0 0 15px 15px;
+    border-radius: 15px;
     padding: 0 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .a1:hover {
     cursor: pointer;
+    border-color: green;
 }
 
 .villes {
@@ -121,9 +125,9 @@ a {
 .menu {
     position: relative;
     display: inline-block;
-    font-size: 250%;
+    font-size: 200%;
     cursor: pointer;
-    border: 1px solid white;
+    border: 3px solid white;
     background-color: black;
     padding: 0 0px;
     border-radius: 15px 15px 15px 15px;
@@ -138,6 +142,10 @@ a {
     border-radius: 10px;
     padding: 10px 0px;
     z-index: 1;
+}
+
+.menu:hover {
+    border-color: green;
 }
 
 .menu:hover .infos {
@@ -164,11 +172,8 @@ a {
 .contenu {
     width: 100%;
     min-height: 100vh;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: black;
     position: relative;
-    background-image: url("https://usagif.com/wp-content/uploads/2020/11/am0ngsusxh-85.gif");
 }
 
 /* Images des villes */
@@ -343,7 +348,6 @@ a {
     padding: 40px 30px;
     text-align: center;
     border-bottom: 2px solid black;
-    border-top: 2px solid black;
     color: red;
     font-size: 200%;
 }
@@ -384,9 +388,9 @@ a {
 #results {
     width: 60%;
     margin: auto;
-    background: white;
+    background: transparent;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: none;
     display: block;
     overflow: hidden;
 }
@@ -398,6 +402,9 @@ a {
     margin-top: 30px;
     flex-wrap: wrap;
     font-size: 200%;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .card {
@@ -416,22 +423,342 @@ a {
 /* Page Admin FIN */
 
 /* Page de notation DEBUT */
-.sitedescription3 {
-    font-family: "Playwrite AT", cursive;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
+.sitedescription4 {
+    padding: 50px 30px;
+    color: black;
+    text-align: left;
+    font-size: 200%;
+    border-bottom: 1px solid black;
+}
+
+.sitedescription4 .textedescription4 {
+    font-size: 100%;
+    margin-top: 20px;
+}
+/* Avis */
+.container-notation{
+    display:flex;
+    min-height:60vh;
+}
+
+.container-notation .reservation{
+    flex:1;
+}
+
+.image-section1{
+    flex:1;
+}
+
+.image-section1 img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.reservation2 {
+    flex: 1;
+    background: #ffffff;
+    padding: 80px;
+}
+
+.vide{
+    flex: 3;
+}
+
+.reservation2 h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.reservation2 input[type="number"] {
+    width: 250px;
+}
+
+.reservation2 .row {
+    justify-content: flex-start;
+}
+
+.reservation2 button {
+    width: 250px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+/* Page de notation FIN */
+
+/* Tom */
+.lien_tom {
+    position: absolute;
+    display: inline-block;
+    color: white;
+    font-size: 250%;
+    padding: 10px 10px;
+    border: 1px solid white;
+    background-color: black;
+    border-radius: 15px;
+    bottom: 30px;
+    right: 20px;
+}
+
+.lien_tom:hover {
+    cursor: pointer;
+}
+
+/* Page Ville DEBUT */
+
+/* HEADER */
+.site-header{
+    background:#ffffff;
+    padding:16px 32px;
+    border-bottom:1px solid #dddddd;
+}
+
+.top-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.left-group{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+/* ACTIONS */
+.cart{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+/* BURGER */
+.burger{
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* OVERLAY */
+.overlay-menu{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#ffffff;
+    z-index:9999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transform:translateX(100%);
+    transition:0.4s ease;
+}
+
+.overlay-menu.open{
+    transform:translateX(0);
+}
+
+.close-btn{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.overlay-menu ul{
+    list-style:none;
+    text-align:center;
+}
+
+.overlay-menu li{
+    margin:20px 0;
+}
+
+.overlay-menu a{
+    font-size:32px;
+    text-decoration:none;
+    color:#000;
+    font-weight:bold;
+}
+
+/* PRODUITS */
+.sitedescriptionville {
     padding: 40px 30px;
     text-align: center;
     border-bottom: 2px solid black;
-    border-top: 2px solid black;
+    color: black;
+    font-size: 250%;
 }
 
-/* Avis */
+.products{
+    padding:0 32px 60px 32px;
+    font-size: 200%;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.products h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:30px;
+}
+
+.product-card{
+    text-align:center;
+    font-size: 50%;
+}
+
+.product-image{
+    position:relative;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    transition:0.4s ease;
+}
+
+.product-card:hover img{
+    transform:scale(1.1);
+}
+
+.add-to-cart{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:10px 20px;
+    background:black;
+    color:white;
+    border:none;
+    cursor:pointer;
+    opacity:0;
+    transition:0.3s ease;
+}
+
+.product-card:hover .add-to-cart{
+    opacity:1;
+}
+
+.product-card h3{
+    margin-top:12px;
+}
+
+.price{
+    font-weight:bold;
+    margin-top:6px;
+}
+
+/* FOOTER */
+.footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 40px 0px;
+    margin-top: auto;
+    border-top: 1px solid white;
+}
+
+/* LOGO TEXTE */
+.logo-text{
+    text-decoration:none;
+    color:#000;
+    font-size:24px;
+    font-weight:bold;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.logo-text:hover{
+    opacity:0.7;
+}
+
+/* Page Ville FIN */
+
+/* Page réservation DEBUT */
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.image-section {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay2 {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.overlay2 h3{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.overlay2 h3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.overlay2 h3 a:hover {
+    text-decoration: underline;
+}
+
+.overlay2 a {
+    color: white;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
 .reservation {
     flex: 1;
     background: #ffffff;
     padding: 80px;
+}
+
+.subtitle {
+    letter-spacing: 2px;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
 }
 
 .reservation h2 {
@@ -451,19 +778,673 @@ form {
     gap: 20px;
 }
 
-.lien_tom {
-    position: absolute;
-    display: inline-block;
-    color: white;
-    font-size: 250%;
-    padding: 10px 10px;
-    border: 1px solid white;
-    background-color: black;
-    border-radius: 15px;
-    bottom: 30px;
-    right: 20px;
+input, select, textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
-.lien_tom:hover {
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #000;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+button {
+    padding: 15px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 3px solid white;
+}
+
+button:hover {
+    border-color: green;
+}
+
+/* Page réservation FIN */
+
+/* Page commander DEBUT */
+.container2 {
+    flex: 1;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    font-size: 150%;
+    border: 1px solid black;
+    border-top: 1px solid white;
+    border-bottom: none;
+}
+
+h4 {
+    text-align: center;
+    margin: 0;
+    color: black;
+}
+
+.cart-box, .account-box, form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.cart-box h5 {
+    margin-top: 0;
+}
+
+.cities {
+    padding-left: 18px;
+}
+
+.cities a {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+.cities a:hover {
+    text-decoration: underline;
+}
+
+.cart-sample summary {
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+}
+
+.cart-items li {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.account-box {
+    text-align: center;
+}
+
+.connexion {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.connexion:hover {
+    text-decoration: underline;
+}
+
+form h5 {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.9rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 3px solid white;
+}
+
+.submit-btn:hover {
+    border-color: green;
+}
+
+.city-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.btn-link {
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+    background: #f8f8f8;
+    color: black;
+    transition: 0.2s;
+}
+
+.btn-link:hover {
+    background: black;
+    color: white;
+}
+
+/* Page commander FIN */
+
+/* Page profil DEBUT */
+
+.profile-container {
+    width: 900px;
+    max-width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px 20px;
+}
+
+.header-profil {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.header-profil h1 {
+    color: black;
+    margin: 0 0 10px 0;
+}
+
+.dashboard {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.carte {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    border: 3px solid black;
+}
+
+.carte h2 {
+    color: black;
+    margin-top: 0;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.info-ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.info-ligne:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.info-valeur {
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-modifier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
 }
+
+.btn-modifier:hover {
+    border-color: green;
+}
+
+.crayon-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+/* Listes pour commandes et fidélité */
+.sitedescription3 {
+    font-size: 200%;
+    font-weight: 300;
+    font-style: normal;
+    padding: 40px 30px;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+.liste-commandes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.liste-commandes li {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #e1f5fe;
+}
+
+.fidelite {
+    text-align: center;
+    padding: 20px;
+}
+
+.fidelite-score {
+    font-size: 48px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 0px grey;
+}
+
+.fidelite-texte {
+    color: #555;
+    margin-top: 10px;
+}
+/* Page profil FIN */
+
+/* Page commandes DEBUT */
+main.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 18px auto 32px;
+    padding: 0 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.filter-btn2 {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 3px solid #ddd;
+    background: black;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: "Annie Use Your Telescope", cursive;
+    font-size: 150%;
+}
+
+.filter-btn2:hover {
+    color: white;
+    border-color: green
+}
+
+.grid2 {
+    display: grid;
+    gap: 14px;
+}
+
+@media (min-width: 820px) {
+  .grid2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.order-card {
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    display: flex;
+    gap: 12px;
+    border-left: 6px solid transparent;
+    align-items: flex-start;
+}
+
+.order-card.status-a_preparer {
+    border-left-color: #f59e0b;
+}
+.order-card.status-en_livraison {
+    border-left-color: #111111;
+}
+.order-card.status-livree {
+    border-left-color: #16a34a;
+    opacity: 0.95;
+}
+
+.order-card .meta {
+    min-width: 160px;
+    max-width: 220px;
+    color: #6b7280;
+    font-size: 25px;
+}
+
+.order-card .meta .id {
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 6px;
+}
+
+.order-card .details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    background: #fafafa;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    font-size: 25px;
+}
+
+.customer {
+    font-weight: 700;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 25px;
+    color: white;
+}
+
+.badge-a_preparer {
+    background: #f59e0b;
+    color: #222;
+}
+
+.badge-en_livraison {
+    background: #111;
+}
+
+.badge-livree {
+    background: #16a34a;
+    color: #fff;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn2 {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: white;
+    font-weight: 700;
+    font-size: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.btn2.primary {
+    background: #111;
+    color: white;
+    border-color: transparent;
+    font-family: "Annie Use Your Telescope", cursive;
+}
+
+.btn2.success {
+    background: #16a34a;
+    color: white;
+    border-color: transparent;
+    font-family: "Annie Use Your Telescope", cursive;
+}
+
+.btn2.ghost {
+    background: transparent;
+    border: 1px dashed #ddd;
+}
+
+.btn2:disabled {
+    opacity: 0.45;
+}
+
+@media (max-width: 640px) {
+  .order-card {
+    flex-direction: column;
+  }
+  .order-card .meta {
+    max-width: 100%;
+    min-width: auto;
+    order: 2;
+  }
+  .order-card .details {
+    order: 1;
+  }
+}
+/* Page commandes FIN */
+
+/* Page de livraison DEBUT */
+.delivery-container {
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    border: 3px solid black;
+    font-size: 25px;
+    margin: auto; 
+}
+
+h6 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: black;
+}
+
+.card3 {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card3 h3 {
+    margin-top: 0;
+}
+
+.btn4 {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.map-btn4 {
+    background: #007bff;
+    color: white;
+}
+
+.call-btn4 {
+    background: #28a745;
+    color: white;
+}
+
+.success-btn4 {
+    width: 100%;
+    background: #000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Page de livraison FIN */
+
+/* Page de connexion/inscription DEBUT */
+.container3 {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border-radius: 15px;
+    width: 450px;
+    max-width: 90%;
+    border: 3px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h7 {
+    text-align: center;
+    color: black;
+    margin-bottom: 30px;
+    font-size: 300%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label1 {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 500;
+    font-size: 150%;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="tel"], 
+textarea {
+    font-size: 150%;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: white;
+}
+
+button2 {
+    font-size: 150%;
+    width: 100%;
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: black;
+    border: 3px solid white;
+    margin-top: 10px;
+}
+
+button2:hover {
+    border-color: green;
+}
+
+.liens-secondaires {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.liens-secondaires a {
+    color: black;
+    text-decoration: none;
+    font-size: 100%;
+}
+
+.liens-secondaires a:hover {
+    text-decoration: underline;
+}
+
+/* Page de connexion/inscription FIN */

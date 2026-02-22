@@ -3,25 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page des commandes</title>
-    <link rel="stylesheet" href="commandes.css">
+    <title>Commandes</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Images/Among_Us.png">
 </head>
 <body>
-<header class="navbar">
-    <a href="page-d'accueil.html" class="accueil">L'imposture</a>
-    <div class="navliens">
-        <div class="title">📋 Page des commandes</div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AT:ital,wght@0,100..400;1,100..400&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap" rel="stylesheet">
+
+    <header class="navbar">
+        <a href="page-d'accueil.html" class="accueil">IMPOSTEUR</a>
+        <div class="navliens">
+            <div class="menu">
+                <a>Réservation</a>
+                <div class="infos">
+                    <a href="reserver.html">Réserver une table</a>
+                    <a href="commander.html">Commander</a>
+                </div>
+            </div>
+            <div class="menu">
+                <a href="Notation.html">Notation</a>
+            </div>
+            <div class="menu">
+                <a>Compte</a>
+                <div class="infos">
+                    <a href="profil.html">Voir Profil</a>
+                    <a href="connexion.html">Connexion</a>
+                    <a href="inscription.html">Inscription</a>
+                </div>
+            </div>
+            <div class="menu">
+                <a>Services</a>
+                <div class="infos">
+                    <a href="commandes.html">Commandes</a>
+                    <a href="livraison.html">Livraison</a>
+                </div>
+            </div>
+            <div class="menu">
+                <a href="Admin.html">Admin</a>
+            </div>
+            <input type="text" id="searchInput2" placeholder="Rechercher nos produits ..." autocomplete="off">
+        </div>
+    </header>
+
+    <div class="sitedescription3">
+        <h1>Page des Commandes</h1>
     </div>
-</header>
 <main class="container">
     <div class="filters">
-        <button class="filter-btn">Toutes</button>
-        <button class="filter-btn">À préparer</button>
-        <button class="filter-btn">En livraison</button>
-        <button class="filter-btn">Livrée</button>
+        <button class="filter-btn2">Toutes</button>
+        <button class="filter-btn2">À préparer</button>
+        <button class="filter-btn2">En livraison</button>
+        <button class="filter-btn2">Livrée</button>
     </div>
-    <div class="grid">
+    <div class="grid2">
         <div class="order-card status-a_preparer">
             <div class="meta">
                 <div class="id">#001</div>
@@ -35,8 +78,8 @@
                 </div>
                 <div class="status-badge badge-a_preparer">À préparer</div>
                 <div class="actions">
-                    <button class="btn primary">Mettre en livraison</button>
-                    <button class="btn ghost">Supprimer</button>
+                    <button class="btn2 primary">Mettre en livraison</button>
+                    <button class="btn2 ghost">Supprimer</button>
                 </div>
             </div>
         </div>
@@ -52,7 +95,7 @@
                 </div>
                 <div class="status-badge badge-en_livraison">En livraison</div>
                 <div class="actions">
-                    <button class="btn success">Marquer livrée</button>
+                    <button class="btn2 success">Marquer livrée</button>
                 </div>
             </div>
         </div>
@@ -72,8 +115,8 @@
     </div>
 </main>
 
-<footer class="site-foot">
-    <p>📞 Téléphone : 07 61 41 44 23</p>
+<footer class="footer">
+    <p>📞 Téléphone : 07 67 01 02 03</p>
     <p>✉ Email : imposturecontact@gmail.com</p>
     <p>Horaires : Lundi - Vendredi 10h-21h | Samedi - Dimanche 12h-18h</p>
 </footer>
