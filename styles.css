@@ -34,7 +34,6 @@ body {
     font-style: normal;
 }
 
-
 /* Barre du haut */
 .navbar {
     padding: 10px 30px;
@@ -42,6 +41,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: black;
+    border-bottom: 1px solid white;
 }
 
 .navbar a {
@@ -58,7 +58,7 @@ body {
     text-align: center;
     padding: 40px 0px;
     margin-top: auto;
-    border-top: 1px solid white;
+    border-top: 5px solid white;
 }
 
 /* Description du site */
@@ -98,14 +98,16 @@ a {
     color: white;
     font-size: 400%;
     padding: 10px 10px;
-    border: 1px solid white;
+    border: 3px solid white;
     background-color: black;
     border-radius: 0 0 15px 15px;
     padding: 0 20px;
+    border-top: none;
 }
 
 .a1:hover {
     cursor: pointer;
+    border-color: green;
 }
 
 .villes {
@@ -121,7 +123,7 @@ a {
     display: inline-block;
     font-size: 200%;
     cursor: pointer;
-    border: 1px solid white;
+    border: 3px solid white;
     background-color: black;
     padding: 0 0px;
     border-radius: 15px 15px 15px 15px;
@@ -136,6 +138,10 @@ a {
     border-radius: 10px;
     padding: 10px 0px;
     z-index: 1;
+}
+
+.menu:hover {
+    border-color: green;
 }
 
 .menu:hover .infos {
@@ -414,17 +420,6 @@ a {
 /* Page Admin FIN */
 
 /* Page de notation DEBUT */
-.sitedescription3 {
-    font-family: "Playwrite AT", cursive;
-    font-size: 200%;
-    font-weight: 300;
-    font-style: normal;
-    padding: 40px 30px;
-    text-align: center;
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
-}
-
 /* Avis */
 .reservation {
     flex: 1;
@@ -558,7 +553,6 @@ form {
     padding: 40px 30px;
     text-align: center;
     border-bottom: 2px solid black;
-    border-top: 2px solid black;
     color: black;
     font-size: 250%;
 }
@@ -763,11 +757,11 @@ button {
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    border: 3px solid white;
 }
 
 button:hover {
-    background: #333;
+    border-color: green;
 }
 
 /* Page réservation FIN */
@@ -793,22 +787,6 @@ h4 {
     text-align: center;
     margin: 0;
     color: white;
-}
-
-.back-home {
-    text-decoration: none;
-    background: #f0f0f0;
-    color: black;
-    padding: 8px 14px;
-    border-radius: 8px;
-    width: fit-content;
-    transition: 0.2s;
-}
-
-.back-home:hover {
-    background: black;
-    color: white;
-    border: 1px solid white;
 }
 
 .cart-box, .account-box, form {
@@ -902,11 +880,11 @@ input:focus, textarea:focus {
     color: white;
     border-radius: 8px;
     cursor: pointer;
-    transition: 0.2s;
+    border: 3px solid white;
 }
 
 .submit-btn:hover {
-    background: #333;
+    border-color: green;
 }
 
 .city-links {
@@ -934,3 +912,407 @@ input:focus, textarea:focus {
 }
 
 /* Page commander FIN */
+
+/* Page profil DEBUT */
+
+.profile-container {
+    width: 900px;
+    max-width: 95%;
+    margin: 60px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-profil {
+    text-align: center;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.header-profil h1 {
+    color: #0288d1;
+    font-family: 'Pacifico', cursive;
+    margin: 0 0 10px 0;
+}
+
+.retour-accueil {
+    color: #0288d1;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.retour-accueil:hover {
+    text-decoration: underline;
+}
+
+.dashboard {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.carte {
+    background: #f1fbfc;
+    border: 1px solid lightblue;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.carte h2 {
+    color: #0277bd;
+    margin-top: 0;
+    border-bottom: 2px solid #81d4fa;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.info-ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed lightblue;
+}
+
+.info-ligne:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.info-valeur {
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-modifier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-modifier:hover {
+    border-color: green;
+}
+
+.crayon-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+/* Listes pour commandes et fidélité */
+.sitedescription3 {
+    font-size: 200%;
+    font-weight: 300;
+    font-style: normal;
+    padding: 40px 30px;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+.liste-commandes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.liste-commandes li {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #e1f5fe;
+}
+
+.fidelite {
+    text-align: center;
+    padding: 20px;
+}
+
+.fidelite-score {
+    font-size: 48px;
+    font-weight: bold;
+    color: #03a9f4;
+    text-shadow: 2px 2px 0px #b3e5fc;
+}
+
+.fidelite-texte {
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Page commandes DEBUT */
+main.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 18px auto 32px;
+    padding: 0 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.filter-btn2 {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 3px solid #ddd;
+    background: black;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: "Annie Use Your Telescope", cursive;
+    font-size: 150%;
+}
+
+.filter-btn2:hover {
+    color: white;
+    border-color: green
+}
+
+.grid2 {
+    display: grid;
+    gap: 14px;
+}
+
+@media (min-width: 820px) {
+  .grid2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.order-card {
+    background: #ffffff;
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    display: flex;
+    gap: 12px;
+    border-left: 6px solid transparent;
+    align-items: flex-start;
+}
+
+.order-card.status-a_preparer {
+    border-left-color: #f59e0b;
+}
+.order-card.status-en_livraison {
+    border-left-color: #111111;
+}
+.order-card.status-livree {
+    border-left-color: #16a34a;
+    opacity: 0.95;
+}
+
+.order-card .meta {
+    min-width: 160px;
+    max-width: 220px;
+    color: #6b7280;
+    font-size: 25px;
+}
+
+.order-card .meta .id {
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 6px;
+}
+
+.order-card .details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    background: #fafafa;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    font-size: 25px;
+}
+
+.customer {
+    font-weight: 700;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 25px;
+    color: white;
+}
+
+.badge-a_preparer {
+    background: #f59e0b;
+    color: #222;
+}
+
+.badge-en_livraison {
+    background: #111;
+}
+
+.badge-livree {
+    background: #16a34a;
+    color: #fff;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn2 {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: white;
+    font-weight: 700;
+    font-size: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.btn2.primary {
+    background: #111;
+    color: white;
+    border-color: transparent;
+    font-family: "Annie Use Your Telescope", cursive;
+}
+
+.btn2.success {
+    background: #16a34a;
+    color: white;
+    border-color: transparent;
+    font-family: "Annie Use Your Telescope", cursive;
+}
+
+.btn2.ghost {
+    background: transparent;
+    border: 1px dashed #ddd;
+}
+
+.btn2:disabled {
+    opacity: 0.45;
+}
+
+@media (max-width: 640px) {
+  .order-card {
+    flex-direction: column;
+  }
+  .order-card .meta {
+    max-width: 100%;
+    min-width: auto;
+    order: 2;
+  }
+  .order-card .details {
+    order: 1;
+  }
+}
+
+/* Page de livraison DEBUT */
+.delivery-container {
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    border: 3px solid black;
+    border-top: none;
+    font-size: 25px;
+    background-color: black;
+}
+
+h6 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    color: white;
+}
+
+.card3 {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card3 h3 {
+    margin-top: 0;
+}
+
+.btn4 {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.map-btn4 {
+    background: #007bff;
+    color: white;
+}
+
+.call-btn4 {
+    background: #28a745;
+    color: white;
+}
+
+.success-btn4 {
+    width: 100%;
+    background: #000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
