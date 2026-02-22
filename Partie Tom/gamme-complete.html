@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamme complète - L'imposture</title>
+    <link rel="icon" href="Images/icon.png">
+    <link rel="stylesheet" href="LowPoly.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <style>
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-gauche">
+            <div class="boite-logo" onclick="window.location.href='LowPoly.html'">
+                <span class="titre">L'imposture</span>
+                <span class="indice">Low Poly</span>
+            </div>
+
+            <a href="a-propos.html" class="lien-a-propos">Qui sommes-nous</a>
+        </div>
+
+        <div class="conteneur-recherche">
+            <div class="barre-recherche">
+                <input type="text" class="champ-recherche" placeholder="Rechercher un plat...">
+                <button class="bouton-recherche">
+                    <img src="Images/search.png" alt="Recherche" class="icone-recherche">
+                </button>
+            </div>
+        </div>
+
+        <div class="nav-droite">
+            <div class="enveloppe-lien-retour">
+                <a href="../page-d'accueil.html" class="lien-retour">
+                    <span class="fleche-retour">←</span>
+                    <span class="texte-retour">Retour à la page principale</span>
+                </a>
+            </div>
+
+            <div class="menu-deroulant">
+                <button class="bouton-deroulant">Réserver</button>
+                <div class="contenu-deroulant">
+                    <a href="../reserver.html">Réserver une table</a>
+                    <a href="../commander.html">Commander</a>
+                </div>
+            </div>
+
+            <a href="../profil.html" class="lien-profil">
+                <img src="Images/utilisateur.png" alt="Profil" class="icone-profil">
+            </a>
+
+            <a href="../panier.html" class="lien-panier">
+                <span class="texte-panier">Panier</span>
+                <img src="Images/panier.png" alt="Panier" class="icone-panier">
+            </a>
+        </div>
+    </header>
+
+    <main class="conteneur-principal">
+        <h1>Notre gamme complète</h1>
+        <p>Découvrez l'ensemble de notre carte, modélisée en 3D !</p>
+
+        <div class="filter-header">
+            <h2 class="titre-section" style="font-size: 1.8rem; margin:0;">Tous les produits</h2>
+
+            <div class="menu-deroulant">
+                <button class="bouton-deroulant"
+                    style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; border: none;">Trier
+                    par catégorie ▼</button>
+                <div class="contenu-deroulant" style="min-width: 180px;">
+                    <a href="#">Bœuf</a>
+                    <a href="#">Poulet</a>
+                    <a href="#">Poisson</a>
+                    <a href="#">Végétarien</a>
+                    <a href="#">Salé</a>
+                    <a href="#">Sucré</a>
+                    <a href="#">Boissons</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grille-produits">
+            <!-- Produit Exemples -->
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Burger.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Burger Classique</h3>
+                    <div class="prix-produit">8.50 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Apple.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Pomme Rouge</h3>
+                    <div class="prix-produit">1.50 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Pancake.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Pancake Sirop</h3>
+                    <div class="prix-produit">4.20 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Sushi_Roll1.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Maki Saumon (x6)</h3>
+                    <div class="prix-produit">6.90 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Waffle.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Gaufre Belge</h3>
+                    <div class="prix-produit">3.80 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Bottle.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Bouteille d'eau</h3>
+                    <div class="prix-produit">2.00 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <!-- Nouveaux produits ajoutés depuis l'accueil -->
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/BurgerLarge.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Le Maxi Burger</h3>
+                    <div class="prix-produit">12.99 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Pizza.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Pizza Chef</h3>
+                    <div class="prix-produit">14.50 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Fries.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Frites dorées</h3>
+                    <div class="prix-produit">4.50 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Steak.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Steak Grillé</h3>
+                    <div class="prix-produit">18.00 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Sashimi_Salmon.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Sashimi Saumon</h3>
+                    <div class="prix-produit">8.99 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Sushi_NigiriOctopus.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Nigiri Poulpe</h3>
+                    <div class="prix-produit">7.50 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Donut1.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Donut Givré</h3>
+                    <div class="prix-produit">3.20 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/IceCream_4.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Glace Sundae</h3>
+                    <div class="prix-produit">5.00 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Cupcake.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Cupcake Magique</h3>
+                    <div class="prix-produit">4.00 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Croissant.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Croissant Doré</h3>
+                    <div class="prix-produit">2.50 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/Hotdog.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Hot-Dog New-Yorkais</h3>
+                    <div class="prix-produit">6.50 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+            <div class="carte-produit">
+                <a href="produit-burger.html" class="lien-agrandir" title="Ouvrir la page de ce produit">
+                    <img src="Images/fleche.png" class="icone-agrandir" alt="Agrandir">
+                </a>
+                <model-viewer class="visualiseur-produit" src="3D assets glb/ChickenLeg.glb" auto-rotate
+                    shadow-intensity="1"></model-viewer>
+                <div class="infos-produit">
+                    <h3 class="nom-produit">Cuisse de Poulet</h3>
+                    <div class="prix-produit">5.50 €</div>
+                    <button class="bouton-ajout">Ajout rapide</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

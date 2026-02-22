@@ -1,0 +1,1055 @@
+/*
+ * Base et Typographie
+ * Utilisé sur : Toutes les pages (LowPoly.html, gamme-complete.html, produit-burger.html etc.)
+ * Gère le fond, la police et l'apparence globale du site.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    /* dégradé très subtil, du haut à gauche vers le bas à droite*/
+    background: linear-gradient(135deg, #ebf4f5 0%, #b5c6e0 100%);
+    background-attachment: fixed;
+    height: 2000px;
+    color: #333;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.boite-logo {
+    display: inline-flex;
+    align-items: baseline;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.boite-logo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
+}
+
+.titre {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.indice {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 12px;
+    color: #555;
+    background: rgba(0, 0, 0, 0.06);
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.conteneur-principal {
+    padding-top: 150px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    background-clip: text;
+    color: transparent;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+p {
+    font-size: 1.25rem;
+    color: #4a5568;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 24px 32px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    display: inline-block;
+}
+
+/* Fais en sorte qu'au chargement de la page, il y ai une animation*/
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.barre-intro-haut {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    /* 3 zones pour centrer celle du milieu */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.barre-intro-haut p {
+    margin: 0;
+}
+
+.alignement-droite {
+    text-align: right;
+}
+
+/* On enlève le décalage du bouton en haut pour qu'il soit bien aligné avec le texte */
+.barre-intro-haut .bouton-action {
+    margin-top: 0;
+}
+
+/*
+ * Menu de navigation (Header)
+ * Utilisé sur : Toutes les pages (via la balise <header>)
+ * Contient le logo, le bouton "Qui sommes-nous", la barre de recherche, le profil, le panier, et le menu déroulant.
+ */
+
+.nav-droite {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-gauche {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.lien-a-propos {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.lien-a-propos:hover {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+    color: #1e3c72;
+}
+
+/* Bouton Retour */
+.enveloppe-lien-retour {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    margin-right: 15px;
+}
+
+.lien-retour {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    position: absolute;
+    right: 0;
+    height: 44px;
+    width: 44px;
+    border-radius: 22px;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    background: transparent;
+    overflow: hidden;
+    padding: 0;
+}
+
+.lien-retour .fleche-retour {
+    font-size: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lien-retour .texte-retour {
+    opacity: 0;
+    font-size: 14px;
+    white-space: nowrap;
+    position: absolute;
+    left: 55px;
+    /* Apparaît après la flèche */
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.enveloppe-lien-retour:hover .lien-retour {
+    width: 250px;
+    border-color: black;
+    background: white;
+}
+
+.enveloppe-lien-retour:hover .fleche-retour {
+    left: 20px;
+    transform: translateX(0);
+}
+
+.enveloppe-lien-retour:hover .texte-retour {
+    opacity: 1;
+}
+
+/* Bouton "Réserver" */
+.menu-deroulant {
+    position: relative;
+    display: inline-block;
+}
+
+.bouton-deroulant {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.bouton-deroulant:hover,
+.menu-deroulant:hover .bouton-deroulant {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.contenu-deroulant {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    min-width: 200px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    border-radius: 12px;
+    padding: 8px 0;
+    z-index: 1001;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    margin-top: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Pont invisible pour éviter que le menu ne se ferme quand on glisse la souris */
+.contenu-deroulant::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+}
+
+.menu-deroulant:hover .contenu-deroulant {
+    display: block;
+    animation: dropInMenu 0.3s ease forwards;
+}
+
+@keyframes dropInMenu {
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.contenu-deroulant a {
+    color: #333;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+}
+
+.contenu-deroulant a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #1e3c72;
+}
+
+/* Bouton Profil et Panier */
+.lien-profil,
+.lien-panier {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+    border-radius: 26px;
+    /* Toujours rond pour profil, pillule pour panier */
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 2px solid rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    color: #333;
+}
+
+.lien-profil {
+    width: 52px;
+}
+
+.lien-panier {
+    padding: 0 20px;
+    gap: 10px;
+}
+
+.texte-panier {
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    transition: color 0.4s ease;
+}
+
+.icone-profil,
+.icone-panier {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: filter 0.4s ease;
+}
+
+.lien-profil:hover,
+.lien-panier:hover {
+    transform: translateY(-3px) scale(1.05);
+    background-color: #2a5298;
+    /* Changement de couleur dynamique */
+    border-color: #1e3c72;
+    box-shadow: 0 8px 25px rgba(42, 82, 152, 0.3);
+}
+
+.lien-panier:hover .texte-panier {
+    color: white;
+}
+
+.lien-profil:hover .icone-profil,
+.lien-panier:hover .icone-panier {
+    /* Si l'image est noire, cette propriété va la blanchir avec le filtre *invert* */
+    filter: invert(1) brightness(2);
+}
+
+/* Barre de recherche (Milieu du Header) */
+.conteneur-recherche {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.barre-recherche {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    padding: 5px 15px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.barre-recherche:focus-within {
+    background: white;
+    box-shadow: 0 4px 15px rgba(31, 38, 135, 0.1);
+    border-color: #2a5298;
+}
+
+.champ-recherche {
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Outfit', sans-serif;
+    color: #333;
+    flex-grow: 1;
+}
+
+.bouton-recherche {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.bouton-recherche:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.icone-recherche {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 0.6;
+}
+
+/*
+ * Sections des produits et grilles
+ * Utilisé sur : LowPoly.html et gamme-complete.html
+ * Définit l'affichage en grille des articles et le design des "cartes" de produits.
+ */
+.section-categorie {
+    margin-top: 80px;
+    text-align: left;
+}
+
+.en-tete-section {
+    margin-bottom: 45px;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    /* Transformation en grande carte très large */
+    width: 90vw;
+    max-width: 1400px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(31, 38, 135, 0.08);
+    /* Pour l'effet carte sur carte */
+}
+
+.titre-section {
+    font-size: 2.8rem;
+    font-weight: 400;
+    font-family: serif;
+    color: #2b3a42;
+    margin: 0 0 25px 0;
+    /* Espace plus grand */
+    letter-spacing: -0.5px;
+}
+
+.sous-titre-section {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #9c6f44;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
+    display: inline-block;
+}
+
+.sous-titre-section::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #9c6f44;
+    margin: 12px auto 0 auto;
+}
+
+/* Grille de produits */
+.grille-produits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 10px;
+}
+
+.carte-produit {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.carte-produit:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(31, 38, 135, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.visualiseur-produit {
+    width: 100%;
+    height: 220px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background: radial-gradient(circle, rgba(235, 244, 245, 1) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.infos-produit {
+    width: 100%;
+    text-align: center;
+}
+
+.nom-produit {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+}
+
+.prix-produit {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2a5298;
+    background: rgba(42, 82, 152, 0.1);
+    padding: 6px 16px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.bouton-ajout {
+    width: 100%;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.bouton-ajout:hover {
+    background: #2a5298;
+    box-shadow: 0 4px 15px rgba(42, 82, 152, 0.4);
+}
+
+/*
+ * Bouton Gamme Complète (Appel à l'action)
+ * Utilisé sur : LowPoly.html (Tout en bas de la page)
+ * C'est le bloc proposant d'aller voir tout le catalogue.
+ */
+.boite-action {
+    margin: 100px auto 0 auto;
+    padding: 60px 40px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 240, 0.7) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    border: 2px solid #fff;
+    max-width: 900px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+}
+
+.boite-action h2 {
+    font-size: 2.6rem;
+    font-weight: 400;
+    font-family: serif;
+    color: #111;
+    margin: 0 0 15px 0;
+}
+
+.boite-action h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #111;
+    margin: 25px auto 35px auto;
+    border-radius: 2px;
+}
+
+.boite-action p {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 40px;
+    font-size: 1.25rem;
+    color: #444;
+}
+
+.bouton-action {
+    display: inline-block;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    border-radius: 30px;
+    box-shadow: 0 8px 25px rgba(31, 38, 135, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.bouton-action:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(31, 38, 135, 0.3);
+}
+
+/*
+ * Adaptation sur téléphone (Responsive)
+ * Utilisé sur : Toutes les pages
+ * Ce bloc CSS s'active uniquement si l'écran est plus petit que 768px (les mobiles).
+ * Réorganise le header et met les éléments de la grille un par un.
+ */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-droite {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .nav-gauche {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .conteneur-recherche {
+        width: 100%;
+        padding: 0;
+        order: 3;
+        /* Met la recherche en bas du header sur tel */
+    }
+
+    .lien-retour .texte-retour {
+        display: none !important;
+        /* Cache le texte sur téléphone */
+    }
+
+    .conteneur-principal {
+        padding-top: 280px;
+        /* Plus d'espace car header plus grand avec la barre de recherche */
+    }
+
+    .bouton-deroulant {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .lien-profil {
+        width: 44px;
+        height: 44px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .grille-produits {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*
+ * Page produit détaillée (Burger etc.)
+ * Utilisé sur : produit-burger.html
+ * Gère le layout séparé en deux (moitié visuel 3D, moitié texte descriptif), 
+ * l'icône "agrandir", et les styles de détails du produit.
+ */
+.lien-agrandir {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icone-agrandir {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.carte-produit:hover .lien-agrandir {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.lien-agrandir:hover {
+    background: #1e3c72;
+}
+
+.lien-agrandir:hover .icone-agrandir {
+    filter: invert(1);
+}
+
+.conteneur-detail-produit {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Va savoir pourqoi le wrap bug. flex-wrap: nowrap; règle le problème */
+    width: 100%;
+    min-height: 100vh;
+}
+
+.modele-detail-produit {
+    flex: 1;
+    min-width: 50%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 40px 40px 40px;
+    /* Compense le header */
+    box-sizing: border-box;
+}
+
+.texte-detail-produit {
+    flex: 1;
+    min-width: 50%;
+    background: #ebe6df;
+    padding: 150px 80px 80px 80px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.visualiseur-detail-produit {
+    width: 100%;
+    max-width: 800px;
+    height: 700px;
+}
+
+/* Permet d'enlever la barre grise moche lors du chargement des assets 3D (.glb)*/
+model-viewer {
+    outline: none;
+}
+
+model-viewer::part(default-progress-bar) {
+    display: none;
+}
+
+
+.titre-detail {
+    font-size: 3rem;
+    font-weight: 400;
+    color: #2b3a42;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-family: serif;
+}
+
+.prix-detail {
+    font-size: 2.5rem;
+    color: #2b3a42;
+    margin-bottom: 25px;
+    font-family: serif;
+}
+
+.etiquettes-detail {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.etiquette-detail {
+    border: 1px solid #7c8585;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #2b3a42;
+    font-weight: 500;
+}
+
+.description-detail {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.degustation-detail {
+    border-top: 2px solid #2b3a42;
+    border-bottom: 2px solid #2b3a42;
+    padding: 20px 0;
+    margin-bottom: 40px;
+    display: flex;
+}
+
+.etiquette-degustation {
+    width: 30%;
+    font-weight: bold;
+    color: #2b3a42;
+}
+
+.liste-degustation {
+    width: 70%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.liste-degustation li {
+    margin-bottom: 5px;
+    color: #4a5568;
+}
+
+.liste-degustation li::before {
+    content: "•";
+    color: #e74c3c;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+}
+
+.ligne-controles-detail {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #2b3a42;
+    padding-bottom: 30px;
+}
+
+.groupe-controles {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.bouton-quantite {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #7c8585;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.champ-quantite {
+    width: 40px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.bouton-ajout-detail {
+    width: 100%;
+    background: #7a151b;
+    /* Le rouge foncé pour le joli bouton (ça incite les gens à cliquer ahah) */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.bouton-ajout-detail:hover {
+    background: #5c1014;
+}
+
+/*
+ * Page "Qui sommes nous ?"
+ */
+
+.grille-principale {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(20, 150px);
+    padding-top: 50px;
+
+    /* Astuce magique spécial Tom */
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+
+}
+
+
+.zone-a-completer {
+    margin: 30px;
+    border: 2px solid #7a151b;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightcoral;
+    color: black;
+}
+
+.elmt1 {
+    grid-column: 1/2;
+    grid-row: 1/5;
+}
+
+.elmt2 {
+    grid-column: 2/3;
+    grid-row: 6/10;
+}
+
+.elmt3 {
+    grid-column: 2/3;
+    grid-row: 1/5;
+    margin: 30px;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.elmt5 {
+    grid-column: 1/2;
+    grid-row: 6/8;
+    margin: 30px;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    text-align: left;
+}
+
+.elmt4 {
+    grid-column: 1/2;
+    grid-row: 8/10;
+    margin: 30px;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    text-align: left;
+}
+
+.elmt3 .contenu-texte,
+.elmt4 .contenu-texte,
+.elmt5 .contenu-texte {
+    flex: 1;
+}
+
+.titre-apropos {
+    font-size: 2.2rem;
+    font-family: serif;
+    color: #2b3a42;
+    margin: 0 0 15px 0;
+}
+
+.texte-apropos {
+    font-size: 1.25rem;
+    color: #4a5568;
+    line-height: 1.8;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.lien-inspiration {
+    color: #9c6f44;
+    text-decoration: none;
+    font-weight: 800;
+    transition: color 0.3s ease;
+}
+
+.lien-inspiration:hover {
+    color: #7a151b;
+}
+
+.image-apropos {
+    width: 35%;
+    max-width: 250px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}

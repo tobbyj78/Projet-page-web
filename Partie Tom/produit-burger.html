@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Maxi Burger - L'imposture</title>
+    <link rel="icon" href="Images/icon.png">
+    <link rel="stylesheet" href="LowPoly.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <!-- Désactive le scroll sur cette page spécifique pour figer le burger et les détails à l'écran -->
+    <style>
+        body {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-gauche">
+            <div class="boite-logo" onclick="window.location.href='LowPoly.html'">
+                <span class="titre">L'imposture</span>
+                <span class="indice">Low Poly</span>
+            </div>
+
+            <a href="a-propos.html" class="lien-a-propos">Qui sommes-nous</a>
+        </div>
+
+        <div class="conteneur-recherche">
+            <div class="barre-recherche">
+                <input type="text" class="champ-recherche" placeholder="Rechercher un plat...">
+                <button class="bouton-recherche">
+                    <img src="Images/search.png" alt="Recherche" class="icone-recherche">
+                </button>
+            </div>
+        </div>
+
+        <div class="nav-droite">
+            <div class="enveloppe-lien-retour">
+                <a href="../page-d'accueil.html" class="lien-retour">
+                    <span class="fleche-retour">←</span>
+                    <span class="texte-retour">Retour à la page principale</span>
+                </a>
+            </div>
+
+            <div class="menu-deroulant">
+                <button class="bouton-deroulant">Réserver</button>
+                <div class="contenu-deroulant">
+                    <a href="../reserver.html">Réserver une table</a>
+                    <a href="../commander.html">Commander</a>
+                </div>
+            </div>
+
+            <a href="../profil.html" class="lien-profil">
+                <img src="Images/utilisateur.png" alt="Profil" class="icone-profil">
+            </a>
+
+            <a href="../panier.html" class="lien-panier">
+                <span class="texte-panier">Panier</span>
+                <img src="Images/panier.png" alt="Panier" class="icone-panier">
+            </a>
+        </div>
+    </header>
+
+    <main class="conteneur-detail-produit">
+
+        <!-- Colonne Gauche : Modèle 3D Interactif -->
+        <div class="modele-detail-produit">
+            <!-- camera-controls activé spécifiquement ici pour que l'utilisateur puisse interagir -->
+            <model-viewer class="visualiseur-detail-produit" src="3D assets glb/BurgerLarge.glb" auto-rotate camera-controls
+                disable-zoom shadow-intensity="1">
+            </model-viewer>
+        </div>
+
+        <!-- Colonne Droite : Détails du produit -->
+        <div class="texte-detail-produit">
+            <h1 class="titre-detail">Le Maxi Burger</h1>
+            <div class="prix-detail">12.99 €</div>
+
+            <div class="etiquettes-detail">
+                <span class="etiquette-detail">Gourmand</span>
+                <span class="etiquette-detail">Fait maison</span>
+            </div>
+
+            <p class="description-detail">
+                Découvrez notre incontournable Maxi Burger, un modèle 3D low poly savoureux et réconfortant. Récemment
+                récompensé par la critique, ce burger est parsemé de graines de sésame et offre une texture visuelle
+                croustillante. Servi avec notre fameuse sauce secrète, c'est l'article de choix pour une faim de loup.
+                Attendez-vous à des notes de grillé, une touche sucrée-salée et une abondance de polygone.
+            </p>
+
+            <div class="degustation-detail">
+                <div class="etiquette-degustation">Ingrédients</div>
+                <ul class="liste-degustation">
+                    <li>Pain</li>
+                    <li>Steak</li>
+                    <li>Tomate</li>
+                    <li>Salade</li>
+                    <li>Cheddar</li>
+                </ul>
+            </div>
+
+            <div class="ligne-controles-detail">
+                <div class="groupe-controles">
+                    <span class="etiquette-degustation" style="width:auto; margin-right:10px;">Format :</span>
+                    <span class="etiquette-detail"
+                        style="background: #2b3a42; color: white; border-color: #2b3a42;">Classique</span>
+                    <span class="etiquette-detail">XL</span>
+                </div>
+            </div>
+
+            <div class="ligne-controles-detail">
+                <div class="groupe-controles">
+                    <span class="etiquette-degustation" style="width:auto; margin-right:10px;">Quantité :</span>
+                    <button class="bouton-quantite">-</button>
+                    <input type="text" value="1" class="champ-quantite" readonly>
+                    <button class="bouton-quantite">+</button>
+                </div>
+            </div>
+
+            <button class="bouton-ajout-detail">Ajouter au panier</button>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
