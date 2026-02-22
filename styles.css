@@ -100,9 +100,9 @@ a {
     padding: 10px 10px;
     border: 3px solid white;
     background-color: black;
-    border-radius: 0 0 15px 15px;
+    border-radius: 15px;
     padding: 0 20px;
-    border-top: none;
+    margin-top: 20px;
 }
 
 .a1:hover {
@@ -780,13 +780,12 @@ button:hover {
     border: 1px solid black;
     border-top: 1px solid white;
     border-bottom: none;
-    background-color: black;
 }
 
 h4 {
     text-align: center;
     margin: 0;
-    color: white;
+    color: black;
 }
 
 .cart-box, .account-box, form {
@@ -918,10 +917,11 @@ input:focus, textarea:focus {
 .profile-container {
     width: 900px;
     max-width: 95%;
-    margin: 60px auto;
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px 20px 20px;
 }
 
 .header-profil {
@@ -931,19 +931,8 @@ input:focus, textarea:focus {
 }
 
 .header-profil h1 {
-    color: #0288d1;
-    font-family: 'Pacifico', cursive;
+    color: black;
     margin: 0 0 10px 0;
-}
-
-.retour-accueil {
-    color: #0288d1;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.retour-accueil:hover {
-    text-decoration: underline;
 }
 
 .dashboard {
@@ -956,18 +945,17 @@ input:focus, textarea:focus {
 
 .carte {
     background: #f1fbfc;
-    border: 1px solid lightblue;
     border-radius: 15px;
     padding: 20px;
     flex: 1;
     min-width: 250px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 3px solid black;
 }
 
 .carte h2 {
-    color: #0277bd;
+    color: black;
     margin-top: 0;
-    border-bottom: 2px solid #81d4fa;
+    border-bottom: 2px solid black;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
@@ -977,7 +965,6 @@ input:focus, textarea:focus {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px dashed lightblue;
 }
 
 .info-ligne:last-child {
@@ -1058,14 +1045,15 @@ input:focus, textarea:focus {
 .fidelite-score {
     font-size: 48px;
     font-weight: bold;
-    color: #03a9f4;
-    text-shadow: 2px 2px 0px #b3e5fc;
+    color: black;
+    text-shadow: 2px 2px 0px grey;
 }
 
 .fidelite-texte {
     color: #555;
     margin-top: 10px;
 }
+/* Page profil FIN */
 
 /* Page commandes DEBUT */
 main.container {
@@ -1257,6 +1245,7 @@ main.container {
     order: 1;
   }
 }
+/*Pagge commandes FIN */
 
 /* Page de livraison DEBUT */
 .delivery-container {
@@ -1315,4 +1304,95 @@ h6 {
     color: white;
     border: none;
     cursor: pointer;
+}
+
+/* Page de livraison FIN */
+
+/* Page de connexion DEBUT */
+
+
+.container3 {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    width: 350px;
+    max-width: 90%;
+    background-color: black;
+}
+
+h7 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 300%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label1 {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 500;
+    font-size: 150%;
+}
+
+input[type="email"],
+input[type="password"] {
+    font-size: 150%;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: white;
+}
+
+button2 {
+    font-size: 150%;
+    width: 100%;
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: black;
+    border: 3px solid white;
+    margin-top: 10px;
+}
+
+button2:hover {
+    border-color: green;
+}
+
+.liens-secondaires {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.liens-secondaires a {
+    color: white;
+    text-decoration: none;
+    font-size: 100%;
+}
+
+.liens-secondaires a:hover {
+    text-decoration: underline;
 }
