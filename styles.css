@@ -67,9 +67,6 @@ body {
     color: black;
     text-align: left;
     font-size: 200%;
-}
-
-.sitedescription .nomsite {
     font-style: italic;
 }
 
@@ -103,10 +100,9 @@ a {
     padding: 10px 10px;
     border: 3px solid white;
     background-color: black;
-    border-radius: 15px;
+    border-radius: 0 0 15px 15px;
     padding: 0 20px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    border-top: none;
 }
 
 .a1:hover {
@@ -172,8 +168,11 @@ a {
 .contenu {
     width: 100%;
     min-height: 100vh;
-    background-color: black;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     position: relative;
+    background-image: url("https://usagif.com/wp-content/uploads/2020/11/am0ngsusxh-85.gif");
 }
 
 /* Images des villes */
@@ -348,6 +347,7 @@ a {
     padding: 40px 30px;
     text-align: center;
     border-bottom: 2px solid black;
+    border-top: 2px solid black;
     color: red;
     font-size: 200%;
 }
@@ -388,9 +388,9 @@ a {
 #results {
     width: 60%;
     margin: auto;
-    background: transparent;
+    background: white;
     border-radius: 10px;
-    box-shadow: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     display: block;
     overflow: hidden;
 }
@@ -402,9 +402,6 @@ a {
     margin-top: 30px;
     flex-wrap: wrap;
     font-size: 200%;
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
 }
 
 .card {
@@ -423,64 +420,17 @@ a {
 /* Page Admin FIN */
 
 /* Page de notation DEBUT */
-.sitedescription4 {
-    padding: 50px 30px;
-    color: black;
-    text-align: left;
-    font-size: 200%;
-    border-bottom: 1px solid black;
-}
-
-.sitedescription4 .textedescription4 {
-    font-size: 100%;
-    margin-top: 20px;
-}
 /* Avis */
-.container-notation{
-    display:flex;
-    min-height:60vh;
-}
-
-.container-notation .reservation{
-    flex:1;
-}
-
-.image-section1{
-    flex:1;
-}
-
-.image-section1 img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.reservation2 {
+.reservation {
     flex: 1;
     background: #ffffff;
     padding: 80px;
 }
 
-.vide{
-    flex: 3;
-}
-
-.reservation2 h2 {
+.reservation h2 {
     font-size: 32px;
     margin-bottom: 40px;
     font-weight: 600;
-}
-
-.reservation2 input[type="number"] {
-    width: 250px;
-}
-
-.reservation2 .row {
-    justify-content: flex-start;
-}
-
-.reservation2 button {
-    width: 250px;
 }
 
 form {
@@ -625,25 +575,54 @@ form {
     gap:30px;
 }
 
-.product-card{
-    text-align:center;
-    font-size: 50%;
+.product-card {
+    position: relative;
+    padding: 16px 12px 64px;
+    text-align: center;
 }
 
+.description_produit {
+    font-size: 22px;
+    color: #333;
+    margin-top: 8px;
+    line-height: 1.3;
+    min-height: 48px;
+}
+
+.price {
+    font-weight: 800;
+    margin-top: 8px;
+}
+
+.allergens {
+    font-size: 20px;
+    color: #666;
+    margin-top: 6px;
+}
+
+/* CONTENEUR IMAGE */
 .product-image{
-    position:relative;
+    width:100%;
+    aspect-ratio: 4 / 3;
     overflow:hidden;
+    border-radius:12px;
+    background-color:#f2f2f2;
+    display:flex;
 }
 
+/* IMAGE */
 .product-image img{
     width:100%;
-    height:300px;
+    height:100%;
     object-fit:cover;
-    transition:0.4s ease;
+    object-position:center;
+    display:block;
+    transition: transform 0.4s ease;
 }
 
+/* HOVER */
 .product-card:hover img{
-    transform:scale(1.1);
+    transform:scale(1.05);
 }
 
 .add-to-cart{
@@ -696,6 +675,40 @@ form {
 
 .logo-text:hover{
     opacity:0.7;
+}
+
+
+/* --- Bouton Filtre --- */
+.filter-bar {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px;
+}
+
+.filter-group {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.filter-group p {
+    margin: 0 8px 0 0;
+    font-size: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.filter-btn {
+    padding: 10px 18px;
+    margin: 0;
+    white-space: nowrap;
 }
 
 /* Page Ville FIN */
@@ -773,7 +786,7 @@ form {
     gap: 20px;
 }
 
-.row {
+.row2 {
     display: flex;
     gap: 20px;
 }
@@ -822,6 +835,7 @@ button:hover {
     max-width: 700px;
     margin: auto;
     padding: 20px;
+
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -829,12 +843,13 @@ button:hover {
     border: 1px solid black;
     border-top: 1px solid white;
     border-bottom: none;
+    background-color: black;
 }
 
 h4 {
     text-align: center;
     margin: 0;
-    color: black;
+    color: white;
 }
 
 .cart-box, .account-box, form {
@@ -966,11 +981,10 @@ input:focus, textarea:focus {
 .profile-container {
     width: 900px;
     max-width: 95%;
-    margin: auto;
+    margin: 60px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 20px 20px;
 }
 
 .header-profil {
@@ -980,8 +994,19 @@ input:focus, textarea:focus {
 }
 
 .header-profil h1 {
-    color: black;
+    color: #0288d1;
+    font-family: 'Pacifico', cursive;
     margin: 0 0 10px 0;
+}
+
+.retour-accueil {
+    color: #0288d1;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.retour-accueil:hover {
+    text-decoration: underline;
 }
 
 .dashboard {
@@ -993,18 +1018,19 @@ input:focus, textarea:focus {
 }
 
 .carte {
-    background: white;
+    background: #f1fbfc;
+    border: 1px solid lightblue;
     border-radius: 15px;
     padding: 20px;
     flex: 1;
     min-width: 250px;
-    border: 3px solid black;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .carte h2 {
-    color: black;
+    color: #0277bd;
     margin-top: 0;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #81d4fa;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
@@ -1014,6 +1040,7 @@ input:focus, textarea:focus {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
+    border-bottom: 1px dashed lightblue;
 }
 
 .info-ligne:last-child {
@@ -1094,15 +1121,14 @@ input:focus, textarea:focus {
 .fidelite-score {
     font-size: 48px;
     font-weight: bold;
-    color: black;
-    text-shadow: 2px 2px 0px grey;
+    color: #03a9f4;
+    text-shadow: 2px 2px 0px #b3e5fc;
 }
 
 .fidelite-texte {
     color: #555;
     margin-top: 10px;
 }
-/* Page profil FIN */
 
 /* Page commandes DEBUT */
 main.container {
@@ -1294,7 +1320,6 @@ main.container {
     order: 1;
   }
 }
-/* Page commandes FIN */
 
 /* Page de livraison DEBUT */
 .delivery-container {
@@ -1302,15 +1327,16 @@ main.container {
     max-width: 500px;
     margin: auto;
     border: 3px solid black;
+    border-top: none;
     font-size: 25px;
-    margin: auto; 
+    background-color: black;
 }
 
 h6 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 30px;
-    color: black;
+    color: white;
 }
 
 .card3 {
@@ -1354,97 +1380,3 @@ h6 {
     cursor: pointer;
 }
 
-/* Page de livraison FIN */
-
-/* Page de connexion/inscription DEBUT */
-.container3 {
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-    border-radius: 15px;
-    width: 450px;
-    max-width: 90%;
-    border: 3px solid black;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-h7 {
-    text-align: center;
-    color: black;
-    margin-bottom: 30px;
-    font-size: 300%;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.label1 {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: 500;
-    font-size: 150%;
-}
-
-input[type="email"],
-input[type="password"],
-input[type="text"],
-input[type="tel"], 
-textarea {
-    font-size: 150%;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-family: inherit;
-    transition: border-color 0.3s ease;
-}
-
-input:focus {
-    outline: none;
-    border-color: white;
-}
-
-button2 {
-    font-size: 150%;
-    width: 100%;
-    padding: 12px;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: black;
-    border: 3px solid white;
-    margin-top: 10px;
-}
-
-button2:hover {
-    border-color: green;
-}
-
-.liens-secondaires {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    gap: 10px;
-}
-
-.liens-secondaires a {
-    color: black;
-    text-decoration: none;
-    font-size: 100%;
-}
-
-.liens-secondaires a:hover {
-    text-decoration: underline;
-}
-
-/* Page de connexion/inscription FIN */
