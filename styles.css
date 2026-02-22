@@ -34,7 +34,6 @@ body {
     font-style: normal;
 }
 
-
 /* Barre du haut */
 .navbar {
     padding: 10px 30px;
@@ -104,7 +103,6 @@ a {
     padding: 10px 10px;
     border: 3px solid white;
     background-color: black;
-    border-radius: 0 0 15px 15px;
     border-radius: 15px;
     padding: 0 20px;
     margin-top: 20px;
@@ -1127,6 +1125,7 @@ input:focus, textarea:focus {
 /* Listes pour commandes et fidélité */
 .sitedescription3 {
     font-size: 200%;
+    font-family: ;
     font-weight: 300;
     font-style: normal;
     padding: 40px 30px;
@@ -1694,12 +1693,8 @@ a {
 .contenu {
     width: 100%;
     min-height: 100vh;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     background-color: black;
     position: relative;
-    background-image: url("https://usagif.com/wp-content/uploads/2020/11/am0ngsusxh-85.gif");
 }
 
 /* Images des villes */
@@ -1953,7 +1948,7 @@ a {
 
 /* Page de notation DEBUT */
 .sitedescription3 {
-    font-family: "Playwrite AT", cursive;
+    font-family: "Annie Use Your Telescope", cursive;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
@@ -1961,6 +1956,8 @@ a {
     text-align: center;
     border-bottom: 2px solid black;
     border-top: 2px solid black;
+}
+
 .sitedescription4 {
     padding: 50px 30px;
     color: black;
@@ -1974,7 +1971,6 @@ a {
     margin-top: 20px;
 }
 /* Avis */
-.reservation {
 .container-notation{
     display:flex;
     min-height:60vh;
@@ -2000,7 +1996,6 @@ a {
     padding: 80px;
 }
 
-.reservation h2 {
 .vide{
     flex: 3;
 }
@@ -2053,7 +2048,7 @@ form {
 .lien_tom:hover {
     cursor: pointer;
 }
-}
+
 
 /* Page Ville DEBUT */
 
@@ -2601,15 +2596,6 @@ input:focus, textarea:focus {
 }
 
 /* Listes pour commandes et fidélité */
-.sitedescription3 {
-    font-size: 200%;
-    font-weight: 300;
-    font-style: normal;
-    padding: 40px 30px;
-    text-align: center;
-    border-bottom: 2px solid black;
-}
-
 .liste-commandes {
     list-style: none;
     padding: 0;
