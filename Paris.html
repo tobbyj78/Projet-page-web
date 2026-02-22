@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Paris</title>
 <link rel="stylesheet" href="paris.css">
+<link rel="icon" href="Images/Among_Us.png">
 </head>
 <body>
 <header class="site-header">
@@ -13,9 +14,7 @@
         <div class="burger" id="burger">☰</div>
         <!-- LOGO -->
         <div class="logo">
-            <a href="#">
-                <img src="logo.jpg" alt="logo" height="40">
-            </a>
+            <a href="page-d'accueil.html" class="logo-text">L'Imposture</a>
         </div>
     </div>
     <!-- MENU -->
@@ -26,10 +25,12 @@
     </nav>
     <!-- ACTIONS -->
     <div class="header-action">
-        <a href="#">Votre compte</a>
-        <div class="cart">
+        <a href="profil.html">Votre compte</a>
+
+        <!-- PANIER REDIRECTION -->
+        <a href="commander.html" class="cart">
             🛒 <span class="cart_count">0</span>
-        </div>
+        </a>
     </div>
 </div>
 </header>
@@ -38,8 +39,9 @@
 <div class="overlay-menu" id="overlay">
 <div class="close-btn" id="close">✖</div>
 <ul>
-    <li><a href="#">Paris</a></li>
-    <li><a href="#">Cergy</a></li>
+    <li><a href="Paris.html">Paris</a></li>
+    <li><a href="Argenteuil.html">Argenteuil</a></li>
+    <li><a href="Cergy.html">Cergy</a></li>
 </ul>
 </div>
 
@@ -80,9 +82,45 @@
 </div>
 </section>
 
+<section class="products">
+<div class="product-grid">
+<div class="product-card">
+    <div class="product-image">
+        <img src="produit4.jpg">
+        <button class="add-to-cart" data-name="Produit4" data-price="2.50">
+            Ajouter au panier
+        </button>
+    </div>
+    <h3>Produit4</h3>
+    <p class="price">2,50 €</p>
+</div>
+<div class="product-card">
+    <div class="product-image">
+        <img src="produit5.jpg">
+        <button class="add-to-cart" data-name="Produit5" data-price="3.00">
+            Ajouter au panier
+        </button>
+    </div>
+    <h3>Produit5</h3>
+    <p class="price">3,00 €</p>
+</div>
+<div class="product-card">
+    <div class="product-image">
+        <img src="produit6.jpg">
+        <button class="add-to-cart" data-name="Produit6" data-price="4.50">
+            Ajouter au panier
+        </button>
+    </div>
+    <h3>Produit6</h3>
+    <p class="price">4,50 €</p>
+</div>
+</div>
+</section>
+
 <footer class="footer">
-<p>📞 Téléphone :</p>
-<p>✉ Email :</p>
+    <p>📞 Téléphone : 07 61 41 44 23</p>
+    <p>✉ Email : imposturecontact@gmail.com</p>
+    <p>Horaires : Lundi - Vendredi 10h-21h | Samedi - Dimanche 12h-18h</p>
 </footer>
 
 <script>
