@@ -282,39 +282,39 @@ a {
 }
 
 .plat1 {
-    background-image: url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
+    background-image: url("Images/citron.png")
 }
 
 .plat2 {
-    background-image: url("https://cdn-s-www.estrepublicain.fr/images/ec8d79a7-fdc5-49b2-b31f-8e36663c3a59/NW_raw/le-restaurant-la-tentation-fait-desormais-salon-de-the-en-proposant-des-patisseries-trompe-l-oeil-photo-lionel-vadam-1727274004.jpg");
+    background-image: url("Images/pomme.png");
 }
 
 .plat3 {
-    background-image: url("https://tse1.mm.bing.net/th/id/OIP.2qQg5Z3874qc-_UAyCjJcQHaHa?w=1280&h=1280&rs=1&pid=ImgDetMain&o=7&rm=3")
+    background-image: url("Images/poire.png")
 }
 
 .plat4 {
-    background-image: url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
+    background-image: url("Images/pomme.png");
 }
 
 .plat5 {
-    background-image: url("https://cdn-s-www.estrepublicain.fr/images/ec8d79a7-fdc5-49b2-b31f-8e36663c3a59/NW_raw/le-restaurant-la-tentation-fait-desormais-salon-de-the-en-proposant-des-patisseries-trompe-l-oeil-photo-lionel-vadam-1727274004.jpg");
+    background-image: url("Images/poire.png")
 }
 
 .plat6 {
-    background-image: url("https://tse1.mm.bing.net/th/id/OIP.2qQg5Z3874qc-_UAyCjJcQHaHa?w=1280&h=1280&rs=1&pid=ImgDetMain&o=7&rm=3")
+    background-image: url("Images/mandarine.jpg")
 }
 
 .plat7 {
-    background-image: url("https://tse2.mm.bing.net/th/id/OIP.nHKwp7PHzqwmHsgEweNn5gHaE8?rs=1&pid=ImgDetMain&o=7&rm=3")
+    background-image: url("Images/mandarine.jpg")
 }
 
 .plat8 {
-    background-image: url("https://cdn-s-www.estrepublicain.fr/images/ec8d79a7-fdc5-49b2-b31f-8e36663c3a59/NW_raw/le-restaurant-la-tentation-fait-desormais-salon-de-the-en-proposant-des-patisseries-trompe-l-oeil-photo-lionel-vadam-1727274004.jpg");
+    background-image: url("Images/mangue.png");
 }
 
 .plat9 {
-    background-image: url("https://tse1.mm.bing.net/th/id/OIP.2qQg5Z3874qc-_UAyCjJcQHaHa?w=1280&h=1280&rs=1&pid=ImgDetMain&o=7&rm=3")
+    background-image: url("Images/citron.png")
 }
 
 .contenu:has(.a10:hover) .plats.paris {
