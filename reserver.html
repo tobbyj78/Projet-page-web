@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <title>Réserver</title>
 <link rel="stylesheet" href="reserver.css">
+<link rel="icon" href="Images/Among_Us.png">
 </head>
 <body>
 <div class="container">
     <div class="image-section">
-        <img src="mon-image.jpg" alt="Restaurant">
+        <img src="Images/restaurant.png" alt="Restaurant">
         <div class="overlay">
-            <h3>L'imposture</h3>
-            <p>Téléphone : mettre tel</p>
+            <h3><a href="page-d'accueil.html" class="home-link">L'imposture</a></h3>
+            <p>Téléphone : 07 61 41 44 23</p>
+            <p>Email : imposturecontact@gmail.com</p>
             <p>Adresse : mettre adresse</p>
             <a href="#">Voir sur Google Maps</a>
         </div>
@@ -22,17 +24,17 @@
         <form>
             <div class="row">
                 <input type="number" placeholder="Adultes" min="1" required>
-                <input type="number" placeholder="Enfants" min="0">
+                <input type="number" placeholder="Enfants" min="0" required>
             </div>
             <div class="row">
                 <input type="date" required>
                 <input type="time" required>
             </div>
             <select required>
-                <option value="">Choisir une zone</option>
-                <option>Salle principale</option>
-                <option>Terrasse</option>
-                <option>VIP</option>
+                <option value="">Choisir un restaurant</option>
+                <option>Paris</option>
+                <option>Argenteuil</option>
+                <option>Cergy</option>
             </select>
             <textarea placeholder="Commentaire ou demande spéciale"></textarea>
             <button type="submit">Réserver</button>
