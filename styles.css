@@ -67,6 +67,9 @@ body {
     color: black;
     text-align: left;
     font-size: 200%;
+}
+
+.sitedescription .nomsite {
     font-style: italic;
 }
 
@@ -103,6 +106,7 @@ a {
     border-radius: 15px;
     padding: 0 20px;
     margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .a1:hover {
@@ -168,11 +172,8 @@ a {
 .contenu {
     width: 100%;
     min-height: 100vh;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: black;
     position: relative;
-    background-image: url("https://usagif.com/wp-content/uploads/2020/11/am0ngsusxh-85.gif");
 }
 
 /* Images des villes */
@@ -347,7 +348,6 @@ a {
     padding: 40px 30px;
     text-align: center;
     border-bottom: 2px solid black;
-    border-top: 2px solid black;
     color: red;
     font-size: 200%;
 }
@@ -420,6 +420,19 @@ a {
 /* Page Admin FIN */
 
 /* Page de notation DEBUT */
+.sitedescription4 {
+    padding: 50px 30px;
+    color: black;
+    text-align: left;
+    font-size: 200%;
+    border-bottom: 2px solid black;
+}
+
+.sitedescription4 .textedescription4 {
+    font-size: 100%;
+    margin-top: 20px;
+}
+
 /* Avis */
 .reservation {
     flex: 1;
@@ -772,7 +785,6 @@ button:hover {
     max-width: 700px;
     margin: auto;
     padding: 20px;
-
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -1245,7 +1257,7 @@ main.container {
     order: 1;
   }
 }
-/*Pagge commandes FIN */
+/* Page commandes FIN */
 
 /* Page de livraison DEBUT */
 .delivery-container {
@@ -1253,16 +1265,15 @@ main.container {
     max-width: 500px;
     margin: auto;
     border: 3px solid black;
-    border-top: none;
     font-size: 25px;
-    background-color: black;
+    margin: auto; 
 }
 
 h6 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 30px;
-    color: white;
+    color: black;
 }
 
 .card3 {
@@ -1308,25 +1319,24 @@ h6 {
 
 /* Page de livraison FIN */
 
-/* Page de connexion DEBUT */
-
-
+/* Page de connexion/inscription DEBUT */
 .container3 {
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
     padding: 40px;
     border-radius: 15px;
-    width: 350px;
+    width: 450px;
     max-width: 90%;
-    background-color: black;
+    border: 3px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 h7 {
     text-align: center;
-    color: white;
+    color: black;
     margin-bottom: 30px;
     font-size: 300%;
 }
@@ -1344,7 +1354,10 @@ h7 {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="text"],
+input[type="tel"], 
+textarea {
     font-size: 150%;
     width: 100%;
     padding: 10px;
@@ -1388,7 +1401,7 @@ button2:hover {
 }
 
 .liens-secondaires a {
-    color: white;
+    color: black;
     text-decoration: none;
     font-size: 100%;
 }
@@ -1396,3 +1409,5 @@ button2:hover {
 .liens-secondaires a:hover {
     text-decoration: underline;
 }
+
+/* Page de connexion/inscription FIN */

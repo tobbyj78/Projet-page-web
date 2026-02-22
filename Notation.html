@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Images/Among_Us.png">
     <title>Notation</title>
@@ -57,15 +59,18 @@
         </div>
     </nav>
 
-    <div class="sitedescription">
-        <h1>Notez-nous !</h1>
-        <p class="textedescription">Votre avis compte pour nous !</p>
+    <div class="sitedescription4">
+        <h1>Notez-nous</h1>
+        <p class="textedescription4">Votre avis compte pour nous !</p>
     </div>
 
     <div class="reservation">
         <form>
             <div class="row">
-                <input type="number" placeholder="Livraison" min="0" required>
+                <input type="number" placeholder="Livraison" min="0" max="5" required>
+            </div>
+            <div class="row">
+                <input type="number" placeholder="Qualité des produits" min="0" max="5" required>
             </div>
         </form>
     </div>
