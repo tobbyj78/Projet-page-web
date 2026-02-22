@@ -2,7 +2,6 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paris</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="Images/Among_Us.png">
@@ -21,7 +20,7 @@
 <header class="navbar">
     <div class="left-group">
         <div class="burger" id="burger">☰</div>
-        <a href="page-d'accueil.html" class="accueil">IMPOSTEUR</a>
+        <a href="page-d'accueil.html" class="accueil">IMPOSTURE</a>
     </div>
     <div class="navliens">
         <div class="menu">
@@ -70,81 +69,148 @@
 </div>
 
 <!-- PRODUITS -->
-     <div class="sitedescriptionville">
-        <h2>Nos Produits</h2>
+<div class="sitedescriptionville">
+    <h2>Nos Trompe‑l’œil Fruités</h2>
+    <p>Des desserts qui ressemblent à de vrais fruits, mais qui cachent des mousses, ganaches et inserts gourmands.</p>
+</div>
+
+<div class="filter-bar">
+    <h2>Filtrer par catégorie</h2>
+    <div class="filter-group">
+        <p>Types de plats :</p>
+        <button class="filter-btn">Desserts</button>
+        <button class="filter-btn">Fruits</button>
+        <button class="filter-btn">Classiques</button>
     </div>
+    <div class="filter-group">
+        <p>Saveurs :</p>
+        <button class="filter-btn">Chocolat</button>
+        <button class="filter-btn">Agrumes</button>
+        <button class="filter-btn">Exotique</button>
+    </div>
+    <div class="filter-group">
+        <p>Allergènes :</p>
+        <button class="filter-btn">Sans gluten</button>
+        <button class="filter-btn">Sans lactose</button>
+        <button class="filter-btn">Vegan</button>
+    </div>
+</div>
+
 <section class="products">
 <div class="product-grid">
-<div class="product-card">
+<div class="product-card dessert gluten lactose"
+     data-category="dessert"
+     data-allergens="gluten,lactose">
     <div class="product-image">
-        <img src="produit1.jpg">
-        <button class="add-to-cart" data-name="Produit1" data-price="2.50">
-            Ajouter au panier
-        </button>
+        <img src="Images/citron.png" alt="Citron">
     </div>
-    <h3>Produit1</h3>
-    <p class="price">2,50 €</p>
+    <h3>Citron</h3>
+    <p class="description_produit">
+        Réplique d’un citron jaune, peau texturée — mousse citron & yuzu légère et acidulée à l’intérieur.
+    </p>
+    <p class="price">6,50 €</p>
+    <p class="allergens">Allergènes : Gluten, Lactose</p>
+    <button class="add-to-cart" data-name="Citron" data-price="6.5" aria-label="Ajouter Citron au panier">
+        Ajouter au panier
+    </button>
 </div>
-<div class="product-card">
+
+<div class="product-card dessert gluten lactose"
+     data-category="dessert"
+     data-allergens="gluten,lactose">
     <div class="product-image">
-        <img src="produit2.jpg">
-        <button class="add-to-cart" data-name="Produit2" data-price="3.00">
-            Ajouter au panier
-        </button>
+        <img src="Images/pomme.png" alt="Pomme">
     </div>
-    <h3>Produit2</h3>
-    <p class="price">3,00 €</p>
+    <h3>Pomme</h3>
+    <p class="description_produit">
+        À première vue une vraie pomme brillante, mais coupe‑la et retrouve mousse fruitée et cœur fondant.
+    </p>
+    <p class="price">7,00 €</p>
+    <p class="allergens">Allergènes : Gluten, Lactose</p>
+    <button class="add-to-cart" data-name="Citron" data-price="6.5" aria-label="Ajouter Citron au panier">
+        Ajouter au panier
+    </button>
 </div>
-<div class="product-card">
+
+<div class="product-card dessert gluten lactose"
+     data-category="dessert"
+     data-allergens="gluten,lactose">
+
     <div class="product-image">
-        <img src="produit3.jpg">
-        <button class="add-to-cart" data-name="Produit3" data-price="4.50">
-            Ajouter au panier
-        </button>
+        <img src="Images/poire.png" alt="Poire">
     </div>
-    <h3>Produit3</h3>
-    <p class="price">4,50 €</p>
+    <h3>Poire</h3>
+    <p class="description_produit">
+        Moulée comme une poire juteuse, mais c’est une mousse fine et parfumée qui se cache sous la coque.
+    </p>
+    <p class="price">7,20 €</p>
+    <p class="allergens">Allergènes : Gluten, Lactose</p>
+    <button class="add-to-cart" data-name="Citron" data-price="6.5" aria-label="Ajouter Citron au panier">
+        Ajouter au panier
+    </button>
 </div>
+
 </div>
 </section>
 
 <section class="products">
 <div class="product-grid">
-<div class="product-card">
+<div class="product-card dessert gluten lactose"
+     data-category="dessert"
+     data-allergens="gluten,lactose">
     <div class="product-image">
-        <img src="produit4.jpg">
-        <button class="add-to-cart" data-name="Produit4" data-price="2.50">
-            Ajouter au panier
-        </button>
+        <img src="Images/mangue.png" alt="Mangue">
     </div>
-    <h3>Produit4</h3>
-    <p class="price">2,50 €</p>
+    <h3>Mangue</h3>
+    <p class="description_produit">
+        Belle mangue orange, texture veloutée en apparence : une mousse mangue & gelée fruitée vous attend.
+    </p>
+    <p class="price">7,50 €</p>
+    <p class="allergens">Allergènes : Gluten, Lactose</p>
+    <button class="add-to-cart" data-name="Citron" data-price="6.5" aria-label="Ajouter Citron au panier">
+        Ajouter au panier
+    </button>
 </div>
-<div class="product-card">
+
+<div class="product-card dessert gluten lactose"
+     data-category="dessert"
+     data-allergens="gluten,lactose">
+
     <div class="product-image">
-        <img src="produit5.jpg">
-        <button class="add-to-cart" data-name="Produit5" data-price="3.00">
-            Ajouter au panier
-        </button>
+        <img src="Images/mandarine.jpg" alt="Mandarine">
     </div>
-    <h3>Produit5</h3>
-    <p class="price">3,00 €</p>
+    <h3>Mandarine Trompe‑l’œil</h3>
+    <p class="description_produit">
+        Petites rainures, peau brillante : ce dessert cache une ganache mandarine & confit acidulé.
+    </p>
+    <p class="price">6,90 €</p>
+    <p class="allergens">Allergènes : Gluten, Lactose</p>
+    <button class="add-to-cart" data-name="Citron" data-price="6.5" aria-label="Ajouter Citron au panier">
+        Ajouter au panier
+    </button>
 </div>
-<div class="product-card">
+
+<div class="product-card dessert gluten lactose"
+     data-category="dessert"
+     data-allergens="gluten,lactose">
     <div class="product-image">
-        <img src="produit6.jpg">
-        <button class="add-to-cart" data-name="Produit6" data-price="4.50">
-            Ajouter au panier
-        </button>
+        <img src="Images/fraise.png" alt="Fraise">
     </div>
-    <h3>Produit6</h3>
-    <p class="price">4,50 €</p>
+    <h3>Fraise Trompe‑l’œil</h3>
+    <p class="description_produit">
+        Rouge vif et brillante, ce dessert cache une mousse fraise & insert fruité sous une coque délicate.
+    </p>
+    <p class="price">6,80 €</p>
+    <p class="allergens">Allergènes : Gluten, Lactose</p>
+    <button class="add-to-cart" data-name="Citron" data-price="6.5" aria-label="Ajouter Citron au panier">
+        Ajouter au panier
+    </button>
 </div>
 </div>
 </section>
 
 <footer class="footer">
-    <p>📞 Téléphone : 07 67 01 02 03</p>
+    <p>📞 Téléphone : 07 61 41 44 23</p>
     <p>✉ Email : imposturecontact@gmail.com</p>
     <p>Horaires : Lundi - Vendredi 10h-21h | Samedi - Dimanche 12h-18h</p>
 </footer>
