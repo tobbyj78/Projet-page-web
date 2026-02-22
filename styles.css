@@ -388,9 +388,9 @@ a {
 #results {
     width: 60%;
     margin: auto;
-    background: white;
+    background: transparent;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: none;
     display: block;
     overflow: hidden;
 }
@@ -402,6 +402,9 @@ a {
     margin-top: 30px;
     flex-wrap: wrap;
     font-size: 200%;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .card {
@@ -425,25 +428,59 @@ a {
     color: black;
     text-align: left;
     font-size: 200%;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
 }
 
 .sitedescription4 .textedescription4 {
     font-size: 100%;
     margin-top: 20px;
 }
-
 /* Avis */
-.reservation {
+.container-notation{
+    display:flex;
+    min-height:60vh;
+}
+
+.container-notation .reservation{
+    flex:1;
+}
+
+.image-section1{
+    flex:1;
+}
+
+.image-section1 img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.reservation2 {
     flex: 1;
     background: #ffffff;
     padding: 80px;
 }
 
-.reservation h2 {
+.vide{
+    flex: 3;
+}
+
+.reservation2 h2 {
     font-size: 32px;
     margin-bottom: 40px;
     font-weight: 600;
+}
+
+.reservation2 input[type="number"] {
+    width: 250px;
+}
+
+.reservation2 .row {
+    justify-content: flex-start;
+}
+
+.reservation2 button {
+    width: 250px;
 }
 
 form {
@@ -736,7 +773,7 @@ form {
     gap: 20px;
 }
 
-.row2 {
+.row {
     display: flex;
     gap: 20px;
 }
@@ -956,7 +993,7 @@ input:focus, textarea:focus {
 }
 
 .carte {
-    background: #f1fbfc;
+    background: white;
     border-radius: 15px;
     padding: 20px;
     flex: 1;
