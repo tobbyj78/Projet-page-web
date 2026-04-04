@@ -18,7 +18,9 @@ session_start();
         <a href="logout.php" class="bouton">logout</a>
     <?php endif; ?>
 
-    <?php
+    <a href="catalogue.php" class="bouton">catalogue</a>
+
+<?php
     if (isset($_SESSION['user_login'])) {
         echo "Bienvenue " . htmlspecialchars($_SESSION['user_login'], ENT_QUOTES, 'UTF-8');
     } else {
