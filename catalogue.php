@@ -53,6 +53,7 @@ $options = $pdo->query("SELECT * FROM options ORDER BY id")->fetchAll(PDO::FETCH
     <div class="nav">
         <a href="index.php">Accueil</a>
         <a href="catalogue.php">Catalogue</a>
+        <a href="panier.php">Panier</a>
         <?php if (isset($_SESSION['user_login'])): ?>
             <a href="logout.php">Déconnexion</a>
         <?php endif; ?>
@@ -96,6 +97,15 @@ $options = $pdo->query("SELECT * FROM options ORDER BY id")->fetchAll(PDO::FETCH
                             <?php endforeach; ?>
                         </ul>
                     <?php endif; ?>
+
+                    <form action="panier.php" method="post">
+                        <input type="hidden" name="action" value="add">
+                        <input type="hidden" name="item_id" value="<?= $menu['id'] ?>">
+                        <input type="hidden" name="item_type" value="menu">
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="redirect" value="catalogue.php">
+                        <button type="submit">Ajout rapide</button>
+                    </form>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -130,6 +140,15 @@ $options = $pdo->query("SELECT * FROM options ORDER BY id")->fetchAll(PDO::FETCH
                     <?php if (!empty($dish['nutritional_info'])): ?>
                         <p class="nutri"><?= h($dish['nutritional_info']) ?></p>
                     <?php endif; ?>
+
+                    <form action="panier.php" method="post">
+                        <input type="hidden" name="action" value="add">
+                        <input type="hidden" name="item_id" value="<?= $dish['id'] ?>">
+                        <input type="hidden" name="item_type" value="dish">
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="redirect" value="catalogue.php">
+                        <button type="submit">Ajout rapide</button>
+                    </form>
                 </div>
             <?php endforeach; ?>
         </div>

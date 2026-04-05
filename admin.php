@@ -18,9 +18,38 @@ if (!$currentUser || $currentUser['role'] !== 'admin') {
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT * FROM users");
-$stmt->execute();
+// ── Traitement du changement de rôle ──
+$message = '';
+$availableRoles = ['client', 'admin', 'restaurateur', 'livreur'];
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'change_role') {
+    $targetUserId = (int) ($_POST['user_id'] ?? 0);
+    $newRole = $_POST['new_role'] ?? '';
+
+    if ($targetUserId === $_SESSION['user_id']) {
+        $message = "Vous ne pouvez pas modifier votre propre rôle.";
+    } elseif (!in_array($newRole, $availableRoles)) {
+        $message = "Rôle invalide.";
+    } else {
+        $stmt = $pdo->prepare("UPDATE users SET role = :role WHERE id = :id");
+        $stmt->execute(['role' => $newRole, 'id' => $targetUserId]);
+        $message = "Rôle mis à jour avec succès.";
+    }
+
+    // PRG
+    $_SESSION['admin_message'] = $message;
+    header('Location: admin.php');
+    exit;
+}
+
+// Récupérer le message flash
+if (isset($_SESSION['admin_message'])) {
+    $message = $_SESSION['admin_message'];
+    unset($_SESSION['admin_message']);
+}
+
+$stmt = $pdo->prepare("SELECT * FROM users ORDER BY id");
+$stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -34,23 +63,32 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <h1>Nombre d'utilisateurs enregistrés : <?= count($users) ?></h1>
-    <br>
-    <table>
+    <h1>Administration</h1>
+
+    <a href="index.php">Accueil</a>
+
+    <p>Nombre d'utilisateurs enregistrés : <strong><?= count($users) ?></strong></p>
+
+    <?php if ($message): ?>
+        <p><strong><?= h($message) ?></strong></p>
+    <?php endif; ?>
+
+    <table border="1" cellpadding="5" cellspacing="0">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Login/Email</th>
-                <th>Role</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Nickname</th>
-                <th>Phone Number</th>
-                <th>Birthday</th>
-                <th>Address</th>
-                <th>Address Info</th>
-                <th>Created</th>
-                <th>Last Seen</th>
+                <th>Login</th>
+                <th>Rôle actuel</th>
+                <th>Changer le rôle</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Pseudo</th>
+                <th>Téléphone</th>
+                <th>Date naiss.</th>
+                <th>Adresse</th>
+                <th>Complément</th>
+                <th>Inscrit le</th>
+                <th>Dernière co.</th>
             </tr>
         </thead>
         <tbody>
@@ -58,7 +96,26 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <td><?= h($listedUser['id']) ?></td>
                     <td><?= h($listedUser['login']) ?></td>
-                    <td><?= h($listedUser['role']) ?></td>
+                    <td><strong><?= h($listedUser['role']) ?></strong></td>
+                    <td>
+                        <?php if ($listedUser['id'] != $_SESSION['user_id']): ?>
+                            <form action="admin.php" method="post">
+                                <input type="hidden" name="action" value="change_role">
+                                <input type="hidden" name="user_id" value="<?= $listedUser['id'] ?>">
+                                <select name="new_role">
+                                    <?php foreach ($availableRoles as $role): ?>
+                                        <option value="<?= $role ?>"
+                                            <?= ($listedUser['role'] === $role) ? 'selected' : '' ?>>
+                                            <?= h($role) ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <button type="submit">Appliquer</button>
+                            </form>
+                        <?php else: ?>
+                            <em>(vous)</em>
+                        <?php endif; ?>
+                    </td>
                     <td><?= h($listedUser['first_name']) ?></td>
                     <td><?= h($listedUser['last_name']) ?></td>
                     <td><?= h($listedUser['nickname']) ?></td>

@@ -49,41 +49,46 @@ CREATE TABLE IF NOT EXISTS menu_dishes (
 
 -- Plats
 INSERT INTO dishes (id, name, description, price, allergens, nutritional_info) VALUES
-(1,  'Salade César',          'Salade romaine, croûtons, parmesan, sauce César maison',           9.50,  'gluten, lait, oeuf',        '350 kcal, 18g protéines, 22g lipides'),
-(2,  'Soupe à l''oignon',     'Soupe gratinée traditionnelle avec croûtons et gruyère',           8.00,  'gluten, lait',              '280 kcal, 10g protéines, 12g lipides'),
-(3,  'Steak-frites',          'Steak de boeuf 200g, frites maison et sauce au poivre',           18.50,  'moutarde',                  '750 kcal, 42g protéines, 35g lipides'),
-(4,  'Saumon grillé',         'Pavé de saumon grillé, riz basmati et légumes de saison',         17.00,  'poisson',                   '520 kcal, 38g protéines, 18g lipides'),
-(5,  'Poulet rôti',           'Demi-poulet fermier rôti, pommes de terre grenaille',             15.00,  NULL,                        '620 kcal, 45g protéines, 25g lipides'),
-(6,  'Risotto aux champignons','Risotto crémeux aux cèpes et parmesan',                          14.50,  'lait',                      '480 kcal, 12g protéines, 20g lipides'),
-(7,  'Tarte Tatin',           'Tarte aux pommes caramélisées, servie tiède avec crème fraîche',  8.50,   'gluten, lait, oeuf',        '420 kcal, 5g protéines, 22g lipides'),
-(8,  'Mousse au chocolat',    'Mousse au chocolat noir 70%, légère et onctueuse',                7.50,   'lait, oeuf, soja',          '380 kcal, 6g protéines, 24g lipides'),
-(9,  'Crème brûlée',          'Crème brûlée à la vanille de Madagascar',                        8.00,   'lait, oeuf',                '350 kcal, 5g protéines, 20g lipides'),
-(10, 'Bruschetta tomates',    'Pain grillé, tomates fraîches, basilic, huile d''olive',          7.00,   'gluten',                    '220 kcal, 6g protéines, 10g lipides');
+(1,  'Burger Classique',      'Boeuf, salade, tomate, oignon, cheddar fondu',                     8.50,   'gluten, lait',              '550 kcal, 28g protéines, 30g lipides'),
+(2,  'Pomme Rouge',           'Pomme croquante fraîche de saison',                                 1.50,   NULL,                        '85 kcal, 0g protéines, 0g lipides'),
+(3,  'Pancake Sirop',         'Pancakes moelleux nappés de sirop d''érable',                       4.20,   'gluten, lait, oeuf',        '380 kcal, 8g protéines, 12g lipides'),
+(4,  'Maki Saumon (x6)',      'Six makis au saumon frais et riz vinaigré',                         6.90,   'poisson, soja',             '280 kcal, 18g protéines, 6g lipides'),
+(5,  'Gaufre Belge',          'Gaufre croustillante servie avec sucre glace',                      3.80,   'gluten, lait, oeuf',        '320 kcal, 5g protéines, 14g lipides'),
+(6,  'Bouteille d''eau',      'Eau minérale naturelle 50cl',                                       2.00,   NULL,                        '0 kcal'),
+(7,  'Le Maxi Burger',        'Double steak, bacon, double cheddar, sauce maison',                 12.99,  'gluten, lait, moutarde',    '920 kcal, 52g protéines, 55g lipides'),
+(8,  'Pizza Chef',            'Tomate, mozzarella, jambon, champignons, olives, origan',           14.50,  'gluten, lait',              '680 kcal, 28g protéines, 22g lipides'),
+(9,  'Frites dorées',         'Frites maison croustillantes et dorées à point',                    4.50,   NULL,                        '365 kcal, 4g protéines, 18g lipides'),
+(10, 'Steak Grillé',          'Pièce de boeuf 250g grillée, accompagnée de légumes',              18.00,  'moutarde',                  '650 kcal, 48g protéines, 30g lipides'),
+(11, 'Sashimi Saumon',        'Huit tranches fines de saumon frais',                               8.99,   'poisson, soja',             '220 kcal, 26g protéines, 8g lipides'),
+(12, 'Nigiri Poulpe',         'Six nigiris au poulpe mariné',                                      7.50,   'poisson, soja, sésame',     '240 kcal, 20g protéines, 4g lipides'),
+(13, 'Donut Givré',           'Donut moelleux avec glaçage au sucre',                              3.20,   'gluten, lait, oeuf',        '290 kcal, 4g protéines, 16g lipides'),
+(14, 'Glace Sundae',          'Coupe glacée vanille, chocolat, chantilly, topping au choix',       5.00,   'lait, fruits à coque',      '340 kcal, 5g protéines, 18g lipides'),
+(15, 'Cupcake Magique',       'Cupcake fourré crème vanille, décor coloré',                        4.00,   'gluten, lait, oeuf',        '310 kcal, 4g protéines, 15g lipides'),
+(16, 'Croissant Doré',        'Croissant pur beurre feuilleté et doré',                            2.50,   'gluten, lait, oeuf',        '230 kcal, 4g protéines, 12g lipides'),
+(17, 'Hot-Dog New-Yorkais',   'Saucisse de Francfort, moutarde, ketchup, oignons frits',          6.50,   'gluten, moutarde',          '480 kcal, 18g protéines, 24g lipides'),
+(18, 'Cuisse de Poulet',      'Cuisse de poulet fermier rôtie, herbes de Provence',               5.50,   NULL,                        '420 kcal, 32g protéines, 20g lipides');
 
 -- Menus
 INSERT INTO menus (id, name, description, total_price, min_people, time_slots) VALUES
-(1, 'Menu Classique',    'Entrée + Plat + Dessert au choix',                           25.00, 1, '12h-14h, 19h-22h'),
-(2, 'Menu Découverte',   'Une sélection de nos meilleurs plats pour les curieux',      30.00, 1, '19h-22h'),
-(3, 'Menu Groupe',       'Formule conviviale pour les tablées, boissons incluses',     22.00, 4, '12h-14h, 19h-21h30');
+(1, 'Formule Burger',       'Burger Classique + Frites dorées + Bouteille d''eau',              13.50, 1, '11h30-14h30, 18h30-22h'),
+(2, 'Menu Découverte Japon', 'Maki Saumon + Sashimi Saumon + Nigiri Poulpe',                    21.00, 1, '11h30-14h30, 18h30-22h'),
+(3, 'Menu Gourmand',         'Steak Grillé + Pizza Chef + Glace Sundae',                        34.00, 2, '19h-22h');
 
 -- Liaison menus <-> plats
--- Menu Classique : Salade César + Steak-frites + Mousse au chocolat
+-- Formule Burger : Burger Classique + Frites dorées + Bouteille d'eau
 INSERT INTO menu_dishes (menu_id, dish_id) VALUES (1, 1);
-INSERT INTO menu_dishes (menu_id, dish_id) VALUES (1, 3);
-INSERT INTO menu_dishes (menu_id, dish_id) VALUES (1, 8);
+INSERT INTO menu_dishes (menu_id, dish_id) VALUES (1, 9);
+INSERT INTO menu_dishes (menu_id, dish_id) VALUES (1, 6);
 
--- Menu Découverte : Bruschetta + Soupe à l'oignon + Saumon grillé + Risotto + Tarte Tatin + Crème brûlée
-INSERT INTO menu_dishes (menu_id, dish_id) VALUES (2, 10);
-INSERT INTO menu_dishes (menu_id, dish_id) VALUES (2, 2);
+-- Menu Découverte Japon : Maki Saumon + Sashimi Saumon + Nigiri Poulpe
 INSERT INTO menu_dishes (menu_id, dish_id) VALUES (2, 4);
-INSERT INTO menu_dishes (menu_id, dish_id) VALUES (2, 6);
-INSERT INTO menu_dishes (menu_id, dish_id) VALUES (2, 7);
-INSERT INTO menu_dishes (menu_id, dish_id) VALUES (2, 9);
+INSERT INTO menu_dishes (menu_id, dish_id) VALUES (2, 11);
+INSERT INTO menu_dishes (menu_id, dish_id) VALUES (2, 12);
 
--- Menu Groupe : Salade César + Poulet rôti + Crème brûlée
-INSERT INTO menu_dishes (menu_id, dish_id) VALUES (3, 1);
-INSERT INTO menu_dishes (menu_id, dish_id) VALUES (3, 5);
-INSERT INTO menu_dishes (menu_id, dish_id) VALUES (3, 9);
+-- Menu Gourmand : Steak Grillé + Pizza Chef + Glace Sundae
+INSERT INTO menu_dishes (menu_id, dish_id) VALUES (3, 10);
+INSERT INTO menu_dishes (menu_id, dish_id) VALUES (3, 8);
+INSERT INTO menu_dishes (menu_id, dish_id) VALUES (3, 14);
 
 -- Table des options de modifications
 CREATE TABLE IF NOT EXISTS options (
@@ -103,3 +108,49 @@ INSERT INTO options (id, name) VALUES
 (8,  'Cuisson à point'),
 (9,  'Cuisson bien cuit'),
 (10, 'Supplément fromage');
+
+-- Table des commandes
+CREATE TABLE IF NOT EXISTS orders (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    order_type TEXT NOT NULL CHECK(order_type IN ('sur_place', 'emporter', 'livraison')),
+    delivery_address TEXT,
+    status TEXT NOT NULL DEFAULT 'en_attente',
+    scheduled_datetime TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Table des articles de commande
+CREATE TABLE IF NOT EXISTS order_items (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    order_id INTEGER NOT NULL,
+    item_id INTEGER NOT NULL,
+    item_type TEXT NOT NULL CHECK(item_type IN ('menu', 'dish')),
+    quantity INTEGER NOT NULL DEFAULT 1,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+);
+
+-- Table des paiements
+CREATE TABLE IF NOT EXISTS payments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    order_id INTEGER NOT NULL,
+    bank_details TEXT,
+    transaction_date TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+);
+
+-- Colonne livreur assigné sur les commandes
+ALTER TABLE orders ADD COLUMN delivery_person_id INTEGER REFERENCES users(id);
+
+-- Table des notations
+CREATE TABLE IF NOT EXISTS ratings (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    order_id INTEGER NOT NULL UNIQUE,
+    user_id INTEGER NOT NULL,
+    rating INTEGER NOT NULL CHECK(rating BETWEEN 1 AND 5),
+    comment TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
