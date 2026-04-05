@@ -5,7 +5,7 @@ require_once 'functions.php';
 
 $pdo = getDatabaseConnection();
 
-// ── Récupérer tous les menus avec leurs plats ──
+// Récupérer tous les menus avec leurs plats
 $menus = $pdo->query("SELECT * FROM menus ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
 
 // Pour chaque menu, on récupère les plats associés
@@ -23,17 +23,17 @@ foreach ($menus as &$menu) {
 }
 unset($menu); // casser la référence
 
-// ── Récupérer les plats à la carte (pas dans un menu) ──
+// Récupérer les plats à la carte (pas dans un menu)
 $alaCarte = $pdo->query("
     SELECT * FROM dishes
     WHERE id NOT IN (SELECT dish_id FROM menu_dishes)
     ORDER BY name
 ")->fetchAll(PDO::FETCH_ASSOC);
 
-// ── Récupérer TOUS les plats pour la section « Tous les plats » ──
+// Récupérer tous les plats pour la section « Tous les plats »
 $allDishes = $pdo->query("SELECT * FROM dishes ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
 
-// ── Récupérer les options de modifications ──
+// Récupérer les options de modifications
 $options = $pdo->query("SELECT * FROM options ORDER BY id")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 

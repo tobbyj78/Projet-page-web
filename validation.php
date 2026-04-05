@@ -5,13 +5,13 @@ require_once 'functions.php';
 
 $pdo = getDatabaseConnection();
 
-// ── Vérifier que l'utilisateur est connecté ──
+// Vérifier que l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
 }
 
-// ── Vérifier que le panier n'est pas vide ──
+// Vérifier que le panier n'est pas vide
 if (empty($_SESSION['cart'])) {
     header('Location: panier.php');
     exit;
@@ -19,7 +19,7 @@ if (empty($_SESSION['cart'])) {
 
 $errors = [];
 
-// ── Traitement du formulaire de validation ──
+// Traitement du formulaire de validation
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $orderType       = $_POST['order_type'] ?? '';
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             $pdo->beginTransaction();
 
-            // 1. Créer la commande (statut en_attente)
+            // Créer la commande (statut en_attente)
             $stmt = $pdo->prepare("
                 INSERT INTO orders (user_id, order_type, delivery_address, status, scheduled_datetime)
                 VALUES (:user_id, :order_type, :delivery_address, :status, :scheduled_datetime)
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ]);
             $orderId = $pdo->lastInsertId();
 
-            // 2. Insérer les articles
+            // Insérer les articles
             $stmtItem = $pdo->prepare("
                 INSERT INTO order_items (order_id, item_id, item_type, quantity)
                 VALUES (:order_id, :item_id, :item_type, :quantity)
@@ -90,7 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Rediriger vers la page de paiement
             header('Location: paiement.php');
             exit;
-
         } catch (PDOException $e) {
             $pdo->rollBack();
             error_log("Erreur commande : " . $e->getMessage());
@@ -99,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// ── Charger le résumé du panier pour l'affichage ──
+// Charger le résumé du panier pour l'affichage
 $cartItems = [];
 $totalPrice = 0;
 

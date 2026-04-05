@@ -5,12 +5,12 @@ require_once 'functions.php';
 
 $pdo = getDatabaseConnection();
 
-// ── Le panier est stocké en session ──
+// Le panier est stocké en session
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// ── Ajouter un article au panier ──
+// Ajouter un article au panier
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
     $action = $_POST['action'];
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     exit;
 }
 
-// ── Charger les détails des articles du panier ──
+// Charger les détails des articles du panier
 $cartItems = [];
 $totalPrice = 0;
 

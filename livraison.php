@@ -23,7 +23,7 @@ if (!$currentUser || $currentUser['role'] !== 'livreur') {
 
 $message = '';
 
-// ── Traitement des actions ──
+// Traitement des actions
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
     $action = $_POST['action'];
@@ -64,17 +64,17 @@ if (isset($_SESSION['livreur_message'])) {
     unset($_SESSION['livreur_message']);
 }
 
-// ── Récupérer la commande en cours du livreur ──
+// Récupérer la commande en cours du livreur
 $delivery = getDeliveryOrder($pdo, $_SESSION['user_id']);
 
-// ── Récupérer les commandes en attente d'un livreur ──
+// Récupérer les commandes en attente d'un livreur
 $stmtWaiting = $pdo->query("
-    SELECT o.*, u.first_name, u.last_name, u.phone, u.delivery_address, u.address
-    FROM orders o
-    INNER JOIN users u ON u.id = o.user_id
-    WHERE o.status = 'en_attente_livreur'
-      AND o.delivery_person_id IS NULL
-    ORDER BY o.created_at ASC
+        SELECT o.*, u.first_name, u.last_name, u.phone, o.delivery_address, u.address
+        FROM orders o
+        INNER JOIN users u ON u.id = o.user_id
+        WHERE o.status = 'en_attente_livreur'
+            AND o.delivery_person_id IS NULL
+        ORDER BY o.created_at ASC
 ");
 $waitingOrders = $stmtWaiting->fetchAll(PDO::FETCH_ASSOC);
 ?>

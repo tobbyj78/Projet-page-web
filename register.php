@@ -6,7 +6,7 @@ $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // 1. Récupération et nettoyage
+    // Récupération
     $login = trim($_POST['login'] ?? '');
     $password = $_POST['password'] ?? '';
     $firstName = trim($_POST['first_name'] ?? '');
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $address = trim($_POST['address'] ?? '');
     $addressInfo = trim($_POST['address_info'] ?? '');
 
-    // 2. Vérifications
+    // Vérifications
     if ($login === '') {
         $errors['login'] = "Le login est requis.";
     }
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors['address'] = "L'adresse est requise.";
     }
 
-    // 3. Insertion si tout est bon
+    // Insertion si tout est bon
     if (empty($errors)) {
         try {
             $passwordHache = password_hash($password, PASSWORD_DEFAULT);

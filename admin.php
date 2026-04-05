@@ -18,7 +18,7 @@ if (!$currentUser || $currentUser['role'] !== 'admin') {
     exit;
 }
 
-// ── Traitement du changement de rôle ──
+// -- Traitement du changement de role --
 $message = '';
 $availableRoles = ['client', 'admin', 'restaurateur', 'livreur'];
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
     if ($targetUserId === $_SESSION['user_id']) {
         $message = "Vous ne pouvez pas modifier votre propre rôle.";
-    } elseif (!in_array($newRole, $availableRoles)) {
+    } elseif (!in_array($newRole, $availableRoles, true)) {
         $message = "Rôle invalide.";
     } else {
         $stmt = $pdo->prepare("UPDATE users SET role = :role WHERE id = :id");
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     exit;
 }
 
-// Récupérer le message flash
+// Recuperer le message flash
 if (isset($_SESSION['admin_message'])) {
     $message = $_SESSION['admin_message'];
     unset($_SESSION['admin_message']);
@@ -129,6 +129,10 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    <div style="border: 5px solid red; padding: 24px; margin: 24px 0; color: black; font-size: 1.2rem; font-weight: bold;">
+        information pour le correcteur, Je n'ai pas eu le temps de faire le CSS ayant quitté mon groupe récemment. Je ferai en sorte que le CSS soit fait pour le rendu de la phase 3, avec les vacances je pense avoir suffisemment de temps pour faire du 0% IA.
+    </div>
 
 </body>
 

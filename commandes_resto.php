@@ -22,7 +22,7 @@ if (!$currentUser || $currentUser['role'] !== 'restaurateur') {
     exit;
 }
 
-// ── Filtre par statut ──
+// Filtre par statut
 $filterStatus = $_GET['statut'] ?? null;
 
 $validStatuses = ['en_attente', 'payee', 'en_attente_livreur', 'en_preparation', 'en_livraison', 'livree', 'refusee', 'abandonnee'];
@@ -71,6 +71,7 @@ foreach ($orders as $order) {
     <h2>Filtrer par statut</h2>
 
     <a href="commandes_resto.php">Toutes</a> |
+    <a href="commandes_resto.php?statut=en_attente">En attente</a> |
     <a href="commandes_resto.php?statut=payee">À préparer</a> |
     <a href="commandes_resto.php?statut=en_attente_livreur">En attente livreur</a> |
     <a href="commandes_resto.php?statut=en_preparation">En cours</a> |
@@ -79,7 +80,7 @@ foreach ($orders as $order) {
     <a href="commandes_resto.php?statut=refusee">Refusées</a>
 
     <?php if ($filterStatus): ?>
-        <p>Filtre actif : <strong><?= h($filterStatus) ?></strong></p>
+        <p>Filtre actif : <strong><?= h($statusLabels[$filterStatus] ?? $filterStatus) ?></strong></p>
     <?php endif; ?>
 
     <!-- ══════════════════════════════════════

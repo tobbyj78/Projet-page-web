@@ -19,7 +19,7 @@ if (!$user) {
     exit;
 }
 
-// ── Traitement de la notation ──
+// Traitement de la notation
 $ratingSuccess = false;
 $ratingError = '';
 
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
 }
 
-// ── Récupérer les commandes du client ──
+// Récupérer les commandes du client
 $orders = getOrdersByUserId($pdo, $_SESSION['user_id']);
 
 // Pré-charger les notations existantes
@@ -96,9 +96,6 @@ $statusLabels = [
     <a href="catalogue.php">Catalogue</a> |
     <a href="panier.php">Panier</a>
 
-    <!-- ══════════════════════════════════════
-         INFORMATIONS PERSONNELLES
-         ══════════════════════════════════════ -->
     <h2>Mes informations</h2>
 
     <table border="1" cellpadding="5" cellspacing="0">
@@ -140,13 +137,8 @@ $statusLabels = [
         </tr>
     </table>
 
-    <br>
-    <button type="button" disabled>Modifier mes informations</button>
-    <button type="button" disabled>Changer mon mot de passe</button>
 
-    <!-- ══════════════════════════════════════
-         HISTORIQUE DES COMMANDES
-         ══════════════════════════════════════ -->
+
     <h2>Historique de mes commandes</h2>
 
     <?php if ($ratingSuccess): ?>

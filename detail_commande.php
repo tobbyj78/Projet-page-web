@@ -6,7 +6,7 @@ require_once 'models/orders.php';
 
 $pdo = getDatabaseConnection();
 
-// Vérifier que l'utilisateur est connecté et est restaurateur
+// Verifier que l'utilisateur est connecte et est restaurateur
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
@@ -21,21 +21,84 @@ if (!$currentUser || $currentUser['role'] !== 'restaurateur') {
     exit;
 }
 
-// Récupérer l'ID de la commande
+// Recuperer l'ID de la commande
 $orderId = (int) ($_GET['id'] ?? 0);
 if ($orderId <= 0) {
     header('Location: commandes_resto.php');
     exit;
 }
 
-// Récupérer la commande
+$message = '';
+$error = '';
+
+// Traitement de l'assignation livreur
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'assign_livreur') {
+    $selectedLivreurId = (int) ($_POST['livreur_id'] ?? 0);
+
+    $stmtOrder = $pdo->prepare("SELECT id, order_type, status FROM orders WHERE id = :id");
+    $stmtOrder->execute(['id' => $orderId]);
+    $orderToAssign = $stmtOrder->fetch(PDO::FETCH_ASSOC);
+
+    if (!$orderToAssign) {
+        $error = 'Commande introuvable.';
+    } elseif ($orderToAssign['order_type'] !== 'livraison') {
+        $error = 'Cette commande n\'est pas une livraison.';
+    } elseif ($orderToAssign['status'] !== 'en_attente_livreur') {
+        $error = 'La commande doit etre en attente d\'un livreur pour pouvoir etre assignee.';
+    } elseif ($selectedLivreurId <= 0) {
+        $error = 'Veuillez selectionner un livreur.';
+    } else {
+        $stmtLivreur = $pdo->prepare("SELECT id FROM users WHERE id = :id AND role = 'livreur'");
+        $stmtLivreur->execute(['id' => $selectedLivreurId]);
+        $livreurExists = $stmtLivreur->fetch(PDO::FETCH_ASSOC);
+
+        if (!$livreurExists) {
+            $error = 'Livreur invalide.';
+        } else {
+            $stmtBusy = $pdo->prepare("SELECT id FROM orders WHERE delivery_person_id = :livreur_id AND status = 'en_livraison' LIMIT 1");
+            $stmtBusy->execute(['livreur_id' => $selectedLivreurId]);
+            $busyOrder = $stmtBusy->fetch(PDO::FETCH_ASSOC);
+
+            if ($busyOrder) {
+                $error = 'Ce livreur est deja en livraison.';
+            } else {
+                $stmtAssign = $pdo->prepare("\n                    UPDATE orders\n                    SET delivery_person_id = :livreur_id, status = 'en_livraison'\n                    WHERE id = :id\n                      AND order_type = 'livraison'\n                      AND status = 'en_attente_livreur'\n                ");
+                $stmtAssign->execute([
+                    'livreur_id' => $selectedLivreurId,
+                    'id' => $orderId,
+                ]);
+
+                if ($stmtAssign->rowCount() > 0) {
+                    $_SESSION['resto_message'] = 'Livreur assigne avec succes. La commande est maintenant en livraison.';
+                } else {
+                    $_SESSION['resto_error'] = 'Assignation impossible. La commande a peut-etre deja ete modifiee.';
+                }
+
+                header('Location: detail_commande.php?id=' . $orderId);
+                exit;
+            }
+        }
+    }
+}
+
+if (isset($_SESSION['resto_message'])) {
+    $message = $_SESSION['resto_message'];
+    unset($_SESSION['resto_message']);
+}
+
+if (isset($_SESSION['resto_error'])) {
+    $error = $_SESSION['resto_error'];
+    unset($_SESSION['resto_error']);
+}
+
+// Recuperer la commande
 $order = getOrderById($pdo, $orderId);
 if (!$order) {
     header('Location: commandes_resto.php');
     exit;
 }
 
-// Récupérer les articles
+// Recuperer les articles
 $items = getOrderItems($pdo, $orderId);
 
 // Calculer le total
@@ -44,10 +107,14 @@ foreach ($items as $item) {
     $total += $item['price'] * $item['quantity'];
 }
 
-// Récupérer les livreurs disponibles
+// Recuperer les livreurs
 $livreurs = getAllLivreurs($pdo);
 
-// Récupérer le livreur assigné
+// Recuperer les livreurs indisponibles (deja en livraison)
+$stmtBusyLivreurs = $pdo->query("\n    SELECT DISTINCT delivery_person_id\n    FROM orders\n    WHERE status = 'en_livraison'\n      AND delivery_person_id IS NOT NULL\n");
+$busyLivreurIds = array_map('intval', array_column($stmtBusyLivreurs->fetchAll(PDO::FETCH_ASSOC), 'delivery_person_id'));
+
+// Recuperer le livreur assigne
 $assignedLivreur = null;
 if ($order['delivery_person_id']) {
     $stmtL = $pdo->prepare("SELECT first_name, last_name FROM users WHERE id = :id");
@@ -55,24 +122,15 @@ if ($order['delivery_person_id']) {
     $assignedLivreur = $stmtL->fetch(PDO::FETCH_ASSOC);
 }
 
-// Statuts possibles pour les boutons
-$statusTransitions = [
-    'payee'              => ['en_preparation'],
-    'en_preparation'     => ['en_attente_livreur'],
-    'en_attente_livreur' => ['en_livraison'],
-    'en_livraison'       => ['livree'],
-];
-$nextStatuses = $statusTransitions[$order['status']] ?? [];
-
 $statusLabels = [
-    'en_attente'         => 'En attente',
-    'payee'              => 'Payée',
+    'en_attente' => 'En attente',
+    'payee' => 'Payee',
     'en_attente_livreur' => 'En attente d\'un livreur',
-    'en_preparation'     => 'En préparation',
-    'en_livraison'       => 'En livraison',
-    'livree'             => 'Livrée',
-    'refusee'            => 'Refusée',
-    'abandonnee'         => 'Abandonnée',
+    'en_preparation' => 'En preparation',
+    'en_livraison' => 'En livraison',
+    'livree' => 'Livree',
+    'refusee' => 'Refusee',
+    'abandonnee' => 'Abandonnee',
 ];
 ?>
 
@@ -82,18 +140,23 @@ $statusLabels = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail commande n°<?= $orderId ?></title>
+    <title>Detail commande n°<?= $orderId ?></title>
 </head>
 
 <body>
 
-    <h1>Détail de la commande n°<?= $orderId ?></h1>
+    <h1>Detail de la commande n°<?= $orderId ?></h1>
 
-    <a href="commandes_resto.php">Retour à la liste</a>
+    <a href="commandes_resto.php">Retour a la liste</a>
 
-    <!-- ══════════════════════════════════════
-         INFORMATIONS COMMANDE
-         ══════════════════════════════════════ -->
+    <?php if ($message): ?>
+        <p><strong><?= h($message) ?></strong></p>
+    <?php endif; ?>
+
+    <?php if ($error): ?>
+        <p><strong><?= h($error) ?></strong></p>
+    <?php endif; ?>
+
     <h2>Informations</h2>
 
     <table border="1" cellpadding="5" cellspacing="0">
@@ -110,8 +173,8 @@ $statusLabels = [
             <td><?= h($order['created_at']) ?></td>
         </tr>
         <tr>
-            <th>Préparation prévue</th>
-            <td><?= $order['scheduled_datetime'] ? h($order['scheduled_datetime']) : 'Immédiate' ?></td>
+            <th>Preparation prevue</th>
+            <td><?= $order['scheduled_datetime'] ? h($order['scheduled_datetime']) : 'Immediate' ?></td>
         </tr>
         <?php if ($order['order_type'] === 'livraison'): ?>
             <tr>
@@ -121,9 +184,6 @@ $statusLabels = [
         <?php endif; ?>
     </table>
 
-    <!-- ══════════════════════════════════════
-         INFORMATIONS CLIENT
-         ══════════════════════════════════════ -->
     <h2>Client</h2>
 
     <table border="1" cellpadding="5" cellspacing="0">
@@ -132,7 +192,7 @@ $statusLabels = [
             <td><?= h($order['first_name'] . ' ' . $order['last_name']) ?></td>
         </tr>
         <tr>
-            <th>Téléphone</th>
+            <th>Telephone</th>
             <td><?= h($order['phone']) ?></td>
         </tr>
         <tr>
@@ -140,15 +200,12 @@ $statusLabels = [
             <td><?= h($order['address']) ?></td>
         </tr>
         <tr>
-            <th>Complément</th>
+            <th>Complement</th>
             <td><?= h($order['address_info']) ?></td>
         </tr>
     </table>
 
-    <!-- ══════════════════════════════════════
-         ARTICLES
-         ══════════════════════════════════════ -->
-    <h2>Articles commandés</h2>
+    <h2>Articles commandes</h2>
 
     <table border="1" cellpadding="5" cellspacing="0">
         <thead>
@@ -156,7 +213,7 @@ $statusLabels = [
                 <th>Type</th>
                 <th>Article</th>
                 <th>Prix unitaire</th>
-                <th>Quantité</th>
+                <th>Quantite</th>
                 <th>Sous-total</th>
             </tr>
         </thead>
@@ -174,36 +231,32 @@ $statusLabels = [
     </table>
     <p><strong>Total : <?= number_format($total, 2, ',', ' ') ?> €</strong></p>
 
-    <!-- ══════════════════════════════════════
-         ACTIONS (VISUELS UNIQUEMENT)
-         ══════════════════════════════════════ -->
     <h2>Actions</h2>
-
-    <h3>Changer le statut</h3>
-    <?php if (!empty($nextStatuses)): ?>
-        <?php foreach ($nextStatuses as $next): ?>
-            <button type="button" disabled>Passer en : <?= h($statusLabels[$next] ?? $next) ?></button>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>Aucune transition disponible pour le statut actuel.</p>
-    <?php endif; ?>
 
     <h3>Assigner un livreur</h3>
     <?php if ($order['order_type'] === 'livraison'): ?>
         <?php if ($assignedLivreur): ?>
-            <p>Livreur assigné : <strong><?= h($assignedLivreur['first_name'] . ' ' . $assignedLivreur['last_name']) ?></strong></p>
+            <p>Livreur assigne : <strong><?= h($assignedLivreur['first_name'] . ' ' . $assignedLivreur['last_name']) ?></strong></p>
         <?php endif; ?>
 
-        <select disabled>
-            <option value="">-- Choisir un livreur --</option>
-            <?php foreach ($livreurs as $livreur): ?>
-                <option value="<?= $livreur['id'] ?>"
-                    <?= ($order['delivery_person_id'] == $livreur['id']) ? 'selected' : '' ?>>
-                    <?= h($livreur['first_name'] . ' ' . $livreur['last_name']) ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <button type="button" disabled>Assigner</button>
+        <?php if ($order['status'] === 'en_attente_livreur'): ?>
+            <form action="detail_commande.php?id=<?= $orderId ?>" method="post">
+                <input type="hidden" name="action" value="assign_livreur">
+
+                <select name="livreur_id" required>
+                    <option value="">-- Choisir un livreur --</option>
+                    <?php foreach ($livreurs as $livreur): ?>
+                        <?php $isBusy = in_array((int) $livreur['id'], $busyLivreurIds, true); ?>
+                        <option value="<?= $livreur['id'] ?>" <?= $isBusy ? 'disabled' : '' ?>>
+                            <?= h($livreur['first_name'] . ' ' . $livreur['last_name']) ?><?= $isBusy ? ' (indisponible)' : '' ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <button type="submit">Assigner</button>
+            </form>
+        <?php else: ?>
+            <p>Assignation disponible uniquement quand la commande est en attente d'un livreur.</p>
+        <?php endif; ?>
     <?php else: ?>
         <p>Pas de livraison pour cette commande (<?= h($order['order_type']) ?>).</p>
     <?php endif; ?>
