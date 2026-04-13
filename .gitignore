@@ -1,0 +1,12 @@
+# IDE JetBrains (PhpStorm, IntelliJ...)
+.idea/
+
+# macOS
+.DS_Store
+
+# Fichiers sensibles (clés API, configs locales)
+*.env
+config.local.php
+
+# Logs
+*.log

@@ -125,16 +125,8 @@ foreach ($_SESSION['cart'] as $key => $item) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validation de commande</title>
-</head>
-
-<body>
+<?php $pageTitle = 'Validation de commande'; ?>
+<?php include 'includes/header.php'; ?>
 
     <h1>Validation de commande</h1>
 
@@ -233,6 +225,4 @@ foreach ($_SESSION['cart'] as $key => $item) {
 
     </form>
 
-</body>
-
-</html>
+<?php include 'includes/footer.php'; ?>

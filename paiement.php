@@ -91,14 +91,8 @@ if (isset($_GET['transaction'], $_GET['montant'], $_GET['vendeur'], $_GET['statu
     unset($_SESSION['pending_order_id']);
     ?>
 
-    <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Résultat du paiement</title>
-    </head>
-    <body>
+    <?php $pageTitle = 'Résultat du paiement'; ?>
+    <?php include 'includes/header.php'; ?>
 
         <h1>Résultat du paiement</h1>
 
@@ -113,8 +107,7 @@ if (isset($_GET['transaction'], $_GET['montant'], $_GET['vendeur'], $_GET['statu
         <br>
         <a href="catalogue.php">Retour au catalogue</a>
 
-    </body>
-    </html>
+    <?php include 'includes/footer.php'; ?>
 
     <?php
     exit;
@@ -182,16 +175,8 @@ $montant     = number_format($totalPrice, 2, '.', '');
 $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#");
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paiement – CY Bank</title>
-</head>
-
-<body>
+<?php $pageTitle = 'Paiement – CY Bank'; ?>
+<?php include 'includes/header.php'; ?>
 
     <h1>Paiement de votre commande n°<?= (int) $orderId ?></h1>
 
@@ -242,8 +227,4 @@ $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur .
         <button type="submit">Payer maintenant</button>
     </form>
 
-
-
-</body>
-
-</html>
+<?php include 'includes/footer.php'; ?>

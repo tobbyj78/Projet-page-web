@@ -134,16 +134,8 @@ $statusLabels = [
 ];
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail commande n°<?= $orderId ?></title>
-</head>
-
-<body>
+<?php $pageTitle = 'Détail commande n°' . $orderId; ?>
+<?php include 'includes/header.php'; ?>
 
     <h1>Detail de la commande n°<?= $orderId ?></h1>
 
@@ -261,6 +253,4 @@ $statusLabels = [
         <p>Pas de livraison pour cette commande (<?= h($order['order_type']) ?>).</p>
     <?php endif; ?>
 
-</body>
-
-</html>
+<?php include 'includes/footer.php'; ?>

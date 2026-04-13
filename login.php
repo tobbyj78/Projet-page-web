@@ -39,16 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-</head>
-
-<body>
+<?php $pageTitle = 'Connexion'; ?>
+<?php include 'includes/header.php'; ?>
     <form action="" method="post">
         <label for="login">Login :</label>
         <input type="text" name="login" id="login" value="<?php echo htmlspecialchars($_POST['login'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
@@ -60,6 +52,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p><?php echo $error; ?></p>
         <?php endif; ?>
     </form>
-</body>
-
-</html>
+<?php include 'includes/footer.php'; ?>

@@ -79,22 +79,10 @@ $statusLabels = [
 ];
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Profil</title>
-</head>
-
-<body>
+<?php $pageTitle = 'Mon Profil'; ?>
+<?php include 'includes/header.php'; ?>
 
     <h1>Mon Profil</h1>
-
-    <a href="index.php">Accueil</a> |
-    <a href="catalogue.php">Catalogue</a> |
-    <a href="panier.php">Panier</a>
 
     <h2>Mes informations</h2>
 
@@ -208,6 +196,4 @@ $statusLabels = [
         </table>
     <?php endif; ?>
 
-</body>
-
-</html>
+<?php include 'includes/footer.php'; ?>

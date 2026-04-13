@@ -79,16 +79,8 @@ $stmtWaiting = $pdo->query("
 $waitingOrders = $stmtWaiting->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livraison</title>
-</head>
-
-<body>
+<?php $pageTitle = 'Espace Livreur'; ?>
+<?php include 'includes/header.php'; ?>
 
     <h1>Espace Livreur</h1>
 
@@ -190,6 +182,4 @@ $waitingOrders = $stmtWaiting->fetchAll(PDO::FETCH_ASSOC);
 
     <?php endif; ?>
 
-</body>
-
-</html>
+<?php include 'includes/footer.php'; ?>

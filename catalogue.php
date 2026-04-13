@@ -37,27 +37,8 @@ $allDishes = $pdo->query("SELECT * FROM dishes ORDER BY name")->fetchAll(PDO::FE
 $options = $pdo->query("SELECT * FROM options ORDER BY id")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogue – Menus & Plats</title>
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <div class="nav">
-        <a href="index.php">Accueil</a>
-        <a href="catalogue.php">Catalogue</a>
-        <a href="panier.php">Panier</a>
-        <?php if (isset($_SESSION['user_login'])): ?>
-            <a href="logout.php">Déconnexion</a>
-        <?php endif; ?>
-    </div>
+<?php $pageTitle = 'Catalogue – Menus & Plats'; ?>
+<?php include 'includes/header.php'; ?>
 
     <h1>Notre Catalogue</h1>
 
@@ -167,6 +148,4 @@ $options = $pdo->query("SELECT * FROM options ORDER BY id")->fetchAll(PDO::FETCH
         </ul>
     </div>
 
-</body>
-
-</html>
+<?php include 'includes/footer.php'; ?>

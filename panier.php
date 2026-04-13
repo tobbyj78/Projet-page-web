@@ -91,16 +91,8 @@ foreach ($_SESSION['cart'] as $key => $item) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panier</title>
-</head>
-
-<body>
+<?php $pageTitle = 'Panier'; ?>
+<?php include 'includes/header.php'; ?>
 
     <h1>Mon Panier</h1>
 
@@ -160,6 +152,4 @@ foreach ($_SESSION['cart'] as $key => $item) {
 
     <?php endif; ?>
 
-</body>
-
-</html>
+<?php include 'includes/footer.php'; ?>

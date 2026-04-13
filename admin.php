@@ -53,16 +53,8 @@ $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Administrateur</title>
-</head>
-
-<body>
+<?php $pageTitle = 'Page Administrateur'; ?>
+<?php include 'includes/header.php'; ?>
     <h1>Administration</h1>
 
     <a href="index.php">Accueil</a>
@@ -133,7 +125,4 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div style="border: 5px solid red; padding: 24px; margin: 24px 0; color: black; font-size: 1.2rem; font-weight: bold;">
         information pour le correcteur, Je n'ai pas eu le temps de faire le CSS ayant quitté mon groupe récemment. Je ferai en sorte que le CSS soit fait pour le rendu de la phase 3, avec les vacances je pense avoir suffisemment de temps pour faire du 0% IA.
     </div>
-
-</body>
-
-</html>
+<?php include 'includes/footer.php'; ?>
