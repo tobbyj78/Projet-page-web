@@ -1,45 +1,56 @@
 <?php
 session_start();
 
-require_once 'database.php';
-require_once 'functions.php';
+require_once "database.php";
+require_once "functions.php";
 
 $pdo = getDatabaseConnection();
 
 $user = null;
-$message = '';
+$message = "";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'quick_login_test') {
-    $loginTest = trim($_POST['login_test'] ?? '');
-    $passwordTest = $_POST['password_test'] ?? '';
+if (
+    $_SERVER["REQUEST_METHOD"] === "POST" &&
+    ($_POST["action"] ?? "") === "quick_login_test"
+) {
+    $loginTest = trim($_POST["login_test"] ?? "");
+    $passwordTest = $_POST["password_test"] ?? "";
 
-    if ($loginTest === '' || $passwordTest === '') {
-        $message = 'Compte de test invalide.';
+    if ($loginTest === "" || $passwordTest === "") {
+        $message = "Compte de test invalide.";
     } else {
-        $stmtQuick = $pdo->prepare("SELECT id, login, password, role FROM users WHERE login = :login LIMIT 1");
-        $stmtQuick->execute(['login' => $loginTest]);
+        $stmtQuick = $pdo->prepare(
+            "SELECT id, login, password, role FROM users WHERE login = :login LIMIT 1",
+        );
+        $stmtQuick->execute(["login" => $loginTest]);
         $targetUser = $stmtQuick->fetch(PDO::FETCH_ASSOC);
 
-        if (!$targetUser || !password_verify($passwordTest, $targetUser['password'])) {
-            $message = 'Le compte de test est introuvable ou le mot de passe ne correspond pas.';
+        if (
+            !$targetUser ||
+            !password_verify($passwordTest, $targetUser["password"])
+        ) {
+            $message =
+                "Le compte de test est introuvable ou le mot de passe ne correspond pas.";
         } else {
             session_regenerate_id(true);
-            $_SESSION['user_id'] = $targetUser['id'];
-            $_SESSION['user_login'] = $targetUser['login'];
-            $_SESSION['user_role'] = $targetUser['role'];
+            $_SESSION["user_id"] = $targetUser["id"];
+            $_SESSION["user_login"] = $targetUser["login"];
+            $_SESSION["user_role"] = $targetUser["role"];
 
-            $updateLastLogin = $pdo->prepare("UPDATE users SET last_login = datetime('now') WHERE id = :id");
-            $updateLastLogin->execute(['id' => $targetUser['id']]);
+            $updateLastLogin = $pdo->prepare(
+                "UPDATE users SET last_login = datetime('now') WHERE id = :id",
+            );
+            $updateLastLogin->execute(["id" => $targetUser["id"]]);
 
-            header('Location: index.php');
-            exit;
+            header("Location: index.php");
+            exit();
         }
     }
 }
 
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION["user_id"])) {
     $stmt = $pdo->prepare("SELECT first_name, role FROM users WHERE id = :id");
-    $stmt->execute(['id' => $_SESSION['user_id']]);
+    $stmt->execute(["id" => $_SESSION["user_id"]]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
 }
 ?>
@@ -51,12 +62,44 @@ if (isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
+    <header>
+        testttttttttttttttttttttttt
+    </header>
+    <div class="mask-container">
+        <div class="scroll-wrapper">
+               	<div class="above-mask-box">
+                    <div class="bg-image"></div>
+                    <div class="luxury-text">
+                        We make affordable<br>luxury food.
+                    </div>
+                    <img src="images/plate.webp" alt="Assiette" class="plate-image">
+              		<div class="box-wrap">
+                 			<p>Supprimez moi ! arhh</p>
+              		</div>
+           	</div>
+                
+           	<div class="mask-box">
+          		<div class="box-wrap">
+         			<p></p>
+          		</div>
+           	</div>
+                
+           	<div class="below-mask-box">
+          		<div class="box-wrap">
+         			<p>Below container</p>
+          		</div>
+           	</div>
+        </div>  
+    </div>
+
     <?php if ($user): ?>
-        <p>Bonjour <?= h($user['first_name']) ?></p>
+        <p>Bonjour <?= h($user["first_name"]) ?></p>
     <?php else: ?>
         <p>vous n'êtes pas connecté.</p>
     <?php endif; ?>
@@ -71,15 +114,15 @@ if (isset($_SESSION['user_id'])) {
     <?php else: ?>
         <a href="logout.php" class="bouton">Logout</a>
 
-        <?php if ($user['role'] === 'client'): ?>
+        <?php if ($user["role"] === "client"): ?>
             <a href="catalogue.php" class="bouton">Catalogue</a>
             <a href="panier.php" class="bouton">Panier</a>
             <a href="profil_client.php" class="bouton">Mon profil</a>
-        <?php elseif ($user['role'] === 'restaurateur'): ?>
+        <?php elseif ($user["role"] === "restaurateur"): ?>
             <a href="commandes_resto.php" class="bouton">Gestion des commandes</a>
-        <?php elseif ($user['role'] === 'livreur'): ?>
+        <?php elseif ($user["role"] === "livreur"): ?>
             <a href="livraison.php" class="bouton">Espace livreur</a>
-        <?php elseif ($user['role'] === 'admin'): ?>
+        <?php elseif ($user["role"] === "admin"): ?>
             <a href="admin.php" class="bouton">Administration</a>
         <?php endif; ?>
     <?php endif; ?>
