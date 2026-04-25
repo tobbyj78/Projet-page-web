@@ -581,12 +581,14 @@
 
 @media (max-width: 1024px) {
   .nav-list,
+  .navbar-inner nav,
   .order-btn {
     display: none;
   }
 
   .navbar-inner {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
   }
 
   /* Pas de fond opaque en mobile */
@@ -601,6 +603,31 @@
   .mobile-bar {
     display: block;
   }
+}
+
+/* = Backdrop
+   couvre toute la page derrière la navbar (z-index 50 < navbar 100)
+   le flou + le voile créent le contraste sans cacher le contenu */
+
+#nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  backdrop-filter: blur(5px);       /* intensité du flou */
+  -webkit-backdrop-filter: blur(5px);
+  background: rgba(22, 20, 18, 0.18); /* voile sombre léger */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 300ms ease, visibility 0s linear 300ms;
+}
+
+/* activé par navbar.js quand un dropdown s'ouvre */
+#nav-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 300ms ease, visibility 0s;
 }
 
 /* = Accessibilité */

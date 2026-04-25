@@ -28,7 +28,14 @@ require __DIR__ . '/includes/header.php';
 ?>
 
 <main>
-  <div>test</div> 
+  <section class="hero">
+    <h1 class="hero-title"><span class="tw-line"></span><span class="tw-line"></span></h1>
+  </section>
+  <div class="waves-divider">
+    <img src="/images/waves.svg" alt="">
+  </div>
 </main>
+
+
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

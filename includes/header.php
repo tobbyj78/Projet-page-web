@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $pageTitle ?? "L'Éclipse" ?></title>
+  <link rel="icon" href="/images/favicon.ico">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -484,3 +485,6 @@
     <a class="mobile-bar-btn" href="#commander">Commander</a>
   </div>
 </header>
+
+<!-- flou de fond quand le menu est ouvert — animé via navbar.js -->
+<div id="nav-backdrop"></div>

@@ -8,11 +8,12 @@
   const HOVER_DELAY       = 150;  // évite d'ouvrir le menu par accident
   const MOBILE_BREAKPOINT = 1024; // en dessous = mobile
 
-  const navbar = document.querySelector('[data-navbar]');
+  const navbar   = document.querySelector('[data-navbar]');
   if (!navbar) return;
 
   const mobileBar = document.querySelector('[data-mobile-bar]');
   const navItems  = navbar.querySelectorAll('.nav-item');
+  const backdrop  = document.getElementById('nav-backdrop'); // l'overlay de flou
 
   const isDesktop = () => window.innerWidth > MOBILE_BREAKPOINT;
 
@@ -53,6 +54,7 @@
 
     item.classList.add('is-active');
     navbar.classList.add('menu-hovering', 'menu-open');
+    if (backdrop) backdrop.classList.add('is-active'); // on floute la page
 
     const trigger  = item.querySelector('[data-menu-trigger]');
     const dropdown = item.querySelector('[data-dropdown]');
@@ -72,7 +74,10 @@
     if (dropdown) dropdown.setAttribute('aria-hidden', 'true');
 
     if (activeItem === item) activeItem = null;
-    if (!activeItem) navbar.classList.remove('menu-hovering', 'menu-open');
+    if (!activeItem) {
+      navbar.classList.remove('menu-hovering', 'menu-open');
+      if (backdrop) backdrop.classList.remove('is-active'); // plus aucun menu ouvert → on enlève le flou
+    }
   }
 
   function clearTimers() {
@@ -110,9 +115,28 @@
         if (activeItem === item) closeMenu(item);
         else                     openMenu(item);
       });
+
+      
+      //Pour faire en sorte que le dropdown s'ouvre avec le focus de TAB
+      trigger.addEventListener('focus', () => {
+        if (!isDesktop()) return;
+        clearTimers();
+        openMenu(item);
+      });
     }
+
+    item.addEventListener('focusout', (e) => {
+      if (!isDesktop()) return;
+      if (!item.contains(e.relatedTarget)) {
+        clearTimers();
+        closeMenu(item);
+      }
+    });
   });
 
+  
+  
+  
   document.addEventListener('click', (e) => {
     if (activeItem && !navbar.contains(e.target)) closeMenu(activeItem);
   });

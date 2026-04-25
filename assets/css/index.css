@@ -1,3 +1,95 @@
-main{
-    padding-top: 2000px;
+:root {
+  /* Colors */
+  --black:      #161412; /* couleur qui contraste bien avec le gold pour l'écriture */
+  --beige:      #f4ece0; 
+  --beige-soft: #c7bdac;
+  --beige-mute: #8a8175;
+  --gold:       #d4a574; /* utilisé pour les boutons */
+  --gold-dark:  #b8863f;
+  --border:     rgba(255, 255, 255, 0.06);
+  --gold-line:  rgba(232, 212, 163, 0.18);
+  --gold-grad:  linear-gradient(135deg, #e8d4a3, #d4a574, #b8863f);
+
+  /* Fonts */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sc:      'Cormorant SC', serif;
+  --font-body:    'EB Garamond', Georgia, serif;
+  --font-ui:      'Jost', sans-serif;
+
+  /* fond semi-transparent utilisé à plusieurs endroits */
+  --nav-bg: rgba(22, 20, 18, 0.95);
+}
+
+main {
+    width: 100%;
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-image: url('/images/fond_1.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+/* typewritter effect */
+.hero-title {
+    margin-left: 100px;
+    color: var(--beige);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 0.04em;
+    padding: 0 1.5rem;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+}
+
+.tw-line {
+    display: block;
+    min-height: 1.3em;
+}
+
+.cursor {
+    font-style: normal;
+    font-weight: 300;
+    animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* transition waves */
+.waves-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin-top: -200px;
+}
+
+.waves-divider img {
+    display: block;
+    min-width: 1600px;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    justify-content: center;
+  }
+
+  .hero-title {
+    margin-left: 0;
+  }
 }
