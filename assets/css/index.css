@@ -20,10 +20,6 @@
   --nav-bg: rgba(22, 20, 18, 0.95);
 }
 
-main {
-    width: 100%;
-}
-
 .hero {
     position: relative;
     min-height: 100vh;
@@ -84,7 +80,8 @@ main {
     height: auto;
 }
 
-@media (max-width: 1024px) {
+
+@media (max-width: 768px) {
   .hero {
     justify-content: center;
   }
@@ -92,4 +89,36 @@ main {
   .hero-title {
     margin-left: 0;
   }
+}
+
+
+.container {
+  color: var(--beige);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 220px;
+}
+
+.container img{
+    width: 40vw;
+    border-radius: 10px;    
+}
+
+.container .about{
+    width:25vw;
+    margin:35px;
+}
+
+.title{
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2rem, 2.6vw, 2.75rem);
+    line-height: 1;
+    color: var(--beige);
+}
+
+.title em{
+    color: var(--gold-grad);
 }
