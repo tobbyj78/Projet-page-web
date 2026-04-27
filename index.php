@@ -34,28 +34,62 @@ require __DIR__ . '/includes/header.php';
     <div class="waves-divider">
         <img src="/images/waves.svg" alt="">
     </div>
+    
+    
     <section class="container">
         <figure>
-            <img src="/images/dejeuner/dejeuner_1.webp" alt="">
+            <img src="/images/petit-dejeuner/petit-dejeuner_1.webp" alt="">
         </figure>
         <div class="about">
             <h2 class="title">Petit-Déjeuner<br><em>Gourmand</em></h2>
             <p class="hours"><span>✦</span> 07h30 — 10h30</p>
             <p>Les viennoiseries sont préparées chaque matin avec des techniques traditionnelles et des ingrédients de saison. Chaque préparation est réalisée avec soin et une attention particulière au goût.</p>
-            <a href="">Découvrir notre petit-déjeuner</a>
+            <a href=""><span>Découvrir notre petit-déjeuner</span><span class="cta-arrow" aria-hidden="true">→</span></a>
         </div>
     </section>
     <section class="container">
-        
+        <div class="about order">
+            <h2 class="title">Déjeuner<br><em>Léger</em></h2>
+            <p class="hours"><span>✦</span> 12h30 — 15h00</p>
+            <p>Les viennoiseries sont préparées chaque matin avec des techniques traditionnelles et des ingrédients de saison. Chaque préparation est réalisée avec soin et une attention particulière au goût.</p>
+            <a href=""><span>Découvrir notre déjeuner</span><span class="cta-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <figure>
+            <img src="/images/dejeuner/dejeuner_1.webp" alt="">
+        </figure>
     </section>
     <section class="container">
-        
+        <figure>
+            <img src="/images/diner/diner_1.webp" alt="">
+        </figure>
+        <div class="about">
+            <h2 class="title"><em>Le Grand</em><br>Dîner</h2>
+            <p class="hours"><span>✦</span> 19h30 — 23h00</p>
+            <p>Les viennoiseries sont préparées chaque matin avec des techniques traditionnelles et des ingrédients de saison. Chaque préparation est réalisée avec soin et une attention particulière au goût.</p>
+            <a href=""><span>Découvrir le Grand Dîner</span><span class="cta-arrow" aria-hidden="true">→</span></a>
+        </div>
     </section>
     <section class="container">
-        
+        <div class="about order">
+            <h2 class="title">La Cave</h2>
+            <p class="hours"><span>✦</span> Servi toute la journée</p>
+            <p>Les viennoiseries sont préparées chaque matin avec des techniques traditionnelles et des ingrédients de saison. Chaque préparation est réalisée avec soin et une attention particulière au goût.</p>
+            <a href=""><span>Découvrir notre sélection de vins</span><span class="cta-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <figure>
+            <img src="/images/cave/cave_1.webp" alt="">
+        </figure>
     </section>
     <section class="container">
-        
+        <figure>
+            <img src="/images/epicerie/epicerie_1.webp" alt="">
+        </figure>
+        <div class="about">
+            <h2 class="title">Epicerie</h2>
+            <p class="hours"><span>✦</span> Servi toute la journée</p>
+            <p>Les viennoiseries sont préparées chaque matin avec des techniques traditionnelles et des ingrédients de saison. Chaque préparation est réalisée avec soin et une attention particulière au goût.</p>
+            <a href=""><span>Découvrir le Grand Dîner</span><span class="cta-arrow" aria-hidden="true">→</span></a>
+        </div>
     </section>
 </main>
 
