@@ -33,7 +33,7 @@
 
 /* typewritter effect */
 .hero-title {
-    margin-left: 100px;
+    margin-left: 10vw;
     color: var(--beige);
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(2rem, 5vw, 4rem);
@@ -70,7 +70,7 @@
     justify-content: center;
     position: relative;
     z-index: 1;
-    margin-top: -200px;
+    margin-top: -400px;
 }
 
 .waves-divider img {
