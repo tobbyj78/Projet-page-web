@@ -32,3 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setTimeout(type, 1000);
 });
+
+// cross-fade images
+setInterval(() => {
+  document.querySelectorAll('.crossfade').forEach(fig => fig.classList.toggle('show-second'));
+}, 8000);

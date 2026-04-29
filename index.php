@@ -32,13 +32,14 @@ require __DIR__ . '/includes/header.php';
         <h1 class="hero-title"><span class="tw-line"></span><span class="tw-line"></span></h1>
     </section>
     <div class="waves-divider">
-        <img src="/images/waves.svg" alt="">
+        <img src="/images/waves/waves<?= rand(1, 5) ?>.svg" alt="">
     </div>
     
     
     <section class="container">
-        <figure>
+        <figure class="crossfade">
             <img src="/images/petit-dejeuner/petit-dejeuner_1.webp" alt="">
+            <img src="/images/petit-dejeuner/petit-dejeuner_2.webp" alt="">
         </figure>
         <div class="about">
             <h2 class="title">Petit-Déjeuner<br><em>Gourmand</em></h2>
@@ -54,13 +55,15 @@ require __DIR__ . '/includes/header.php';
             <p>Les viennoiseries sont préparées chaque matin avec des techniques traditionnelles et des ingrédients de saison. Chaque préparation est réalisée avec soin et une attention particulière au goût.</p>
             <a href=""><span>Découvrir notre déjeuner</span><span class="cta-arrow" aria-hidden="true">→</span></a>
         </div>
-        <figure>
+        <figure class="crossfade">
             <img src="/images/dejeuner/dejeuner_1.webp" alt="">
+            <img src="/images/dejeuner/dejeuner_2.webp" alt="">
         </figure>
     </section>
     <section class="container">
-        <figure>
+        <figure class="crossfade">
             <img src="/images/diner/diner_1.webp" alt="">
+            <img src="/images/diner/diner_2.webp" alt="">
         </figure>
         <div class="about">
             <h2 class="title"><em>Le Grand</em><br>Dîner</h2>
@@ -76,13 +79,15 @@ require __DIR__ . '/includes/header.php';
             <p>Les viennoiseries sont préparées chaque matin avec des techniques traditionnelles et des ingrédients de saison. Chaque préparation est réalisée avec soin et une attention particulière au goût.</p>
             <a href=""><span>Découvrir notre sélection de vins</span><span class="cta-arrow" aria-hidden="true">→</span></a>
         </div>
-        <figure>
+        <figure class="crossfade">
             <img src="/images/cave/cave_1.webp" alt="">
+            <img src="/images/cave/cave_2.webp" alt="">
         </figure>
     </section>
     <section class="container">
-        <figure>
+        <figure class="crossfade">
             <img src="/images/epicerie/epicerie_1.webp" alt="">
+            <img src="/images/epicerie/epicerie_2.webp" alt="">
         </figure>
         <div class="about">
             <h2 class="title">Epicerie</h2>
