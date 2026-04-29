@@ -70,12 +70,12 @@
     justify-content: center;
     position: relative;
     z-index: 1;
-    margin-top: -400px;
+    margin-top: -650px;
 }
 
 .waves-divider img {
     display: block;
-    min-width: 1600px;
+    min-width: 3000px;
     width: 100%;
     height: auto;
 }
