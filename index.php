@@ -96,6 +96,11 @@ require __DIR__ . '/includes/header.php';
             <a href=""><span>Découvrir le Grand Dîner</span><span class="cta-arrow" aria-hidden="true">→</span></a>
         </div>
     </section>
+    
+    <section>
+        <h2>--- Avis ---<br>Ce que nos client disent</h2>
+        
+    </section>
 </main>
 
 
