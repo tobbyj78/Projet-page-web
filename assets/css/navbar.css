@@ -103,7 +103,6 @@
 }
 
 .nav-item.divider {
-  margin-left: 24px;
   padding-left: 32px;
   border-left: 1px solid var(--gold-line);
   height: 16px;
@@ -486,7 +485,8 @@
 .profile-dropdown {
   position: absolute;
   top: calc(100% + 10px);
-  right: 0;
+  left: 50%;
+  right: auto;
   min-width: 172px;
   padding: 12px 0;
   background: var(--nav-bg);
@@ -495,7 +495,7 @@
   border: 1px solid var(--border);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-6px);
+  transform: translateX(-50%) translateY(-6px);
   pointer-events: none;
   transition: opacity 300ms ease, transform 300ms ease, visibility 0s linear 300ms;
 }
@@ -503,7 +503,7 @@
 .profile.is-open .profile-dropdown {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
   pointer-events: auto;
   transition: opacity 300ms ease, transform 300ms ease, visibility 0s;
 }

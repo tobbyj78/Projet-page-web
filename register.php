@@ -1,5 +1,6 @@
 <?php
 require_once 'database.php';
+require_once 'functions.php';
 $pdo = getDatabaseConnection();
 
 $errors = [];
@@ -86,62 +87,123 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
-<?php $pageTitle = 'Inscription'; ?>
-<?php include 'includes/header.php'; ?>
-    <form action="" method="post">
+<?php
+$pageTitle = 'Inscription';
+$pageCss   = 'login.css';
+include 'includes/header.php';
+?>
 
-        <label for="login">Login</label>
-        <input type="text" name="login" id="login" value="<?php echo htmlspecialchars($_POST['login'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-        <?php if (isset($errors['login'])): ?>
-            <p><?php echo $errors['login']; ?></p>
-        <?php endif; ?>
+<main class="auth-page">
+  <div class="auth-card">
 
-        <label for="motdepasse">Mot de passe</label>
-        <input type="password" name="password" id="motdepasse">
-        <?php if (isset($errors['password'])): ?>
-            <p class="A"><?php echo $errors['password']; ?></p>
-        <?php endif; ?>
+    <div class="auth-header">
+      <a href="index.php" class="auth-logo">L'Éclipse</a>
+      <h1 class="auth-title">Créer un compte</h1>
+    </div>
 
-        <label for="prenom">Prénom</label>
-        <input type="text" name="first_name" id="prenom" value="<?php echo htmlspecialchars($_POST['first_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-        <?php if (isset($errors['first_name'])): ?>
-            <p><?php echo $errors['first_name']; ?></p>
-        <?php endif; ?>
+    <?php if (isset($errors['globale'])): ?>
+      <p class="auth-error-global"><?= h($errors['globale']) ?></p>
+    <?php endif; ?>
 
-        <label for="nom">Nom</label>
-        <input type="text" name="last_name" id="nom" value="<?php echo htmlspecialchars($_POST['last_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-        <?php if (isset($errors['last_name'])): ?>
-            <p><?php echo $errors['last_name']; ?></p>
-        <?php endif; ?>
+    <form class="auth-form" action="" method="post">
 
-        <label for="pseudo">Pseudo</label>
-        <input type="text" name="nickname" id="pseudo" value="<?php echo htmlspecialchars($_POST['nickname'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-        <?php if (isset($errors['nickname'])): ?>
-            <p><?php echo $errors['nickname']; ?></p>
-        <?php endif; ?>
+      <div class="auth-row">
+        <div class="auth-field">
+          <label for="login">Identifiant</label>
+          <input type="text" name="login" id="login"
+                 value="<?= h($_POST['login'] ?? '') ?>"
+                 autocomplete="username">
+          <?php if (isset($errors['login'])): ?>
+            <span class="auth-field-error"><?= h($errors['login']) ?></span>
+          <?php endif; ?>
+        </div>
 
-        <label for="date_naissance">Date de Naissance</label>
-        <input type="date" name="birthday" id="date_naissance" value="<?php echo htmlspecialchars($_POST['birthday'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-        <?php if (isset($errors['birthday'])): ?>
-            <p><?php echo $errors['birthday']; ?></p>
-        <?php endif; ?>
+        <div class="auth-field">
+          <label for="motdepasse">Mot de passe</label>
+          <input type="password" name="password" id="motdepasse"
+                 autocomplete="new-password">
+          <?php if (isset($errors['password'])): ?>
+            <span class="auth-field-error"><?= h($errors['password']) ?></span>
+          <?php endif; ?>
+        </div>
+      </div>
 
+      <div class="auth-row">
+        <div class="auth-field">
+          <label for="prenom">Prénom</label>
+          <input type="text" name="first_name" id="prenom"
+                 value="<?= h($_POST['first_name'] ?? '') ?>">
+          <?php if (isset($errors['first_name'])): ?>
+            <span class="auth-field-error"><?= h($errors['first_name']) ?></span>
+          <?php endif; ?>
+        </div>
+
+        <div class="auth-field">
+          <label for="nom">Nom</label>
+          <input type="text" name="last_name" id="nom"
+                 value="<?= h($_POST['last_name'] ?? '') ?>">
+          <?php if (isset($errors['last_name'])): ?>
+            <span class="auth-field-error"><?= h($errors['last_name']) ?></span>
+          <?php endif; ?>
+        </div>
+      </div>
+
+      <div class="auth-row">
+        <div class="auth-field">
+          <label for="pseudo">Pseudo</label>
+          <input type="text" name="nickname" id="pseudo"
+                 value="<?= h($_POST['nickname'] ?? '') ?>">
+          <?php if (isset($errors['nickname'])): ?>
+            <span class="auth-field-error"><?= h($errors['nickname']) ?></span>
+          <?php endif; ?>
+        </div>
+
+        <div class="auth-field">
+          <label for="date_naissance">Date de naissance</label>
+          <input type="date" name="birthday" id="date_naissance"
+                 value="<?= h($_POST['birthday'] ?? '') ?>">
+          <?php if (isset($errors['birthday'])): ?>
+            <span class="auth-field-error"><?= h($errors['birthday']) ?></span>
+          <?php endif; ?>
+        </div>
+      </div>
+
+      <div class="auth-field">
         <label for="telephone">Téléphone</label>
-        <input type="tel" name="phone" id="telephone" value="<?php echo htmlspecialchars($_POST['phone'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+        <input type="tel" name="phone" id="telephone"
+               value="<?= h($_POST['phone'] ?? '') ?>"
+               autocomplete="tel">
         <?php if (isset($errors['phone'])): ?>
-            <p><?php echo $errors['phone']; ?></p>
+          <span class="auth-field-error"><?= h($errors['phone']) ?></span>
         <?php endif; ?>
+      </div>
 
+      <div class="auth-field">
         <label for="adresse">Adresse</label>
-        <input type="text" name="address" id="adresse" value="<?php echo htmlspecialchars($_POST['address'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+        <input type="text" name="address" id="adresse"
+               value="<?= h($_POST['address'] ?? '') ?>"
+               autocomplete="street-address">
         <?php if (isset($errors['address'])): ?>
-            <p><?php echo $errors['address']; ?></p>
+          <span class="auth-field-error"><?= h($errors['address']) ?></span>
         <?php endif; ?>
+      </div>
 
-        <label for="infos_adresse">Informations d'adresse</label>
-        <input type="text" name="address_info" id="infos_adresse" value="<?php echo htmlspecialchars($_POST['address_info'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
+      <div class="auth-field">
+        <label for="infos_adresse">Complément d'adresse <em style="font-style:normal;color:var(--beige-mute)">(optionnel)</em></label>
+        <input type="text" name="address_info" id="infos_adresse"
+               value="<?= h($_POST['address_info'] ?? '') ?>"
+               placeholder="Bâtiment, étage, code d'accès…">
+      </div>
 
-        <button type="submit">S'inscrire</button>
+      <button class="auth-btn" type="submit">Créer mon compte</button>
 
     </form>
+
+    <div class="auth-footer">
+      <p>Déjà un compte ? <a href="login.php">Se connecter</a></p>
+    </div>
+
+  </div>
+</main>
+
 <?php include 'includes/footer.php'; ?>

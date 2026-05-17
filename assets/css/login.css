@@ -1,0 +1,173 @@
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 6rem 1rem 3rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid var(--gold-line);
+  padding: 3rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* En-tête de la carte */
+.auth-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.auth-logo {
+  font-family: var(--font-sc);
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.auth-logo:hover {
+  color: var(--beige);
+}
+
+.auth-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--beige);
+  line-height: 1.1;
+}
+
+/* Formulaire */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.auth-field label {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--beige-mute);
+}
+
+.auth-field input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--beige-mute);
+  color: var(--beige);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  width: 100%;
+  transition: border-color 250ms ease;
+}
+
+.auth-field input:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+}
+
+.auth-field input::placeholder {
+  color: var(--beige-mute);
+}
+
+/* Groupement de champs côte-à-côte (register) */
+.auth-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+/* Message d'erreur par champ */
+.auth-field-error {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: #c08070;
+  letter-spacing: 0.04em;
+}
+
+/* Erreur globale */
+.auth-error-global {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: #c08070;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(192, 128, 112, 0.3);
+}
+
+/* Bouton principal */
+.auth-btn {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: var(--gold-grad);
+  color: var(--black);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: opacity 250ms ease;
+  margin-top: 0.5rem;
+}
+
+.auth-btn:hover {
+  opacity: 0.85;
+}
+
+/* Pied de carte — lien alternatif */
+.auth-footer {
+  text-align: center;
+  border-top: 1px solid var(--gold-line);
+  padding-top: 1.5rem;
+}
+
+.auth-footer p {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--beige-mute);
+}
+
+.auth-footer a {
+  color: var(--beige-soft);
+  text-decoration: none;
+  transition: color 250ms ease;
+}
+
+.auth-footer a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 2.5rem 1.5rem 2rem;
+  }
+
+  .auth-row {
+    grid-template-columns: 1fr;
+  }
+}

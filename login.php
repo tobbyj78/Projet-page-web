@@ -10,7 +10,6 @@ $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // Cohérence : on utilise 'login' partout (HTML, PHP, SQL)
     $login = trim($_POST['login'] ?? '');
     $password = $_POST['password'] ?? '';
 
@@ -18,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute(['login' => $login]);
     $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Les conditions de vérification sont regroupées pour plus de lisibilité
     if (!$utilisateur || !password_verify($password, $utilisateur['password'])) {
         $error = "Identifiants invalides.";
     } else {
@@ -40,17 +38,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 ?>
 
-<?php $pageTitle = 'Connexion'; ?>
-<?php include 'includes/header.php'; ?>
-    <form action="" method="post">
-        <label for="login">Login :</label>
-        <input type="text" name="login" id="login" value="<?php echo htmlspecialchars($_POST['login'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-        <label for="password">Mot de passe :</label>
-        <input type="password" name="password" id="password">
-        <button type="submit">Se connecter</button>
-        <a href="register.php" class="bouton">register</a>
-        <?php if (!empty($error)): ?>
-            <p><?php echo $error; ?></p>
-        <?php endif; ?>
+<?php
+$pageTitle = 'Connexion';
+$pageCss   = 'login.css';
+include 'includes/header.php';
+?>
+
+<main class="auth-page">
+  <div class="auth-card">
+
+    <div class="auth-header">
+      <a href="index.php" class="auth-logo">L'Éclipse</a>
+      <h1 class="auth-title">Connexion</h1>
+    </div>
+
+    <?php if (!empty($error)): ?>
+      <p class="auth-error-global"><?= h($error) ?></p>
+    <?php endif; ?>
+
+    <form class="auth-form" action="" method="post">
+
+      <div class="auth-field">
+        <label for="login">Identifiant</label>
+        <input type="text" name="login" id="login"
+               value="<?= h($_POST['login'] ?? '') ?>"
+               autocomplete="username">
+      </div>
+
+      <div class="auth-field">
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password"
+               autocomplete="current-password">
+      </div>
+
+      <button class="auth-btn" type="submit">Se connecter</button>
+
     </form>
+
+    <div class="auth-footer">
+      <p>Pas encore de compte ? <a href="register.php">Créer un compte</a></p>
+    </div>
+
+  </div>
+</main>
+
 <?php include 'includes/footer.php'; ?>

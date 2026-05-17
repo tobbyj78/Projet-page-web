@@ -211,3 +211,235 @@
         order: 100;
     }
 }
+
+
+/* ── Section Avis ──────────────────────────────────────────── */
+
+.reviews-section {
+    margin-top: 180px;
+    margin-bottom: 140px;
+}
+
+/* séparateur décoratif entre les sections */
+.section-sep {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 80px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+.section-sep::before,
+.section-sep::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold-line);
+}
+
+.section-sep-ornament {
+    font-family: var(--font-sc);
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    white-space: nowrap;
+}
+
+.reviews-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+.reviews-header {
+    text-align: center;
+    margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.reviews-label {
+    font-family: var(--font-sc);
+    font-size: 0.7rem;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.reviews-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    line-height: 1.1;
+    color: var(--beige);
+}
+
+.reviews-title em {
+    font-style: italic;
+    background: var(--gold-grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Carousel */
+.reviews-carousel-wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.reviews-viewport {
+    flex: 1;
+    overflow: hidden;
+}
+
+.reviews-track {
+    display: flex;
+    gap: 28px;
+    transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Carte individuelle */
+.review-card {
+    flex: 0 0 calc((100% - 56px) / 3);
+    border: 1px solid var(--gold-line);
+    border-radius: 4px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: border-color 300ms ease;
+}
+
+.review-card:hover {
+    border-color: rgba(212, 165, 116, 0.4);
+}
+
+/* Icône guillemets via CSS mask */
+.review-quote {
+    display: block;
+    width: 30px;
+    height: 26px;
+    background-color: var(--gold);
+    -webkit-mask: url('/images/avis/quotes.svg') center / contain no-repeat;
+            mask: url('/images/avis/quotes.svg') center / contain no-repeat;
+    opacity: 0.75;
+}
+
+.review-text {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--beige-soft);
+    margin: 0;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gold-line);
+}
+
+.review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.review-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--beige);
+    margin: 0 0 2px;
+}
+
+.review-role {
+    font-family: var(--font-ui);
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+/* Flèches */
+.reviews-arrow {
+    all: unset;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border: 1px solid var(--gold-line);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--beige-soft);
+    font-size: 1.6rem;
+    line-height: 1;
+    transition: border-color 300ms ease, color 300ms ease;
+    user-select: none;
+}
+
+.reviews-arrow:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* Dots */
+.reviews-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 36px;
+}
+
+.reviews-dot {
+    all: unset;
+    cursor: pointer;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--beige-mute);
+    transition: background 300ms ease, transform 300ms ease;
+}
+
+.reviews-dot.is-active {
+    background: var(--gold);
+    transform: scale(1.4);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .review-card {
+        flex: 0 0 calc((100% - 28px) / 2);
+    }
+}
+
+@media (max-width: 600px) {
+    .reviews-section {
+        margin-top: 100px;
+    }
+    .review-card {
+        flex: 0 0 100%;
+    }
+    .reviews-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+    }
+}

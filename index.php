@@ -97,9 +97,92 @@ require __DIR__ . '/includes/header.php';
         </div>
     </section>
     
-    <section>
-        <h2>--- Avis ---<br>Ce que nos client disent</h2>
-        
+    <section class="reviews-section">
+        <div class="section-sep"><span class="section-sep-ornament">✦</span></div>
+        <div class="reviews-inner">
+
+            <div class="reviews-header">
+                <p class="reviews-label">Témoignages</p>
+                <h2 class="reviews-title">Ce que nos hôtes<br><em>nous confient</em></h2>
+            </div>
+
+            <div class="reviews-carousel-wrap">
+
+                <button class="reviews-arrow reviews-prev" aria-label="Précédent">&#8249;</button>
+
+                <div class="reviews-viewport">
+                    <div class="reviews-track" id="reviewsTrack">
+
+                        <div class="review-card">
+                            <span class="review-quote" aria-hidden="true"></span>
+                            <p class="review-text">Une expérience absolument remarquable. Chaque plat est une déclaration d'amour à la gastronomie française. Je reviendrai sans hésiter.</p>
+                            <div class="review-author">
+                                <img class="review-avatar" src="/images/avis/femme1.webp" alt="">
+                                <div>
+                                    <h5 class="review-name">Sophie M.</h5>
+                                    <span class="review-role">Hôte régulière</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <span class="review-quote" aria-hidden="true"></span>
+                            <p class="review-text">Le Grand Dîner m'a laissé sans voix. Service impeccable, cave à vins exceptionnelle, et une ambiance qui transporte dès l'entrée.</p>
+                            <div class="review-author">
+                                <img class="review-avatar" src="/images/avis/homme1.webp" alt="">
+                                <div>
+                                    <h5 class="review-name">Alexandre D.</h5>
+                                    <span class="review-role">Amateur de grands crus</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <span class="review-quote" aria-hidden="true"></span>
+                            <p class="review-text">Le petit-déjeuner gourmand est tout simplement divin. Les viennoiseries fondent en bouche et l'accueil est d'une chaleur rare à Paris.</p>
+                            <div class="review-author">
+                                <img class="review-avatar" src="/images/avis/femme2.webp" alt="">
+                                <div>
+                                    <h5 class="review-name">Camille R.</h5>
+                                    <span class="review-role">Chroniqueuse gastronomique</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <span class="review-quote" aria-hidden="true"></span>
+                            <p class="review-text">L'épicerie fine est une merveille. J'ai ramené des produits introuvables ailleurs. La sélection de truffes et de champagnes est particulièrement soignée.</p>
+                            <div class="review-author">
+                                <img class="review-avatar" src="/images/avis/homme2.webp" alt="">
+                                <div>
+                                    <h5 class="review-name">Thomas B.</h5>
+                                    <span class="review-role">Chef cuisinier</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-card">
+                            <span class="review-quote" aria-hidden="true"></span>
+                            <p class="review-text">Un lieu hors du temps. Le menu Signature du Chef est une carte blanche qui mérite pleinement son nom. Ici, chaque assiette est une œuvre.</p>
+                            <div class="review-author">
+                                <img class="review-avatar" src="/images/avis/homme3.webp" alt="">
+                                <div>
+                                    <h5 class="review-name">Laurent V.</h5>
+                                    <span class="review-role">Habitué depuis 2019</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="reviews-arrow reviews-next" aria-label="Suivant">&#8250;</button>
+
+            </div>
+
+            <div class="reviews-dots" id="reviewsDots"></div>
+
+        </div>
     </section>
 </main>
 
