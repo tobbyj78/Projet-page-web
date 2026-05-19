@@ -32,7 +32,7 @@ require __DIR__ . '/includes/header.php';
         <h1 class="hero-title"><span class="tw-line"></span><span class="tw-line"></span></h1>
     </section>
     <div class="waves-divider">
-        <img src="/images/waves/waves<?= rand(1, 5) ?>.svg" alt="">
+        <img src="/images/waves_dark/waves<?= rand(1, 5) ?>.svg" alt="">
     </div>
     
     

@@ -1,14 +1,14 @@
 :root {
   /* Colors */
-  --black:      #161412; /* couleur qui contraste bien avec le gold pour l'écriture */
-  --beige:      #f4ece0; 
-  --beige-soft: #c7bdac;
-  --beige-mute: #8a8175;
-  --gold:       #d4a574; /* utilisé pour les boutons */
-  --gold-dark:  #b8863f;
-  --border:     rgba(255, 255, 255, 0.06);
-  --gold-line:  rgba(232, 212, 163, 0.18);
-  --gold-grad:  linear-gradient(135deg, #e8d4a3, #d4a574, #b8863f);
+  --surface-dark:      #161412; /* couleur qui contraste bien avec le gold pour l'écriture */
+  --text-primary:      #f4ece0; 
+  --text-secondary: #c7bdac;
+  --text-muted: #8a8175;
+  --accent:       #d4a574; /* utilisé pour les boutons */
+  --accent-dark:  #b8863f;
+  --border-subtle:     rgba(255, 255, 255, 0.06);
+  --accent-line:  rgba(232, 212, 163, 0.18);
+  --accent-gradient:  linear-gradient(135deg, #e8d4a3, #d4a574, #b8863f);
 
   /* Fonts */
   --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -17,24 +17,30 @@
   --font-ui:      'Jost', sans-serif;
 
   /* fond semi-transparent utilisé à plusieurs endroits */
-  --nav-bg: rgba(22, 20, 18, 0.95);
+  --surface-overlay: rgba(22, 20, 18, 0.95);
 }
 
 .hero {
     position: relative;
     min-height: 100vh;
     min-height: 100dvh;
-    background-image: url('/images/fond_1.webp');
+    background-image: url('/images/bg_dark.webp');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
 }
 
+[data-theme="light"] .hero       { background-image: url('/images/bg_light.webp'); }
+[data-theme="light"] .hero-title {
+    color: #222222;
+    text-shadow: 0 0 8px #dddddd, 0 0 8px #dddddd, 0 0 20px #dddddd, 0 0 20px #dddddd, 0 0 40px #dddddd;
+}
+
 /* typewritter effect */
 .hero-title {
     margin-left: 15vw;
-    color: var(--beige);
+    color: var(--text-primary);
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: clamp(2rem, 5vw, 4rem);
     font-weight: 500;
@@ -93,7 +99,7 @@
 
 
 .container {
-  color: var(--beige);
+  color: var(--text-primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,11 +149,11 @@
     font-weight: 300;
     font-size: clamp(2rem, 2.6vw, 2.75rem);
     line-height: 1;
-    color: var(--beige);
+    color: var(--text-primary);
 }
 
 .title em{
-    background: var(--gold-grad);
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -157,7 +163,7 @@
     margin: 0;
     font-family: var(--font-body);
     font-size: 1.16rem;
-    color: var(--beige-soft);
+    color: var(--text-secondary);
     line-height: 1.5;
 }
 
@@ -166,11 +172,11 @@
     font-size: 0.75rem;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--accent);
 }
 
 .about .hours span{
-    color: var(--gold-dark);
+    color: var(--accent-dark);
 }
 
 .about a{
@@ -183,14 +189,14 @@
     font-weight: 300;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--accent);
     text-decoration: none;
-    border-bottom: 1px solid var(--gold);
+    border-bottom: 1px solid var(--accent);
     transition: color 300ms ease;
 }
 
 .about a:hover{
-    color: var(--beige);
+    color: var(--text-primary);
 }
 
 .about a:hover .cta-arrow{
@@ -237,7 +243,7 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: var(--gold-line);
+    background: var(--accent-line);
 }
 
 .section-sep-ornament {
@@ -245,7 +251,7 @@
     font-size: 0.65rem;
     letter-spacing: 0.5em;
     text-transform: uppercase;
-    color: var(--gold-dark);
+    color: var(--accent-dark);
     white-space: nowrap;
 }
 
@@ -269,7 +275,7 @@
     font-size: 0.7rem;
     letter-spacing: 0.38em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--accent);
 }
 
 .reviews-title {
@@ -277,12 +283,12 @@
     font-weight: 300;
     font-size: clamp(2rem, 3vw, 2.8rem);
     line-height: 1.1;
-    color: var(--beige);
+    color: var(--text-primary);
 }
 
 .reviews-title em {
     font-style: italic;
-    background: var(--gold-grad);
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -309,7 +315,7 @@
 /* Carte individuelle */
 .review-card {
     flex: 0 0 calc((100% - 56px) / 3);
-    border: 1px solid var(--gold-line);
+    border: 1px solid var(--accent-line);
     border-radius: 4px;
     padding: 32px 28px;
     display: flex;
@@ -327,7 +333,7 @@
     display: block;
     width: 30px;
     height: 26px;
-    background-color: var(--gold);
+    background-color: var(--accent);
     -webkit-mask: url('/images/avis/quotes.svg') center / contain no-repeat;
             mask: url('/images/avis/quotes.svg') center / contain no-repeat;
     opacity: 0.75;
@@ -338,7 +344,7 @@
     font-family: var(--font-body);
     font-size: 1.05rem;
     line-height: 1.7;
-    color: var(--beige-soft);
+    color: var(--text-secondary);
     margin: 0;
 }
 
@@ -347,7 +353,7 @@
     align-items: center;
     gap: 14px;
     padding-top: 20px;
-    border-top: 1px solid var(--gold-line);
+    border-top: 1px solid var(--accent-line);
 }
 
 .review-avatar {
@@ -363,7 +369,7 @@
     font-style: italic;
     font-size: 1.1rem;
     font-weight: 400;
-    color: var(--beige);
+    color: var(--text-primary);
     margin: 0 0 2px;
 }
 
@@ -373,7 +379,7 @@
     font-weight: 300;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--accent);
 }
 
 /* Flèches */
@@ -383,12 +389,12 @@
     width: 48px;
     height: 48px;
     flex-shrink: 0;
-    border: 1px solid var(--gold-line);
+    border: 1px solid var(--accent-line);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--beige-soft);
+    color: var(--text-secondary);
     font-size: 1.6rem;
     line-height: 1;
     transition: border-color 300ms ease, color 300ms ease;
@@ -396,8 +402,8 @@
 }
 
 .reviews-arrow:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 /* Dots */
@@ -414,12 +420,12 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--beige-mute);
+    background: var(--text-muted);
     transition: background 300ms ease, transform 300ms ease;
 }
 
 .reviews-dot.is-active {
-    background: var(--gold);
+    background: var(--accent);
     transform: scale(1.4);
 }
 

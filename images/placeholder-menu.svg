@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#1a1714"/>
+  <rect x="36" y="36" width="328" height="228" fill="none" stroke="rgba(212,165,116,0.08)" stroke-width="1"/>
+  <circle cx="200" cy="138" r="52" fill="none" stroke="rgba(212,165,116,0.14)" stroke-width="1"/>
+  <circle cx="200" cy="138" r="36" fill="none" stroke="rgba(212,165,116,0.09)" stroke-width="1"/>
+  <text x="200" y="143" text-anchor="middle" dominant-baseline="middle"
+        fill="rgba(212,165,116,0.32)" font-family="Georgia, serif" font-size="30">✦</text>
+  <text x="200" y="235" text-anchor="middle"
+        fill="rgba(212,165,116,0.18)" font-family="Georgia, serif" font-size="9" letter-spacing="5">L'ÉCLIPSE</text>
+</svg>

@@ -9,7 +9,7 @@
 .auth-card {
   width: 100%;
   max-width: 440px;
-  border: 1px solid var(--gold-line);
+  border: 1px solid var(--accent-line);
   padding: 3rem 2.5rem 2.5rem;
   display: flex;
   flex-direction: column;
@@ -29,12 +29,12 @@
   font-size: 0.7rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent);
   text-decoration: none;
 }
 
 .auth-logo:hover {
-  color: var(--beige);
+  color: var(--text-primary);
 }
 
 .auth-title {
@@ -42,7 +42,7 @@
   font-weight: 300;
   font-style: italic;
   font-size: clamp(1.8rem, 4vw, 2.4rem);
-  color: var(--beige);
+  color: var(--text-primary);
   line-height: 1.1;
 }
 
@@ -65,14 +65,14 @@
   font-weight: 300;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--beige-mute);
+  color: var(--text-muted);
 }
 
 .auth-field input {
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--beige-mute);
-  color: var(--beige);
+  border-bottom: 1px solid var(--text-muted);
+  color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 1rem;
   padding: 0.5rem 0;
@@ -82,11 +82,11 @@
 
 .auth-field input:focus {
   outline: none;
-  border-bottom-color: var(--gold);
+  border-bottom-color: var(--accent);
 }
 
 .auth-field input::placeholder {
-  color: var(--beige-mute);
+  color: var(--text-muted);
 }
 
 /* Groupement de champs côte-à-côte (register) */
@@ -120,8 +120,8 @@
   display: block;
   width: 100%;
   padding: 0.9rem 1rem;
-  background: var(--gold-grad);
-  color: var(--black);
+  background: var(--accent-gradient);
+  color: var(--surface-dark);
   font-family: var(--font-ui);
   font-size: 0.7rem;
   font-weight: 400;
@@ -140,7 +140,7 @@
 /* Pied de carte — lien alternatif */
 .auth-footer {
   text-align: center;
-  border-top: 1px solid var(--gold-line);
+  border-top: 1px solid var(--accent-line);
   padding-top: 1.5rem;
 }
 
@@ -149,17 +149,17 @@
   font-size: 0.7rem;
   font-weight: 300;
   letter-spacing: 0.12em;
-  color: var(--beige-mute);
+  color: var(--text-muted);
 }
 
 .auth-footer a {
-  color: var(--beige-soft);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 250ms ease;
 }
 
 .auth-footer a:hover {
-  color: var(--gold);
+  color: var(--accent);
 }
 
 @media (max-width: 480px) {

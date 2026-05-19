@@ -1,14 +1,14 @@
 :root {
   /* Colors */
-  --black:      #161412; /* couleur qui contraste bien avec le gold pour l'écriture */
-  --beige:      #f4ece0; 
-  --beige-soft: #c7bdac;
-  --beige-mute: #8a8175;
-  --gold:       #d4a574; /* utilisé pour les boutons */
-  --gold-dark:  #b8863f;
-  --border:     rgba(255, 255, 255, 0.06);
-  --gold-line:  rgba(232, 212, 163, 0.18);
-  --gold-grad:  linear-gradient(135deg, #e8d4a3, #d4a574, #b8863f);
+  --surface-dark:      #161412; /* couleur qui contraste bien avec le gold pour l'écriture */
+  --text-primary:      #f4ece0; 
+  --text-secondary: #c7bdac;
+  --text-muted: #8a8175;
+  --accent:       #d4a574; /* utilisé pour les boutons */
+  --accent-dark:  #b8863f;
+  --border-subtle:     rgba(255, 255, 255, 0.06);
+  --accent-line:  rgba(232, 212, 163, 0.18);
+  --accent-gradient:  linear-gradient(135deg, #e8d4a3, #d4a574, #b8863f);
 
   /* Fonts */
   --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -17,7 +17,7 @@
   --font-ui:      'Jost', sans-serif;
 
   /* fond semi-transparent utilisé à plusieurs endroits */
-  --nav-bg: rgba(22, 20, 18, 0.95);
+  --surface-overlay: rgba(22, 20, 18, 0.95);
 }
 
 /* = Base */
@@ -33,7 +33,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  color: var(--beige-soft);
+  color: var(--text-secondary);
   font-family: var(--font-ui);
   background: transparent;
   border-bottom: 1px solid transparent;
@@ -42,10 +42,10 @@
 
 .navbar.is-scrolled,
 .navbar.menu-open {
-  background: var(--nav-bg);
+  background: var(--surface-overlay);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom-color: var(--border);
+  border-bottom-color: var(--border-subtle);
 }
 
 .navbar-inner {
@@ -84,7 +84,7 @@
   font-size: 1.65rem;
   font-style: italic;
   letter-spacing: 0.02em;
-  background: var(--gold-grad);
+  background: var(--accent-gradient);
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
@@ -104,7 +104,7 @@
 
 .nav-item.divider {
   padding-left: 32px;
-  border-left: 1px solid var(--gold-line);
+  border-left: 1px solid var(--accent-line);
   height: 16px;
   display: flex;
   align-items: center;
@@ -118,7 +118,7 @@
   font-weight: 300;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--beige-soft);
+  color: var(--text-secondary);
   cursor: pointer;
   transition: color 300ms ease, opacity 300ms ease;
 }
@@ -130,7 +130,7 @@
   right: 0;
   bottom: 4px;
   height: 1px;
-  background: var(--gold);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 300ms ease;
@@ -138,7 +138,7 @@
 
 .nav-btn:hover,
 .nav-item.is-active .nav-btn {
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .nav-btn:hover::after,
@@ -158,11 +158,11 @@
   left: 0;
   right: 0;
   top: 100%;
-  background: var(--nav-bg);
+  background: var(--surface-overlay);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
@@ -196,7 +196,7 @@
 .dropdown-grid > :nth-child(2),
 .dropdown-grid > :nth-child(3) {
   padding-left: 32px;
-  border-left: 1px solid var(--gold-line);
+  border-left: 1px solid var(--accent-line);
 }
 
 /* version sans formules pour Cave et Épicerie */
@@ -227,11 +227,11 @@
   font-size: 0.75rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .panel-hours span {
-  color: var(--gold-dark);
+  color: var(--accent-dark);
 }
 
 .panel-title {
@@ -240,12 +240,12 @@
   font-weight: 300;
   font-size: clamp(2rem, 2.6vw, 2.75rem);
   line-height: 1;
-  color: var(--beige);
+  color: var(--text-primary);
 }
 
 .panel-title em {
   font-style: italic;
-  background: var(--gold-grad);
+  background: var(--accent-gradient);
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
@@ -256,7 +256,7 @@
   width: 100%;
   background-size: cover;
   background-position: center;
-  outline: 1px solid var(--gold-dark);
+  outline: 1px solid var(--accent-dark);
   outline-offset: 5px;
 }
 
@@ -268,7 +268,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--beige-mute);
+  color: var(--text-muted);
 }
 
 /* col. 2 — formules */
@@ -298,18 +298,18 @@
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.25rem;
-  color: var(--beige);
+  color: var(--text-primary);
   transition: color 300ms ease;
 }
 
 .formula:hover .formula-name {
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .formula-desc {
   font-family: var(--font-body);
   font-size: 0.875rem;
-  color: var(--beige-mute);
+  color: var(--text-muted);
 }
 
 /* col. 3 — catégories, le survol change la col. 4 */
@@ -331,13 +331,13 @@
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.25rem;
-  color: var(--beige-soft);
+  color: var(--text-secondary);
   transition: color 300ms ease, transform 300ms ease;
 }
 
 .cat-btn:hover,
 .cat-btn.is-active {
-  color: var(--gold);
+  color: var(--accent);
   transform: translateX(3px);
 }
 
@@ -378,13 +378,13 @@
   display: inline-block;
   font-family: var(--font-body);
   font-size: 1.0625rem;
-  color: var(--beige-soft);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 300ms ease, transform 300ms ease;
 }
 
 .dishes-list a:hover {
-  color: var(--beige);
+  color: var(--text-primary);
   transform: translateX(2px);
 }
 
@@ -397,6 +397,14 @@
   align-self: stretch;
 }
 
+.cta-more {
+  margin: 0 0 12px;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
 .cta-btn {
   display: inline-flex;
   align-items: center;
@@ -406,14 +414,14 @@
   font-weight: 300;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 1px solid var(--accent);
   transition: color 300ms ease;
 }
 
 .cta-btn:hover {
-  color: var(--beige);
+  color: var(--text-primary);
 }
 
 .cta-arrow {
@@ -440,13 +448,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--beige-soft);
+  color: var(--text-secondary);
   cursor: pointer;
   transition: color 300ms ease;
 }
 
 .icon-btn:hover {
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .profile-icon {
@@ -463,17 +471,17 @@
   font-weight: 300;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent);
   text-decoration: none;
   background: transparent;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--accent);
   white-space: nowrap;
   transition: background 300ms ease, color 300ms ease;
 }
 
 .order-btn:hover {
-  background: var(--gold);
-  color: var(--black);
+  background: var(--accent);
+  color: var(--surface-dark);
 }
 
 /* = Menu déroulant du profil */
@@ -489,10 +497,10 @@
   right: auto;
   min-width: 172px;
   padding: 12px 0;
-  background: var(--nav-bg);
+  background: var(--surface-overlay);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-subtle);
   opacity: 0;
   visibility: hidden;
   transform: translateX(-50%) translateY(-6px);
@@ -515,8 +523,8 @@
   font-family: var(--font-display);
   font-style: italic;
   font-size: 0.875rem;
-  color: var(--beige-mute);
-  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .profile-link {
@@ -526,21 +534,21 @@
   font-weight: 300;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--beige-soft);
+  color: var(--text-secondary);
   text-decoration: none;
   transition: color 300ms ease, padding-left 300ms ease;
 }
 
 .profile-link:hover {
-  color: var(--gold);
+  color: var(--accent);
   padding-left: 20px;
 }
 
 .profile-link.logout {
   margin-top: 8px;
   padding-top: 12px;
-  border-top: 1px solid var(--border);
-  color: var(--beige-mute);
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-muted);
 }
 
 /* = Bandeau inférieur (visible sur mobile uniquement) */
@@ -553,8 +561,8 @@
   right: 0;
   z-index: 100;
   padding: 12px clamp(1.5rem, 5vw, 4rem);
-  background: var(--nav-bg);
-  border-top: 1px solid var(--border);
+  background: var(--surface-overlay);
+  border-top: 1px solid var(--border-subtle);
   transition: transform 300ms ease;
 }
 
@@ -571,10 +579,27 @@
   font-weight: 300;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--black);
+  color: var(--surface-dark);
   text-decoration: none;
-  background: var(--gold);
-  border: 1px solid var(--gold);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* = Bouton thème */
+
+.theme-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  -webkit-mask: url('/images/light_mode_icon.svg') center / contain no-repeat;
+          mask: url('/images/light_mode_icon.svg') center / contain no-repeat;
+  transition: mask-image 0s;
+}
+
+.theme-btn.is-light .theme-icon {
+  -webkit-mask-image: url('/images/dark_mode_icon.svg');
+          mask-image: url('/images/dark_mode_icon.svg');
 }
 
 /* = Mobile */
@@ -634,7 +659,7 @@
 
 .navbar a:focus-visible,
 .navbar button:focus-visible {
-  outline: 1px solid var(--gold);
+  outline: 1px solid var(--accent);
   outline-offset: 4px;
 }
 

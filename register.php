@@ -189,7 +189,7 @@ include 'includes/header.php';
       </div>
 
       <div class="auth-field">
-        <label for="infos_adresse">Complément d'adresse <em style="font-style:normal;color:var(--beige-mute)">(optionnel)</em></label>
+        <label for="infos_adresse">Complément d'adresse <em style="font-style:normal;color:var(--text-muted)">(optionnel)</em></label>
         <input type="text" name="address_info" id="infos_adresse"
                value="<?= h($_POST['address_info'] ?? '') ?>"
                placeholder="Bâtiment, étage, code d'accès…">
