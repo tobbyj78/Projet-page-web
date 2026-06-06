@@ -39,6 +39,7 @@ $navData = getNavbarData($pdo);
 
         <?php foreach ($navData['services'] as $svc):
           $key     = $svc['name'];
+          $slug    = str_replace('_', '-', $key);
           $svcData = $navData['data'][$key];
           $cats    = $svcData['categories'];
         ?>
@@ -107,7 +108,7 @@ $navData = getNavbarData($pdo);
                   <?php if ($svcData['has_more']): ?>
                   <p class="cta-more">et plus encore&hellip;</p>
                   <?php endif; ?>
-                  <a href="catalogue.php#svc-<?= htmlspecialchars($key) ?>" class="cta-btn">
+                  <a href="catalogue.php#<?= htmlspecialchars($slug) ?>" class="cta-btn">
                     <span>Découvrir</span>
                     <span class="cta-arrow" aria-hidden="true">→</span>
                   </a>

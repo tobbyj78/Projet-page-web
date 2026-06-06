@@ -1,19 +1,19 @@
 (function () {
     const links    = document.querySelectorAll('.cat-nav-link');
-    const sections = document.querySelectorAll('[data-spy]');
+    const sections = document.querySelectorAll('[data-spy-service]');
 
     if (!links.length || !sections.length) return;
 
-    // ── Scroll spy ──────────────────────────────────────────────
+    // ── Scroll spy — services uniquement ────────────────────────
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
-            const href = '#' + entry.target.id;
-            links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === href));
-            history.replaceState(null, '', href);
+            const slug = entry.target.dataset.slug;
+            links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === '#' + slug));
+            history.replaceState(null, '', '#' + slug);
         });
     }, {
-        rootMargin: '-80px 0px -65% 0px',
+        rootMargin: '-80px 0px -40% 0px',
         threshold: 0
     });
 
@@ -35,7 +35,7 @@
 
     // ── Ancre dans l'URL au chargement → scroll direct ──────────
     if (window.location.hash) {
-        const target = document.querySelector(window.location.hash);
-        if (target) requestAnimationFrame(() => target.scrollIntoView());
+        const el = document.querySelector(window.location.hash);
+        if (el) requestAnimationFrame(() => el.scrollIntoView());
     }
 })();

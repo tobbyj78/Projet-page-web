@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-  <rect width="400" height="300" fill="#1a1714"/>
-  <rect x="36" y="36" width="328" height="228" fill="none" stroke="rgba(212,165,116,0.08)" stroke-width="1"/>
-  <circle cx="200" cy="138" r="52" fill="none" stroke="rgba(212,165,116,0.14)" stroke-width="1"/>
-  <circle cx="200" cy="138" r="36" fill="none" stroke="rgba(212,165,116,0.09)" stroke-width="1"/>
-  <text x="200" y="143" text-anchor="middle" dominant-baseline="middle"
-        fill="rgba(212,165,116,0.32)" font-family="Georgia, serif" font-size="30">✦</text>
-  <text x="200" y="235" text-anchor="middle"
-        fill="rgba(212,165,116,0.18)" font-family="Georgia, serif" font-size="9" letter-spacing="5">L'ÉCLIPSE</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" viewBox="0 0 600 420">
+  <rect width="600" height="420" fill="#1a1714"/>
+  <rect x="40" y="40" width="520" height="340" fill="none" stroke="rgba(212,165,116,0.07)" stroke-width="1"/>
+  <circle cx="300" cy="198" r="72" fill="none" stroke="rgba(212,165,116,0.13)" stroke-width="1"/>
+  <circle cx="300" cy="198" r="50" fill="none" stroke="rgba(212,165,116,0.08)" stroke-width="1"/>
+  <text x="300" y="203" text-anchor="middle" dominant-baseline="middle"
+        fill="rgba(212,165,116,0.30)" font-family="Georgia, serif" font-size="40">✦</text>
+  <text x="300" y="372" text-anchor="middle"
+        fill="rgba(212,165,116,0.16)" font-family="Georgia, serif" font-size="10" letter-spacing="7">L'ÉCLIPSE</text>
 </svg>

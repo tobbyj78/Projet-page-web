@@ -20,6 +20,7 @@ $dishStmt = $pdo->prepare('SELECT * FROM dishes WHERE category_id = ? ORDER BY i
 $catalogue = [];
 
 foreach ($svcStmt->fetchAll(PDO::FETCH_ASSOC) as $svc) {
+    $svc['url_slug'] = str_replace('_', '-', $svc['name']);
     $menuStmt->execute([$svc['id']]);
     $menus = $menuStmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -50,24 +51,7 @@ foreach ($svcStmt->fetchAll(PDO::FETCH_ASSOC) as $svc) {
   <aside class="cat-sidebar">
     <nav class="cat-nav" aria-label="Navigation du catalogue">
       <?php foreach ($catalogue as $svc): ?>
-      <div class="cat-nav-service">
-        <span class="cat-nav-svc-label"><?= h($svc['label']) ?></span>
-        <ul class="cat-nav-list">
-          <?php if (!empty($svc['menus'])): ?>
-          <li>
-            <a href="#svc-<?= h($svc['name']) ?>--formules" class="cat-nav-link">Formules</a>
-          </li>
-          <?php endif; ?>
-          <?php foreach ($svc['categories'] as $cat): ?>
-          <?php if (empty($cat['dishes'])) continue; ?>
-          <li>
-            <a href="#cat-<?= h($svc['name']) ?>--<?= h($cat['name']) ?>" class="cat-nav-link">
-              <?= $cat['label'] ?>
-            </a>
-          </li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
+      <a href="#<?= h($svc['url_slug']) ?>" class="cat-nav-link"><?= h($svc['label']) ?></a>
       <?php endforeach; ?>
     </nav>
   </aside>
@@ -76,7 +60,7 @@ foreach ($svcStmt->fetchAll(PDO::FETCH_ASSOC) as $svc) {
   <main class="cat-content">
 
     <?php foreach ($catalogue as $svc): ?>
-    <section id="svc-<?= h($svc['name']) ?>" class="cat-service">
+    <section id="<?= h($svc['url_slug']) ?>" class="cat-service" data-spy-service data-slug="<?= h($svc['url_slug']) ?>">
 
       <header class="cat-service-header">
         <h2 class="cat-service-title"><?= h($svc['label']) ?></h2>
@@ -87,14 +71,14 @@ foreach ($svcStmt->fetchAll(PDO::FETCH_ASSOC) as $svc) {
 
       <!-- Formules -->
       <?php if (!empty($svc['menus'])): ?>
-      <section id="svc-<?= h($svc['name']) ?>--formules" class="cat-section" data-spy>
+      <section id="svc-<?= h($svc['name']) ?>--formules" class="cat-section">
         <h3 class="cat-section-title">Formules</h3>
         <div class="cat-menus-grid">
           <?php foreach ($svc['menus'] as $menu): ?>
-          <?php $img = !empty($menu['image']) ? h($menu['image']) : '/images/placeholder-menu.svg'; ?>
+          <?php $img = catalogue_image($menu['name'], '/images/placeholder-menu.svg'); ?>
           <article class="menu-card">
             <div class="menu-card-img">
-              <img src="<?= $img ?>" width="400" height="300" loading="lazy" alt="">
+              <img src="<?= $img ?>" width="600" height="420" loading="lazy" alt="">
             </div>
             <div class="menu-card-body">
               <h4 class="menu-card-name"><?= h($menu['name']) ?></h4>
@@ -128,14 +112,14 @@ foreach ($svcStmt->fetchAll(PDO::FETCH_ASSOC) as $svc) {
       <!-- Catégories de plats -->
       <?php foreach ($svc['categories'] as $cat): ?>
       <?php if (empty($cat['dishes'])) continue; ?>
-      <section id="cat-<?= h($svc['name']) ?>--<?= h($cat['name']) ?>" class="cat-section" data-spy>
+      <section id="cat-<?= h($svc['name']) ?>--<?= h($cat['name']) ?>" class="cat-section">
         <h3 class="cat-section-title"><?= $cat['label'] ?></h3>
         <div class="cat-dishes-grid">
           <?php foreach ($cat['dishes'] as $dish): ?>
-          <?php $img = !empty($dish['image']) ? h($dish['image']) : '/images/placeholder-dish.svg'; ?>
+          <?php $img = catalogue_image($dish['name'], '/images/placeholder-dish.svg'); ?>
           <article class="dish-card">
             <div class="dish-card-img">
-              <img src="<?= $img ?>" width="250" height="250" loading="lazy" alt="">
+              <img src="<?= $img ?>" width="450" height="340" loading="lazy" alt="">
             </div>
             <div class="dish-card-body">
               <h4 class="dish-card-name"><?= h($dish['name']) ?></h4>
