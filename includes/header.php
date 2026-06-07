@@ -5,6 +5,36 @@ if (!isset($pdo)) {
 }
 require_once __DIR__ . '/../models/navbar.php';
 $navData = getNavbarData($pdo);
+
+// Si l'utilisateur est connecté mais que $user est absent ou incomplet, on le récupère
+if (empty($user) && isset($_SESSION['user_id'])) {
+    $stmtUser = $pdo->prepare('SELECT first_name, nickname, role, blocked FROM users WHERE id = :id');
+    $stmtUser->execute(['id' => $_SESSION['user_id']]);
+    $user = $stmtUser->fetch(PDO::FETCH_ASSOC) ?: null;
+} elseif (!empty($user) && !isset($user['nickname']) && isset($_SESSION['user_id'])) {
+    $stmtNick = $pdo->prepare('SELECT nickname, blocked FROM users WHERE id = :id');
+    $stmtNick->execute(['id' => $_SESSION['user_id']]);
+    $rowNick = $stmtNick->fetch(PDO::FETCH_ASSOC);
+    if ($rowNick) {
+        $user['nickname'] = $rowNick['nickname'];
+        $user['blocked'] = $rowNick['blocked'];
+    }
+}
+
+// Vérification blocage : détruit la session si le compte est bloqué
+if (!empty($user) && ($user['blocked'] ?? 0) == 1) {
+    session_destroy();
+    header('Location: connexion.php?blocked=1');
+    exit;
+}
+
+// Compteur panier : quantité totale d'articles
+$cartTotalQty = 0;
+if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $item) {
+        $cartTotalQty += (int) ($item['quantity'] ?? 0);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -13,6 +43,11 @@ $navData = getNavbarData($pdo);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $pageTitle ?? "L'Éclipse" ?></title>
   <link rel="icon" href="/images/favicon.ico">
+
+  <script>
+  // Vérification du cookie de thème AVANT le chargement des CSS → pas de flash
+  (function(){var m=document.cookie.match(/(?:^|;\s*)theme=([^;]*)/);var t=m?decodeURIComponent(m[1]):null;if(t==='light'){document.documentElement.setAttribute('data-theme','light');document.write('<link rel="stylesheet" href="/assets/css/light-mode.css">');}})();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +59,7 @@ $navData = getNavbarData($pdo);
     <link rel="stylesheet" href="/assets/css/<?= $pageCss ?>">
   <?php endif; ?>
 </head>
-<body>
+<body<?= isset($isCataloguePage) && $isCataloguePage ? ' data-catalogue-page' : '' ?>>
 
 <header class="navbar" data-navbar>
   <div class="navbar-inner">
@@ -44,9 +79,9 @@ $navData = getNavbarData($pdo);
           $cats    = $svcData['categories'];
         ?>
         <li class="<?= $svc['li_class'] ?>">
-          <button class="nav-btn" aria-haspopup="true" aria-expanded="false" data-menu-trigger>
+          <a class="nav-btn" href="catalogue.php#<?= htmlspecialchars($slug) ?>" aria-haspopup="true" aria-expanded="false" data-menu-trigger>
             <?= htmlspecialchars($svc['label']) ?>
-          </button>
+          </a>
 
           <div class="dropdown" aria-hidden="true" data-dropdown>
             <div class="dropdown-inner">
@@ -80,9 +115,9 @@ $navData = getNavbarData($pdo);
                 <div>
                   <h3 class="col-label">La Carte</h3>
                   <ul class="cat-list">
-                    <?php $i = 0; foreach ($cats as $slug => $catData): ?>
+                    <?php $i = 0; foreach ($cats as $catSlug => $catData): ?>
                     <li>
-                      <a class="cat-btn<?= $i === 0 ? ' is-active' : '' ?>" data-target="<?= htmlspecialchars($slug) ?>" href="catalogue.php#cat-<?= htmlspecialchars($key) ?>--<?= htmlspecialchars($slug) ?>">
+                      <a class="cat-btn<?= $i === 0 ? ' is-active' : '' ?>" data-target="<?= htmlspecialchars($catSlug) ?>" href="catalogue.php#cat-<?= htmlspecialchars($key) ?>--<?= htmlspecialchars($catSlug) ?>">
                         <?= $catData['label'] ?>
                       </a>
                     </li>
@@ -91,13 +126,13 @@ $navData = getNavbarData($pdo);
                 </div>
 
                 <div class="dishes-stage">
-                  <?php $i = 0; foreach ($cats as $slug => $catData): ?>
+                  <?php $i = 0; foreach ($cats as $catSlug => $catData): ?>
                   <div class="dishes<?= $i === 0 ? ' is-active' : '' ?>"
-                       data-panel="<?= htmlspecialchars($slug) ?>"
+                       data-panel="<?= htmlspecialchars($catSlug) ?>"
                        aria-hidden="<?= $i === 0 ? 'false' : 'true' ?>">
                     <ul class="dishes-list">
                       <?php foreach ($catData['dishes'] as $dish): ?>
-                      <li><a href="catalogue.php#cat-<?= htmlspecialchars($key) ?>--<?= htmlspecialchars($slug) ?>"><?= htmlspecialchars($dish['name']) ?></a></li>
+                      <li><a href="catalogue.php#cat-<?= htmlspecialchars($key) ?>--<?= htmlspecialchars($catSlug) ?>"><?= htmlspecialchars($dish['name']) ?></a></li>
                       <?php endforeach; ?>
                     </ul>
                   </div>
@@ -126,35 +161,52 @@ $navData = getNavbarData($pdo);
     <div class="navbar-utils">
 
       <div class="profile" data-profile>
-        <button class="icon-btn" aria-label="Mon compte" aria-haspopup="true" aria-expanded="false" data-profile-trigger>
-          <span class="profile-icon" aria-hidden="true"></span>
-        </button>
-
-        <div class="profile-dropdown" aria-hidden="true" data-profile-dropdown>
-          <?php if (empty($user)): ?>
-            <a href="login.php"    class="profile-link">Connexion</a>
-            <a href="register.php" class="profile-link">Créer un compte</a>
-          <?php else: ?>
-            <span class="profile-name"><?= htmlspecialchars($user['first_name'], ENT_QUOTES, 'UTF-8') ?></span>
-            <a href="catalogue.php"     class="profile-link">Catalogue</a>
-            <a href="panier.php"        class="profile-link">Panier</a>
-            <a href="profil_client.php" class="profile-link">Mon profil</a>
-            <a href="logout.php"        class="profile-link logout">Déconnexion</a>
-          <?php endif; ?>
-        </div>
+        <?php if (empty($user)): ?>
+          <a href="connexion.php" class="icon-btn profile-btn" aria-label="Mon compte" data-profile-trigger>
+            <span class="profile-icon" aria-hidden="true"></span>
+            <span class="profile-dot" aria-hidden="true"></span>
+          </a>
+          <div class="profile-tooltip" aria-hidden="true" data-profile-tooltip>
+            <span>Vous n'êtes pas connecté</span>
+          </div>
+        <?php else:
+            $displayName = $user['nickname'] ?: ($user['first_name'] ?? 'Compte');
+            if (mb_strlen($displayName) > 9) {
+                $displayName = mb_substr($displayName, 0, 9) . '…';
+            }
+        ?>
+          <a href="profil.php" class="profile-box" aria-label="Mon compte — <?= htmlspecialchars($user['first_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+            <span class="profile-box-nickname"><?= htmlspecialchars($displayName, ENT_QUOTES, 'UTF-8') ?></span>
+            <span class="profile-box-icon" aria-hidden="true"></span>
+          </a>
+        <?php endif; ?>
       </div>
 
       <button class="icon-btn theme-btn" id="themeToggle" aria-label="Changer de thème">
         <span class="theme-icon" aria-hidden="true"></span>
       </button>
 
-      <a class="order-btn" href="#commander">Commander</a>
+      <?php if ($cartTotalQty === 0): ?>
+        <a class="order-btn" href="catalogue.php">Commander</a>
+      <?php else: ?>
+        <a class="order-btn has-items" href="panier.php">
+          Ma commande
+          <span class="cart-badge"><?= $cartTotalQty ?></span>
+        </a>
+      <?php endif; ?>
     </div>
 
   </div>
 
   <div class="mobile-bar" data-mobile-bar>
-    <a class="mobile-bar-btn" href="#commander">Commander</a>
+    <?php if ($cartTotalQty === 0): ?>
+      <a class="mobile-bar-btn" href="catalogue.php">Commander</a>
+    <?php else: ?>
+      <a class="mobile-bar-btn has-items" href="panier.php">
+        Ma commande
+        <span class="cart-badge"><?= $cartTotalQty ?></span>
+      </a>
+    <?php endif; ?>
   </div>
 </header>
 

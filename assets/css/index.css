@@ -31,12 +31,6 @@
     align-items: center;
 }
 
-[data-theme="light"] .hero       { background-image: url('/images/bg_light.webp'); }
-[data-theme="light"] .hero-title {
-    color: #222222;
-    text-shadow: 0 0 8px #dddddd, 0 0 8px #dddddd, 0 0 20px #dddddd, 0 0 20px #dddddd, 0 0 40px #dddddd;
-}
-
 /* typewritter effect */
 .hero-title {
     margin-left: 15vw;
@@ -197,6 +191,7 @@
 
 .about a:hover{
     color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
 }
 
 .about a:hover .cta-arrow{

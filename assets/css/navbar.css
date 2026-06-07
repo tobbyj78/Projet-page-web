@@ -110,6 +110,28 @@
   align-items: center;
 }
 
+/* ── Hit area invisible pour les dropdowns ── */
+/*    chaque nav-btn a une zone de détection qui couvre toute la hauteur
+      de la navbar et s'étend jusqu'à mi-chemin du gap entre items. */
+
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 72px;
+  left: -16px;
+  right: -16px;
+}
+
+.nav-item:first-child .nav-btn::before {
+  left: 0;
+}
+
+.nav-item:last-child .nav-btn::before {
+  right: 8px;
+}
+
 .nav-btn {
   all: unset;
   position: relative;
@@ -422,6 +444,7 @@
 
 .cta-btn:hover {
   color: var(--text-primary);
+  border-bottom-color: var(--text-primary);
 }
 
 .cta-arrow {
@@ -484,71 +507,132 @@
   color: var(--surface-dark);
 }
 
-/* = Menu déroulant du profil */
+/*  Pastille rouge du panier  */
+.order-btn.has-items {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--surface-dark);
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0;
+}
+
+/* = Profil connecté — box dorée */
+
+.profile-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px 7px 16px;
+  border-radius: 24px;
+  background: var(--accent-gradient);
+  color: #161412;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: opacity 250ms ease, box-shadow 250ms ease;
+}
+
+.profile-box:hover {
+  opacity: 0.92;
+  box-shadow: 0 0 14px rgba(212, 165, 116, 0.35);
+}
+
+.profile-box-nickname {
+  /* porté par .profile-box */
+}
+
+.profile-box-icon {
+  display: block;
+  width: 19px;
+  height: 19px;
+  background-color: currentColor;
+  -webkit-mask: url('/images/profil.svg') center / contain no-repeat;
+          mask: url('/images/profil.svg') center / contain no-repeat;
+}
+
+/* = Icône profil */
 
 .profile {
   position: relative;
 }
 
-.profile-dropdown {
+.profile-btn {
+  position: relative;
+}
+
+/* Pastille dorée — visible uniquement quand non connecté */
+.profile-dot {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 8px;
+  right: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  box-shadow: 0 0 4px rgba(212, 165, 116, 0.45);
+  pointer-events: none;
+}
+
+/* ── Tooltip élégant "non connecté" ── */
+
+.profile-tooltip {
+  position: absolute;
+  top: calc(100% + 25px);
   left: 50%;
-  right: auto;
-  min-width: 172px;
-  padding: 12px 0;
+  transform: translateX(-50%) translateY(4px);
+  white-space: nowrap;
+  padding: 8px 18px;
+  border-radius: 18px;
   background: var(--surface-overlay);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--accent-line);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-50%) translateY(-6px);
-  pointer-events: none;
-  transition: opacity 300ms ease, transform 300ms ease, visibility 0s linear 300ms;
+  transition: opacity 280ms ease, transform 280ms ease, visibility 0s linear 280ms;
 }
 
-.profile.is-open .profile-dropdown {
+/* flèche dorée */
+.profile-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 6px;
+  background: var(--accent);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.profile.is-open .profile-tooltip {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
-  pointer-events: auto;
-  transition: opacity 300ms ease, transform 300ms ease, visibility 0s;
-}
-
-.profile-name {
-  display: block;
-  padding: 8px 16px 12px;
-  margin-bottom: 8px;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 0.875rem;
-  color: var(--text-muted);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.profile-link {
-  display: block;
-  padding: 8px 16px;
-  font-size: 0.75rem;
-  font-weight: 300;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: color 300ms ease, padding-left 300ms ease;
-}
-
-.profile-link:hover {
-  color: var(--accent);
-  padding-left: 20px;
-}
-
-.profile-link.logout {
-  margin-top: 8px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border-subtle);
-  color: var(--text-muted);
+  transition: opacity 280ms ease, transform 280ms ease, visibility 0s;
 }
 
 /* = Bandeau inférieur (visible sur mobile uniquement) */
@@ -583,6 +667,10 @@
   text-decoration: none;
   background: var(--accent);
   border: 1px solid var(--accent);
+}
+
+.mobile-bar-btn.has-items {
+  position: relative;
 }
 
 /* = Bouton thème */
@@ -653,6 +741,22 @@
   visibility: visible;
   pointer-events: auto;
   transition: opacity 300ms ease, visibility 0s;
+}
+
+/* = Catalogue mode — la navbar devient une barre de navigation
+     simple (pas de dropdown), avec underline doré sur l'actif */
+
+[data-catalogue-page] .nav-item .dropdown {
+    display: none;
+}
+
+[data-catalogue-page] .nav-btn {
+    cursor: pointer;
+}
+
+/* ── Backdrop inutile sur le catalogue ── */
+body[data-catalogue-page] #nav-backdrop {
+    display: none;
 }
 
 /* = Accessibilité */

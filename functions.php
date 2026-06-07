@@ -11,7 +11,7 @@ function catalogue_image(string $name, string $placeholder): string {
 
 function getRoleRedirect(string $role): string {
     return match($role) {
-        'admin'        => 'index_admin.php',
+        'admin'        => 'admin.php',
         'restaurateur' => 'index_restaurateur.php',
         'livreur'      => 'index_livreur.php',
         default        => 'index.php',

@@ -1,0 +1,223 @@
+/* ═══════════════════════════════════════════════════════════
+   Notation — L'Éclipse
+   ═══════════════════════════════════════════════════════════ */
+
+.rating-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 6rem 1rem 3rem;
+}
+
+.rating-card {
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid var(--accent-line);
+  padding: 3rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── En-tête ───────────────────────────────────────────────── */
+
+.rating-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rating-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 250ms ease;
+}
+
+.rating-back:hover {
+  color: var(--accent);
+}
+
+.rating-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+.rating-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ── Résumé commande ───────────────────────────────────────── */
+
+.rating-order-summary {
+  border: 1px solid var(--accent-line);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.rating-order-label {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.rating-order-items {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.rating-order-meta {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Étoiles ───────────────────────────────────────────────── */
+
+.rating-stars-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rating-stars-label {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rating-stars {
+  display: flex;
+  gap: 0.5rem;
+  direction: rtl;          /* inverse pour que :hover remplisse de droite à gauche */
+}
+
+.rating-stars input {
+  display: none;
+}
+
+.rating-stars label {
+  font-size: 2rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 200ms ease;
+  user-select: none;
+}
+
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input:checked ~ label {
+  color: var(--accent);
+}
+
+/* ── Commentaire ───────────────────────────────────────────── */
+
+.rating-comment-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rating-comment-group label {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rating-comment-group textarea {
+  background: transparent;
+  border: 1px solid var(--accent-line);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.75rem;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 250ms ease;
+}
+
+.rating-comment-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.rating-comment-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* ── Bouton ────────────────────────────────────────────────── */
+
+.rating-submit {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: var(--accent-gradient);
+  color: var(--surface-dark);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: opacity 250ms ease;
+}
+
+.rating-submit:hover {
+  opacity: 0.85;
+}
+
+/* ── Message d'erreur ──────────────────────────────────────── */
+
+.rating-error {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: #c08070;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(192, 128, 112, 0.3);
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .rating-card {
+    padding: 2.5rem 1.5rem 2rem;
+  }
+
+  .rating-stars label {
+    font-size: 1.75rem;
+  }
+}

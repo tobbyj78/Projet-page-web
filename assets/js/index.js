@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const spans = document.querySelectorAll('.hero-title .tw-line');
-  const lines = ['We made luxury food', 'affordable'];
+  const lines = ['Nous avons démocratisé', "l'excellence culinaire"];
   let lineIndex = 0;
   let charIndex = 0;
 

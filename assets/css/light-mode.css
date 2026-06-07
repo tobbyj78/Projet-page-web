@@ -1,0 +1,159 @@
+/* ═══════════════════════════════════════════
+   L'Éclipse — Light Mode
+   Chargé dynamiquement quand le thème clair
+   est actif. Les sélecteurs [data-theme="light"]
+   garantissent la surcharge sans conflit.
+   ═══════════════════════════════════════════ */
+
+/* ── Variables ────────────────────────────── */
+:root[data-theme="light"] {
+    --text-primary: #1a100a;
+    --text-secondary: #3d2b1f;
+    --text-muted: #7a6553;
+    --accent: #b06a28;
+    --accent-dark: #8a4e18;
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --accent-line: rgba(176, 106, 40, 0.22);
+    --accent-gradient: linear-gradient(135deg, #c8883a, #b06a28, #8a4e18);
+    --surface-overlay: rgba(247, 242, 235, 0.7);
+    --bg-page: #f7f2eb;
+}
+
+/* ── style.css ────────────────────────────── */
+[data-theme="light"] .site-footer {
+    background-color: #ede8e0;
+    border-top-color: var(--accent-line);
+}
+[data-theme="light"] .review-card {
+    background-color: rgba(255, 250, 244, 0.7);
+}
+[data-theme="light"] #nav-backdrop {
+    background: rgba(247, 242, 235, 0.4);
+}
+[data-theme="light"] .auth-btn {
+    color: #f7f2eb;
+}
+[data-theme="light"] .auth-card {
+    border-color: var(--accent-line);
+}
+[data-theme="light"] .auth-field input {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-muted);
+}
+[data-theme="light"] .auth-field input:focus {
+    border-bottom-color: var(--accent);
+}
+[data-theme="light"] .order-btn {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+[data-theme="light"] .order-btn:hover {
+    background: var(--accent);
+    color: #f7f2eb;
+}
+@media (min-width: 1025px) {
+    [data-theme="light"] .navbar {
+        background: rgba(247, 242, 235, 0.5);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom-color: var(--accent-line);
+    }
+}
+
+/* ── navbar.css ───────────────────────────── */
+[data-theme="light"] .profile-box {
+    color: #f7f2eb;
+}
+
+/* ── index.css ────────────────────────────── */
+[data-theme="light"] .hero {
+    background-image: url('/images/bg_light.webp');
+}
+[data-theme="light"] .hero-title {
+    color: #222222;
+    text-shadow: 0 0 8px #dddddd, 0 0 8px #dddddd, 0 0 20px #dddddd, 0 0 20px #dddddd, 0 0 40px #dddddd;
+}
+
+/* ── catalogue.css ────────────────────────── */
+[data-theme="light"] .filter-formulas-toggle {
+    background: rgba(0, 0, 0, 0.03);
+}
+[data-theme="light"] .filter-formulas-toggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+[data-theme="light"] .filter-formulas-toggle.is-active {
+    background: rgba(212, 165, 116, 0.15);
+}
+[data-theme="light"] .filter-search-input {
+    background: rgba(0, 0, 0, 0.03);
+}
+[data-theme="light"] .filter-search-input:focus {
+    background: rgba(0, 0, 0, 0.05);
+}
+[data-theme="light"] .filter-pill {
+    background: rgba(0, 0, 0, 0.04);
+}
+[data-theme="light"] .filter-pill.is-active {
+    background: var(--accent);
+    color: #fff;
+}
+[data-theme="light"] .filter-checkbox input[type="checkbox"]:checked::after {
+    border-color: #fff;
+}
+[data-theme="light"] .filter-drawer {
+    background: #faf8f5;
+}
+[data-theme="light"] .filter-fab {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+[data-theme="light"] .cat-sidebar {
+    border-right-color: rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .menu-card,
+[data-theme="light"] .dish-card {
+    background: #fff;
+}
+[data-theme="light"] .menu-card-img,
+[data-theme="light"] .dish-card-img {
+    background: #f0ebe3;
+}
+
+/* ── statistiques.css ────────────────────── */
+[data-theme="light"] .kpi-card {
+    background: #fff;
+}
+[data-theme="light"] .bar-track {
+    background: rgba(0, 0, 0, 0.04);
+}
+[data-theme="light"] .type-bar-track,
+[data-theme="light"] .status-bar-track,
+[data-theme="light"] .revenue-track,
+[data-theme="light"] .popular-bar-track,
+[data-theme="light"] .pair-bar-track,
+[data-theme="light"] .client-bar-track {
+    background: rgba(0, 0, 0, 0.07);
+}
+[data-theme="light"] .type-icon {
+    color: var(--text-secondary);
+}
+[data-theme="light"] .val-radio-card-icon {
+    color: #3d2b1f;
+}
+[data-theme="light"] .cart-empty-icon {
+    color: #3d2b1f;
+}
+[data-theme="light"] .pair-card:hover {
+    background: rgba(0, 0, 0, 0.015);
+}
+[data-theme="light"] .popular-table tbody tr:hover td {
+    background: rgba(0, 0, 0, 0.015);
+}
+[data-theme="light"] .popular-table tbody tr.is-top td {
+    background: rgba(176, 106, 40, 0.04);
+}
+[data-theme="light"] .rank-badge--other {
+    background: rgba(0, 0, 0, 0.04);
+}

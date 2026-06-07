@@ -40,6 +40,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     exit;
 }
 
+// AJAX : bloquer / débloquer un utilisateur
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'toggle_block') {
+    header('Content-Type: application/json');
+    $targetUserId = (int) ($_POST['user_id'] ?? 0);
+    $newBlocked   = (int) ($_POST['blocked'] ?? 0);
+
+    if ($targetUserId === $_SESSION['user_id']) {
+        echo json_encode(['success' => false, 'error' => 'Vous ne pouvez pas bloquer votre propre compte.']);
+        exit;
+    }
+
+    $stmt = $pdo->prepare("UPDATE users SET blocked = :blocked WHERE id = :id");
+    $stmt->execute(['blocked' => $newBlocked, 'id' => $targetUserId]);
+    echo json_encode(['success' => true, 'blocked' => $newBlocked]);
+    exit;
+}
+
 if (isset($_SESSION['admin_message'])) {
     $message = $_SESSION['admin_message'];
     unset($_SESSION['admin_message']);
@@ -49,48 +66,51 @@ $stmt = $pdo->prepare("SELECT * FROM users ORDER BY id");
 $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administration — L'Éclipse</title>
-  <link rel="icon" href="/images/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+SC:wght@400;500&family=EB+Garamond:wght@400;500&family=Jost:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/admin.css">
-</head>
-<body>
+<?php
+$staffRole = 'admin';
+$staffActivePage = 'users';
+$staffPageTitle = 'Administration';
+$staffCss = 'admin.css';
+$staffJs  = 'admin.js';
+include 'includes/staff_header.php';
+?>
 
-<div class="admin-topbar">
-  <a class="topbar-logo" href="/">L'Éclipse</a>
-  <div class="topbar-actions">
-    <button class="topbar-theme-btn theme-btn" id="themeToggle" aria-label="Changer de thème">
-      <span class="theme-icon" aria-hidden="true"></span>
-    </button>
-    <a class="topbar-logout" href="logout.php">Déconnexion</a>
-  </div>
-</div>
+<main class="staff-page">
+  <div class="staff-inner">
 
-<main class="admin-page">
-  <div class="admin-inner">
-
-    <header class="admin-header">
-      <p class="admin-label">Espace administrateur</p>
-      <h1 class="admin-title">Gestion des<br><em>utilisateurs</em></h1>
+    <header class="staff-header">
+      <p class="staff-label">Espace administrateur</p>
+      <h1 class="staff-title">Gestion des <em>utilisateurs</em></h1>
     </header>
 
-    <div class="admin-stats">
-      <div class="stat-card">
-        <span class="stat-value"><?= count($users) ?></span>
-        <span class="stat-label">Utilisateurs inscrits</span>
+    <?php
+    // Stats
+    $statsUsers = $pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
+    $statsOrders = $pdo->query("SELECT COUNT(*) FROM orders")->fetchColumn();
+    $statsPending = $pdo->query("SELECT COUNT(*) FROM orders WHERE status = 'en_attente'")->fetchColumn();
+    $statsLivreurs = $pdo->query("SELECT COUNT(*) FROM orders WHERE status = 'en_livraison'")->fetchColumn();
+    ?>
+    <div class="staff-stats">
+      <div class="staff-stat-card">
+        <span class="staff-stat-value"><?= $statsUsers ?></span>
+        <span class="staff-stat-label">Utilisateurs</span>
+      </div>
+      <div class="staff-stat-card">
+        <span class="staff-stat-value"><?= $statsOrders ?></span>
+        <span class="staff-stat-label">Commandes totales</span>
+      </div>
+      <div class="staff-stat-card">
+        <span class="staff-stat-value"><?= $statsPending ?></span>
+        <span class="staff-stat-label">En attente</span>
+      </div>
+      <div class="staff-stat-card">
+        <span class="staff-stat-value"><?= $statsLivreurs ?></span>
+        <span class="staff-stat-label">En livraison</span>
       </div>
     </div>
 
     <?php if ($message): ?>
-    <div class="admin-flash <?= str_contains($message, 'succès') ? 'flash-success' : 'flash-error' ?>">
+    <div class="staff-flash <?= str_contains($message, 'succès') ? 'staff-flash--success' : 'staff-flash--error' ?>">
       <?= h($message) ?>
     </div>
     <?php endif; ?>
@@ -102,6 +122,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <th>ID</th>
             <th>Login</th>
             <th>Rôle actuel</th>
+            <th>Statut</th>
             <th>Prénom</th>
             <th>Nom</th>
             <th>Pseudo</th>
@@ -111,6 +132,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <th>Complément</th>
             <th>Inscrit le</th>
             <th>Dernière co.</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -144,6 +166,23 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <span class="role-badge role-<?= h($listedUser['role']) ?>"><?= h($listedUser['role']) ?></span>
               <?php endif; ?>
             </td>
+            <td class="td-status">
+              <?php if ($listedUser['id'] != $_SESSION['user_id']): ?>
+              <button class="block-toggle<?= $listedUser['blocked'] ? ' is-blocked' : '' ?>"
+                      data-block-toggle
+                      data-user-id="<?= $listedUser['id'] ?>"
+                      data-blocked="<?= $listedUser['blocked'] ?>"
+                      type="button"
+                      aria-label="<?= $listedUser['blocked'] ? 'Débloquer' : 'Bloquer' ?> <?= h($listedUser['login']) ?>">
+                <span class="block-toggle-track">
+                  <span class="block-toggle-thumb"></span>
+                </span>
+                <span class="block-toggle-label"><?= $listedUser['blocked'] ? 'Bloqué' : 'Actif' ?></span>
+              </button>
+              <?php else: ?>
+              <span class="block-status is-self"><?= $listedUser['blocked'] ? 'Bloqué' : 'Actif' ?></span>
+              <?php endif; ?>
+            </td>
             <td><?= h($listedUser['first_name']) ?></td>
             <td><?= h($listedUser['last_name']) ?></td>
             <td><?= h($listedUser['nickname']) ?></td>
@@ -153,6 +192,12 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><?= h($listedUser['address_info'] ?? '') ?></td>
             <td><?= h($listedUser['created_at']) ?></td>
             <td><?= h($listedUser['last_login'] ?? '—') ?></td>
+            <td class="td-action">
+              <a href="profil.php?id=<?= $listedUser['id'] ?>" class="admin-profil-btn" title="Voir le profil de <?= h($listedUser['login']) ?>">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M3 21v-2a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v2"/></svg>
+                Profil
+              </a>
+            </td>
           </tr>
           <?php endforeach; ?>
         </tbody>
@@ -162,7 +207,4 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </div>
 </main>
 
-<script src="/assets/js/script.js"></script>
-<script src="/assets/js/admin.js"></script>
-</body>
-</html>
+<?php include 'includes/staff_footer.php'; ?>

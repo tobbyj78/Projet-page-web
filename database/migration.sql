@@ -21,9 +21,22 @@ CREATE TABLE IF NOT EXISTS users (
     birthday     TEXT    NOT NULL,
     address      TEXT    NOT NULL,
     address_info TEXT,
+    blocked      INTEGER NOT NULL DEFAULT 0,
     created_at   TEXT    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     last_login   TEXT
 );
+
+-- Utilisateurs de test (mots de passe = login)
+INSERT INTO users (login, password, role, first_name, last_name, nickname, phone, birthday, address, address_info) VALUES
+('admin1',    '$2y$12$Qy0ifJEA2vIj3AbfLl6ocedOGuod1GIN/krg5tXOJnts7/gLj9Tsq', 'admin',        'Éléonore',  'Dupuis',   'eleonore_admin', '0612345678', '1985-03-12', '15 rue de Rivoli, 75001 Paris',     'Code B2'),
+('admin2',    '$2y$12$4RCo0wES8B93Dap9nQWQQuD/fE5lfQLjbzY2O/61lXydKjDCVZH5C', 'admin',        'Gabriel',   'Moreau',   'gabriel_admin',  '0623456789', '1990-07-25', '8 avenue Montaigne, 75008 Paris',  '3e étage'),
+('resto1',    '$2y$12$xeIPyjiDBYOkxwKMuNWzJ.vy5GW..tSxYyUQvk0Ae33w4z6rEUDJ6', 'restaurateur', 'Antoine',   'Chevalier','antoine_resto',  '0634567890', '1982-11-08', '22 rue de la Paix, 75002 Paris',    NULL),
+('livreur1',  '$2y$12$3ZhnDFjPR9pjvgNshEDyX.BNfSmJblS0QDmQf4tguZ/dg7mxJ.g2W', 'livreur',      'Karim',     'Benali',   'karim_livreur',  '0645678901', '1995-01-30', '45 boulevard Voltaire, 75011 Paris','Digicode 1789'),
+('client1',   '$2y$12$0R3bSk0u0onk05wrsGFbFupV15LfkPZbWCLKKpFVRVByOOsjK1mX2', 'client',       'Camille',   'Laurent',  'camille_l',      '0656789012', '1998-06-15', '3 rue des Lilas, 75019 Paris',      'Bâtiment A'),
+('client2',   '$2y$12$il3CVKhu.JsgcirYndp6seYoDKu6n/YofyZI01kDEzhuE4d/su9a6', 'client',       'Thomas',    'Petit',    'thomas_p',       '0667890123', '2000-09-22', '78 rue de Belleville, 75020 Paris', NULL),
+('client3',   '$2y$12$JypZ6iUbL3wAdQMIY7wE8uoCIPCciLKiXL55TnqrMKgWY5njtc6aS', 'client',       'Inès',      'Roussel',  'ines_r',         '0678901234', '1997-04-03', '12 place de la Bastille, 75011 Paris','Interphone 4'),
+('client4',   '$2y$12$lp9Js46luNVc8noKPHMlTeW.bbGEPsFJnAggbBTZQbtwzntqGMsvG', 'client',       'Lucas',     'Fournier', 'lucas_f',        '0689012345', '1993-12-17', '56 avenue des Champs-Élysées, 75008 Paris', NULL),
+('client5',   '$2y$12$4ACW4AvjcLTi8VfSghKDFu.6KQHMLvYhl9chkql/D6769wy6lVj/2', 'client',       'Chloé',     'Girard',   'chloe_g',        '0690123456', '2001-08-07', '34 rue Mouffetard, 75005 Paris',    'Escalier C');
 
 -- ══════════════════════════════════════════════════════════════
 -- Services (ex : petit_dejeuner, dejeuner, diner, cave, epicerie)
@@ -356,7 +369,7 @@ CREATE TABLE IF NOT EXISTS orders (
     order_type         TEXT    NOT NULL CHECK(order_type IN ('sur_place', 'emporter', 'livraison')),
     delivery_address   TEXT,
     status             TEXT    NOT NULL DEFAULT 'en_attente'
-                               CHECK(status IN ('en_attente','payee','refusee','en_preparation','en_livraison','livree','abandonnee')),
+                               CHECK(status IN ('en_attente','payee','refusee','en_preparation','prete','en_livraison','livree','abandonnee','en_attente_livreur')),
     scheduled_datetime TEXT,
     created_at         TEXT    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     delivery_person_id INTEGER REFERENCES users(id),

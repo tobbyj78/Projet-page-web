@@ -75,3 +75,21 @@ function createRating(PDO $pdo, int $orderId, int $userId, int $rating, ?string 
         'comment'  => $comment,
     ]);
 }
+
+/**
+ * Vérifie si un utilisateur est bloqué.
+ */
+function isUserBlocked(PDO $pdo, int $userId): bool {
+    $stmt = $pdo->prepare("SELECT blocked FROM users WHERE id = :id");
+    $stmt->execute(['id' => $userId]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row && (int) $row['blocked'] === 1;
+}
+
+/**
+ * Bloque ou débloque un utilisateur.
+ */
+function setUserBlocked(PDO $pdo, int $userId, bool $blocked): bool {
+    $stmt = $pdo->prepare("UPDATE users SET blocked = :blocked WHERE id = :id");
+    return $stmt->execute(['blocked' => $blocked ? 1 : 0, 'id' => $userId]);
+}
