@@ -18,6 +18,16 @@
     --bg-page: #161412;
 }
 
+@media (max-width: 1024px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    body{
+        background: red;
+    }
+}
+
 /* ─────────────────────────────────────────────────────────────── */
 
 * {
@@ -155,12 +165,7 @@ body {
     color: var(--text-muted);
 }
 
-@media (max-width: 1024px) {
-    .footer-inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    }
-}
+
 
 @media (max-width: 600px) {
     .footer-inner {

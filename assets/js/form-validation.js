@@ -9,7 +9,7 @@
 
   // ── Fonctions de validation unitaires ─────────────────────
 
-  var VALIDATORS = {
+  let VALIDATORS = {
 
     required: function (value) {
       if (!value || value.trim() === '') {
@@ -19,7 +19,7 @@
     },
 
     login: function (value) {
-      var err = VALIDATORS.required(value);
+      let err = VALIDATORS.required(value);
       if (err) return err;
       if (value.trim().length < 3) return '3 caractères minimum.';
       if (value.trim().length > 30) return '30 caractères maximum.';
@@ -30,7 +30,7 @@
     },
 
     password: function (value) {
-      var err = VALIDATORS.required(value);
+      let err = VALIDATORS.required(value);
       if (err) return err;
       if (value.length < 6) return '6 caractères minimum.';
       if (value.length > 128) return '128 caractères maximum.';
@@ -38,9 +38,9 @@
     },
 
     name: function (value) {
-      var err = VALIDATORS.required(value);
+      let err = VALIDATORS.required(value);
       if (err) return err;
-      var trimmed = value.trim();
+      let trimmed = value.trim();
       if (trimmed.length < 2) return '2 caractères minimum.';
       if (trimmed.length > 50) return '50 caractères maximum.';
       if (!/^[a-zA-ZÀ-ÿ\- ']+$/.test(trimmed)) {
@@ -50,24 +50,24 @@
     },
 
     nickname: function (value) {
-      var err = VALIDATORS.required(value);
+      let err = VALIDATORS.required(value);
       if (err) return err;
-      var trimmed = value.trim();
+      let trimmed = value.trim();
       if (trimmed.length < 2) return '2 caractères minimum.';
       if (trimmed.length > 30) return '30 caractères maximum.';
       return null;
     },
 
     birthday: function (value) {
-      var err = VALIDATORS.required(value);
+      let err = VALIDATORS.required(value);
       if (err) return err;
       if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return 'Format de date invalide.';
-      var parts = value.split('-');
-      var d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+      let parts = value.split('-');
+      let d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
       if (isNaN(d.getTime())) return 'Date invalide.';
-      var today = new Date();
-      var age = today.getFullYear() - d.getFullYear();
-      var m = today.getMonth() - d.getMonth();
+      let today = new Date();
+      let age = today.getFullYear() - d.getFullYear();
+      let m = today.getMonth() - d.getMonth();
       if (m < 0 || (m === 0 && today.getDate() < d.getDate())) age--;
       if (age < 16) return 'Vous devez avoir au moins 16 ans.';
       if (age > 120) return 'Date de naissance invalide.';
@@ -75,9 +75,9 @@
     },
 
     phone: function (value) {
-      var err = VALIDATORS.required(value);
+      let err = VALIDATORS.required(value);
       if (err) return err;
-      var digits = value.replace(/[\s.\-()+\/]/g, '');
+      let digits = value.replace(/[\s.\-()+\/]/g, '');
       if (!/^\d{10}$/.test(digits)) {
         return 'Numéro invalide (10 chiffres attendus).';
       }
@@ -85,7 +85,7 @@
     },
 
     address: function (value) {
-      var err = VALIDATORS.required(value);
+      let err = VALIDATORS.required(value);
       if (err) return err;
       if (value.trim().length < 5) return 'Adresse trop courte.';
       return null;
@@ -98,7 +98,7 @@
     },
 
     deliveryAddress: function (value, form) {
-      var typeEl = form.querySelector('input[name="order_type"]:checked');
+      let typeEl = form.querySelector('input[name="order_type"]:checked');
       if (typeEl && typeEl.value === 'livraison') {
         return VALIDATORS.required(value);
       }
@@ -106,13 +106,13 @@
     },
 
     scheduledDate: function (value, form) {
-      var schedEl = form.querySelector('input[name="scheduling"]:checked');
+      let schedEl = form.querySelector('input[name="scheduling"]:checked');
       if (schedEl && schedEl.value === 'later') {
-        var err = VALIDATORS.required(value);
+        let err = VALIDATORS.required(value);
         if (err) return 'Veuillez choisir une date.';
-        var d = new Date(value + 'T00:00:00');
+        let d = new Date(value + 'T00:00:00');
         if (isNaN(d.getTime())) return 'Date invalide.';
-        var today = new Date();
+        let today = new Date();
         today.setHours(0, 0, 0, 0);
         if (d < today) return 'La date doit être aujourd\'hui ou plus tard.';
       }
@@ -120,9 +120,9 @@
     },
 
     scheduledTime: function (value, form) {
-      var schedEl = form.querySelector('input[name="scheduling"]:checked');
+      let schedEl = form.querySelector('input[name="scheduling"]:checked');
       if (schedEl && schedEl.value === 'later') {
-        var err = VALIDATORS.required(value);
+        let err = VALIDATORS.required(value);
         if (err) return 'Veuillez choisir une heure.';
       }
       return null;
@@ -134,7 +134,7 @@
   function setFieldError(field, message) {
     clearFieldError(field);
     field.classList.add('is-invalid');
-    var errorEl = document.createElement('span');
+    let errorEl = document.createElement('span');
     errorEl.className = 'auth-field-error';
     errorEl.textContent = message;
     field.parentNode.appendChild(errorEl);
@@ -142,8 +142,8 @@
 
   function clearFieldError(field) {
     field.classList.remove('is-invalid');
-    var parent = field.parentNode;
-    var existing = parent.querySelector('.auth-field-error');
+    let parent = field.parentNode;
+    let existing = parent.querySelector('.auth-field-error');
     if (existing) existing.remove();
   }
 
@@ -160,45 +160,45 @@
   // ── Initialisation d'un formulaire ────────────────────────
 
   function initFormValidation(formSelector, rules) {
-    var form = document.querySelector(formSelector);
+    let form = document.querySelector(formSelector);
     if (!form) return;
 
     // Surveiller tous les champs pour effacer les erreurs au changement
     Object.keys(rules).forEach(function (fieldName) {
-      var field = form.querySelector('[name="' + fieldName + '"]');
+      let field = form.querySelector('[name="' + fieldName + '"]');
       if (field) watchField(field);
     });
 
     form.addEventListener('submit', function (e) {
-      var hasError = false;
-      var firstErrorField = null;
+      let hasError = false;
+      let firstErrorField = null;
 
       // Effacer toutes les erreurs existantes
       Object.keys(rules).forEach(function (fieldName) {
-        var field = form.querySelector('[name="' + fieldName + '"]');
+        let field = form.querySelector('[name="' + fieldName + '"]');
         if (field) clearFieldError(field);
       });
 
       // Valider chaque champ
       Object.keys(rules).forEach(function (fieldName) {
-        var field = form.querySelector('[name="' + fieldName + '"]');
+        let field = form.querySelector('[name="' + fieldName + '"]');
         if (!field) return;
 
         // Pour les radios, on prend la valeur cochée
-        var value;
+        let value;
         if (field.type === 'radio') {
-          var checked = form.querySelector('[name="' + fieldName + '"]:checked');
+          let checked = form.querySelector('[name="' + fieldName + '"]:checked');
           value = checked ? checked.value : '';
         } else {
           value = field.value;
         }
 
-        var error;
+        let error;
         if (typeof rules[fieldName] === 'function') {
           error = rules[fieldName](value, form);
         } else if (typeof rules[fieldName] === 'string') {
           // Nom d'un validateur prédéfini
-          var validatorName = rules[fieldName];
+          let validatorName = rules[fieldName];
           if (VALIDATORS[validatorName]) {
             error = VALIDATORS[validatorName](value, form);
           }
@@ -222,15 +222,15 @@
   // ── Toggle visibilité mot de passe ────────────────────────
 
   function setupPasswordToggle(inputId) {
-    var input = document.getElementById(inputId);
+    let input = document.getElementById(inputId);
     if (!input) return;
 
-    var wrapper = document.createElement('span');
+    let wrapper = document.createElement('span');
     wrapper.className = 'auth-password-wrapper';
     input.parentNode.insertBefore(wrapper, input);
     wrapper.appendChild(input);
 
-    var toggleBtn = document.createElement('button');
+    let toggleBtn = document.createElement('button');
     toggleBtn.type = 'button';
     toggleBtn.className = 'password-toggle';
     toggleBtn.setAttribute('aria-label', 'Afficher le mot de passe');
@@ -249,7 +249,7 @@
     wrapper.appendChild(toggleBtn);
 
     toggleBtn.addEventListener('click', function () {
-      var isPassword = input.type === 'password';
+      let isPassword = input.type === 'password';
       input.type = isPassword ? 'text' : 'password';
       toggleBtn.setAttribute('aria-label', isPassword ? 'Cacher le mot de passe' : 'Afficher le mot de passe');
       toggleBtn.classList.toggle('is-visible', isPassword);
@@ -259,24 +259,24 @@
   // ── Compteur de caractères en temps réel ──────────────────
 
   function setupCharCounter(inputId, maxLength) {
-    var input = document.getElementById(inputId);
+    let input = document.getElementById(inputId);
     if (!input || !maxLength) return;
 
     // Empêcher de taper au-delà du max
     input.setAttribute('maxlength', maxLength);
 
     // Créer le compteur
-    var counter = document.createElement('span');
+    let counter = document.createElement('span');
     counter.className = 'char-counter';
     counter.textContent = '0 / ' + maxLength;
 
     // Insérer après l'input (ou après le wrapper mot de passe s'il existe)
-    var wrapper = input.closest('.auth-password-wrapper');
-    var parent = wrapper || input;
+    let wrapper = input.closest('.auth-password-wrapper');
+    let parent = wrapper || input;
     parent.parentNode.insertBefore(counter, parent.nextSibling);
 
     function update() {
-      var len = input.value.length;
+      let len = input.value.length;
       counter.textContent = len + ' / ' + maxLength;
       counter.classList.remove('is-warning', 'is-limit');
       if (len >= maxLength) {

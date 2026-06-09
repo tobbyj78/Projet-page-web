@@ -4,6 +4,14 @@
   const html = document.documentElement;
   const LIGHT_CSS_HREF = '/assets/css/light-mode.css';
 
+
+/*
+(?:^|;\s*) : C'est un groupe non-capturant. Il dit à la Regex : "Cherche soit le tout début de la chaîne (^), soit un point-virgule suivi d'espaces éventuels (;\s*)". Cela garantit qu'on cible le début d'un cookie et pas le milieu d'un nom.
+
+name + '=' : Cherche le nom du cookie suivi du signe égal (ex: "user=").
+
+([^;]*) : C'est un groupe de capture. Il capture tous les caractères qui suivent l'égal tant que ce n'est pas un point-virgule ([^;]*). C'est l'extraction de la valeur du cookie.
+*/
   function getCookie(name) {
     const match = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]*)'));
     return match ? decodeURIComponent(match[1]) : null;

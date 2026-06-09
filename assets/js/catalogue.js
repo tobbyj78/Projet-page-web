@@ -389,32 +389,32 @@
   // ── Pastille volante ───────────────────────────────
 
   function animateFlyDot(fromEl, toEl) {
-    var dot = document.createElement('div');
+    let dot = document.createElement('div');
     dot.className = 'fly-dot';
     document.body.appendChild(dot);
 
-    var fromRect = fromEl.getBoundingClientRect();
-    var toRect   = toEl.getBoundingClientRect();
+    let fromRect = fromEl.getBoundingClientRect();
+    let toRect   = toEl.getBoundingClientRect();
 
-    var startX = fromRect.left + fromRect.width  / 2;
-    var startY = fromRect.top  + fromRect.height / 2;
-    var endX   = toRect.left   + toRect.width   / 2;
-    var endY   = toRect.top    + toRect.height  / 2;
+    let startX = fromRect.left + fromRect.width  / 2;
+    let startY = fromRect.top  + fromRect.height / 2;
+    let endX   = toRect.left   + toRect.width   / 2;
+    let endY   = toRect.top    + toRect.height  / 2;
 
-    var dx = endX - startX;
-    var dy = endY - startY;
-    var distance = Math.sqrt(dx * dx + dy * dy);
+    let dx = endX - startX;
+    let dy = endY - startY;
+    let distance = Math.sqrt(dx * dx + dy * dy);
 
     // Vitesse constante : 1400 px/s
-    var speed    = 1400;
-    var duration = distance / speed;
+    let speed    = 1400;
+    let duration = distance / speed;
 
-    var startTime = null;
+    let startTime = null;
 
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
-      var elapsed = (timestamp - startTime) / 1000;
-      var progress = Math.min(elapsed / duration, 1);
+      let elapsed = (timestamp - startTime) / 1000;
+      let progress = Math.min(elapsed / duration, 1);
 
       dot.style.left = (startX + dx * progress) + 'px';
       dot.style.top  = (startY + dy * progress) + 'px';
@@ -432,11 +432,11 @@
   // ── Mise à jour du badge ───────────────────────────
 
   function updateCartBadge(count) {
-    var orderBtns  = document.querySelectorAll('.order-btn');
-    var mobileBtns = document.querySelectorAll('.mobile-bar-btn');
+    let orderBtns  = document.querySelectorAll('.order-btn');
+    let mobileBtns = document.querySelectorAll('.mobile-bar-btn');
 
     [].forEach.call(orderBtns, function(btn) {
-      var badge = btn.querySelector('.cart-badge');
+      let badge = btn.querySelector('.cart-badge');
       if (count > 0) {
         btn.classList.add('has-items');
         btn.href = 'panier.php';
@@ -453,7 +453,7 @@
     });
 
     [].forEach.call(mobileBtns, function(btn) {
-      var badge = btn.querySelector('.cart-badge');
+      let badge = btn.querySelector('.cart-badge');
       if (count > 0) {
         btn.classList.add('has-items');
         btn.href = 'panier.php';
@@ -471,7 +471,7 @@
   }
 
   function quickAdd(itemId, itemType, quantity, sourceEl) {
-    var formData = new FormData();
+    let formData = new FormData();
     formData.append('action',    'add');
     formData.append('item_id',   itemId);
     formData.append('item_type', itemType);
@@ -483,7 +483,7 @@
         if (data.success) {
           updateCartBadge(data.cartCount);
           if (sourceEl) {
-            var destEl = document.querySelector('.cart-badge') || document.querySelector('.order-btn') || document.querySelector('.mobile-bar-btn');
+            let destEl = document.querySelector('.cart-badge') || document.querySelector('.order-btn') || document.querySelector('.mobile-bar-btn');
             if (destEl) animateFlyDot(sourceEl, destEl);
           }
         }
@@ -498,7 +498,7 @@
 
   // Handler pour les boutons "Ajout rapide" (event delegation)
   document.addEventListener('click', function(e) {
-    var btn = e.target.closest('[data-quick-add]');
+    let btn = e.target.closest('[data-quick-add]');
     if (!btn) return;
     e.preventDefault();
     quickAdd(

@@ -176,7 +176,7 @@ if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
             }
         ?>
           <a href="profil.php" class="profile-box" aria-label="Mon compte — <?= htmlspecialchars($user['first_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
-            <span class="profile-box-nickname"><?= htmlspecialchars($displayName, ENT_QUOTES, 'UTF-8') ?></span>
+            <span><?= htmlspecialchars($displayName, ENT_QUOTES, 'UTF-8') ?></span>
             <span class="profile-box-icon" aria-hidden="true"></span>
           </a>
         <?php endif; ?>

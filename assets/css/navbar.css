@@ -554,10 +554,6 @@
   box-shadow: 0 0 14px rgba(212, 165, 116, 0.35);
 }
 
-.profile-box-nickname {
-  /* porté par .profile-box */
-}
-
 .profile-box-icon {
   display: block;
   width: 19px;
